@@ -1,0 +1,175 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Linky\n"
+"POT-Creation-Date: 2020-05-03 15:37+1000\n"
+"PO-Revision-Date: 2020-05-07 08:01+0200\n"
+"Last-Translator: RIVIERE Nicolas <hello@undefined.fr>\n"
+"Language-Team: Undefined <hello@undefined.fr>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: wp-linky.php\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+msgid "Settings"
+msgstr "Réglages"
+
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "Settings saved"
+msgstr "Informations enregistrés"
+
+msgid "Create Link Hub Page for your site"
+msgstr "Créez un page de liens pour votre site"
+
+msgid "Appareance"
+msgstr "Apparence"
+
+msgid "Render"
+msgstr "Rendu"
+
+msgid "Links"
+msgstr "Liens"
+
+msgid "Avatar"
+msgstr "Avatar"
+
+msgid "Title"
+msgstr "Titre"
+
+msgid "powered by"
+msgstr "développé par"
+
+msgid "Display socials links with menu"
+msgstr "Afficher les liens des réseaux sociaux avec le menu"
+
+msgid "By default, socials links are visible everytime"
+msgstr "Par défaut, les liens sont visibles tout le temps"
+
+msgid "Slug URL"
+msgstr "Identifiant (url)"
+
+msgid "Type label and press enter"
+msgstr "Tapez un label et appuyez sur entrer"
+
+msgid "Your analytics code (or other JS tag)"
+msgstr "Code analytics (ou autre tag JS)"
+
+msgid "Blog post"
+msgstr "Article de blog"
+
+msgid "Product"
+msgstr "Produit"
+
+msgid "About"
+msgstr "À propos"
+
+msgid "New"
+msgstr "Nouveau"
+
+msgid "Background color"
+msgstr "Couleur de fond"
+
+msgid "Links labels"
+msgstr "Labels de liens"
+
+msgid "Links categories"
+msgstr "Catégories de liens"
+
+msgid "Yes"
+msgstr "Oui"
+
+msgid "No"
+msgstr "Non"
+
+msgid "View page"
+msgstr "Voir la page"
+
+msgid "Text color"
+msgstr "Coleur du texte"
+
+msgid "powered by"
+msgstr "développé par"
+
+msgid "Themes"
+msgstr "Thèmes"
+
+msgid "Body Theme"
+msgstr "Thème du corps"
+
+msgid "Header Theme"
+msgstr "Thème du bandeau"
+
+msgid "Category"
+msgstr "Categorie"
+
+msgid "Label link"
+msgstr "Label du lien"
+
+msgid "Link"
+msgstr "Lien"
+
+msgid "No label"
+msgstr "Pas de label"
+
+msgid "No category"
+msgstr "Pas de catégorie"
+
+msgid "Discover the latest blog post"
+msgstr "Découvrez le dernier article de blog"
+
+msgid "Link added"
+msgstr "Lien ajouté"
+
+msgid "Add link"
+msgstr "Ajouter un lien"
+
+msgid "Add separator"
+msgstr "Ajouter un séparateur"
+
+msgid "Border color"
+msgstr "Couleur de la bordure"
+
+msgid "Background color"
+msgstr "Couleur du fond"
+
+msgid "Text color"
+msgstr "Couleur du texte"
+
+msgid "Color"
+msgstr "Couleur"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Links saved"
+msgstr "Liens sauvegardés"
+
+msgid "No links found"
+msgstr "Aucun lien trouvé pour l'instant"
+
+msgid "To begin, please add a new link, click here"
+msgstr "Pour commencer, ajouter un lien en cliquant sur ce bouton"
+
+msgid "Type category and press enter"
+msgstr "Tapez une categorie et appuyez sur entrer"
+
+msgid "Enter separator label"
+msgstr "Tapez le label du séparateur"
+
+msgid "Enter link label"
+msgstr "Tapez le label du lien"
+
+msgid "Add theme style"
+msgstr "Ajouter le style du theme"
+
+msgid "This can create conflicts"
+msgstr "Cela peut créer des conflits"

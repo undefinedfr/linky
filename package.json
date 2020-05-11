@@ -1,0 +1,17 @@
+{
+  "plugin_name": "wp-linky",
+  "version": "0.0.1",
+  "author": {
+    "name": "Nicolas Riviere"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-simple-watch": "^0.1.2",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-uglify": "^0.9.1"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,7 @@
+node_modules/
+vendor/
+
+.git/
+.sass-cache/*
+/.idea/
+*.css.map

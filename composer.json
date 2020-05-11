@@ -1,0 +1,7 @@
+{
+  "name":"undefinedfr/wp-linky",
+  "version": "0.0.1",
+  "type": "wordpress-plugin",
+  "description": "WordPress Plugin to create Link Hub Page",
+  "license": "GPL-3.0-or-later"
+}

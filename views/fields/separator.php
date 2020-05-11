@@ -1,0 +1,37 @@
+<?php
+/**
+ * @author    [Undefined] RIVIERE Nicolas <hello@undefined.fr>
+ * @copyright 2020-present Undefined
+ * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @link      https://www.undefined.fr
+ */
+
+use LinkyApp\Helpers\WPLinkyHelper;
+?>
+<div class="link link--separator">
+    <div class="link__sort">
+        <?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/dots.svg'?>
+    </div>
+    <div class="link__body">
+        <div class="link__label-link form-field">
+            <input type="text" name="links[label_link][]" placeholder="<?php echo __('Enter separator label', UNDFND_WP_LINKY_DOMAIN); ?>" value="<?php echo $this->get('label_link'); ?>">
+        </div>
+
+        <div class="link__delete" data-tooltip="<?php echo __('Delete', UNDFND_WP_LINKY_DOMAIN); ?>">
+            <label class="_js-delete" for="links_delete_<?php echo $id ?>"><?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/trash.svg'?></label>
+            <input type="hidden" name="links[_delete][]" id="links_delete_<?php echo $id ?>" value="no">
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <div class="link__customize">
+        <div class="v-center">
+            <div class="link__color">
+                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('border_color', '#ccc'); ?>" data-property="sepColor" ></div>
+                <input type="hidden" id="border_color" name="links[border_color][]" value="">
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" name="links[type][]" value="separator">
+</div>
