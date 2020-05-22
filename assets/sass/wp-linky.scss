@@ -57,12 +57,39 @@
     }
 
     h1 {
-        margin-bottom: 15px;
-        text-align: center;
+        padding: 20px 30px;
+        background: linear-gradient(116.69deg, #6A3ACE 7.23%, #53C1E3 76.92%);
 
         svg {
-            max-width: 125px;
+            max-width: 105px;
             height: auto;
+        }
+
+        .pull-right {
+            float: right;
+            min-width: 50%;
+            text-align: right;
+
+            .copyright {
+                color: rgba(white, .7);
+                font-size: 12px;
+                padding: 17px 5px;
+
+                > * {
+                    vertical-align: top;
+                    display: inline-block;
+                }
+
+                svg {
+                    width: 70px;
+                    top: 1px;
+                    position: relative;
+
+                    path {
+                        fill: white;
+                    }
+                }
+            }
         }
     }
 

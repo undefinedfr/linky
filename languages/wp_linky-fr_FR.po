@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Linky\n"
 "POT-Creation-Date: 2020-05-03 15:37+1000\n"
-"PO-Revision-Date: 2020-05-07 08:01+0200\n"
+"PO-Revision-Date: 2020-05-22 15:03+0200\n"
 "Last-Translator: RIVIERE Nicolas <hello@undefined.fr>\n"
 "Language-Team: Undefined <hello@undefined.fr>\n"
 "Language: fr\n"
@@ -96,9 +96,6 @@ msgstr "Voir la page"
 msgid "Text color"
 msgstr "Coleur du texte"
 
-msgid "powered by"
-msgstr "développé par"
-
 msgid "Themes"
 msgstr "Thèmes"
 
@@ -137,12 +134,6 @@ msgstr "Ajouter un séparateur"
 
 msgid "Border color"
 msgstr "Couleur de la bordure"
-
-msgid "Background color"
-msgstr "Couleur du fond"
-
-msgid "Text color"
-msgstr "Couleur du texte"
 
 msgid "Color"
 msgstr "Couleur"

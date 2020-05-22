@@ -151,7 +151,7 @@ table {
 }
 /* line 81, ../sass/themes/_skeleton.scss */
 .linky-page .footer span,
-.linky-page .footer svg {
+.linky-page .footer a {
   display: inline-block;
   vertical-align: top;
 }
