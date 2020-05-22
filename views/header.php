@@ -12,7 +12,7 @@
         <div class="pull-right">
             <div class="copyright">
                 <span><?php echo __('powered by', UNDFND_WP_LINKY_DOMAIN); ?></span>
-                <a href="https://www.undefined.fr"><?php require 'front/logo.php' ?></a>
+                <a href="https://www.undefined.fr" target="_blank"><?php require 'front/logo.php' ?></a>
             </div>
         </div>
     </h1>

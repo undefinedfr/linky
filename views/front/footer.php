@@ -9,6 +9,6 @@
 <footer class="footer">
     <div class="copyright">
         <span><?php echo __('powered by', UNDFND_WP_LINKY_DOMAIN); ?></span>
-        <a href="https://www.undefined.fr"><?php require 'logo.php' ?></a>
+        <a href="https://www.undefined.fr" target="_blank"><?php require 'logo.php' ?></a>
     </div>
 </footer>
