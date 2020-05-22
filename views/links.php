@@ -56,19 +56,19 @@ $global             = WPLinkyHelper::getOptionValue('global', $data, []);
     <div class="form-control">
         <form
                 method="POST"
-                class="form-field _col-md-4 _js-links-form"
+                class="form-field _col-md-4 _col-xs-6 _js-links-form"
         >
             <input type="hidden" name="_type" value="default">
             <button type="submit" class="button button-new button-large"><?php echo __('Add link', UNDFND_WP_LINKY_DOMAIN); ?></button>
         </form>
         <form
                 method="POST"
-                class="form-field _col-md-4 _js-links-form"
+                class="form-field _col-md-4 _col-xs-6 _js-links-form"
         >
             <input type="hidden" name="_type" value="separator">
             <button type="submit" class="button button-new button-large"><?php echo __('Add separator', UNDFND_WP_LINKY_DOMAIN); ?></button>
         </form>
-        <div class="form-field _col-md-4">
+        <div class="form-field _col-md-4 _col-xs-12">
             <button type="submit" class="button button-primary button-large" form="links"><?php echo __('Save'); ?></button>
         </div>
         <div class="clearfix"></div>

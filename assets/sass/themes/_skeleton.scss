@@ -49,7 +49,24 @@
                 color: $black;
             }
         }
+    }
 
+    .links {
+        .link {
+            float: left;
+            margin-bottom: 12px;
+        }
+
+        ._col-md-6 {
+            float: left;
+            width: 50%;
+            padding-right: 6px;
+
+            + ._col-md-6 {
+                padding-left: 6px;
+                padding-right: 0;
+            }
+        }
     }
 
     .footer {
@@ -68,6 +85,8 @@
         }
 
         svg {
+            top: -2px;
+            position: relative;
             margin-left: 1px;
             height: 10px;
         }

@@ -38,7 +38,7 @@ $homeUrl            = home_url();
         </div>
         <div class="form-field">
             <label for="code_ga"><?php echo __('Google Analytics', UNDFND_WP_LINKY_DOMAIN); ?></label>
-            <textarea type="text" id="code_ga" name="code_ga" placeholder="<?php echo __('Your analytics code (or other JS tag)', UNDFND_WP_LINKY_DOMAIN); ?>"><?php echo WPLinkyHelper::getOptionValue('code_ga', $global, ''); ?></textarea>
+            <textarea type="text" id="code_ga" name="code_ga" placeholder="<?php echo __('Your analytics code (or other JS tag)', UNDFND_WP_LINKY_DOMAIN); ?>"><?php echo WPLinkyHelper::getOptionValue('code_ga', $global, '', [WPLinkyHelper::class, 'codeFilter']); ?></textarea>
         </div>
         <div class="form-field">
             <label for="theme_style"><?php echo __('Add theme style', UNDFND_WP_LINKY_DOMAIN); ?></label>

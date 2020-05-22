@@ -5,6 +5,12 @@
  * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      https://www.undefined.fr
  */
+$menus = [
+    $this->_linksMenuSlug       => 'Links',
+    $this->_appareanceMenuSlug  => 'Appareance',
+    $this->_socialMenuSlug      => 'Social',
+    $this->_themesMenuSlug      => 'Themes',
+]
 ?>
 
 <nav class="menu-wp-linky">
@@ -14,28 +20,12 @@
     >
         <?php echo __('Settings', UNDFND_WP_LINKY_DOMAIN); ?>
     </a>
-    <a
-        href="<?php echo admin_url('admin.php?page=' . $this->_linksMenuSlug); ?>"
-        class="<?php echo (!empty($_GET['page']) && $_GET['page'] == $this->_linksMenuSlug) ? 'active' : '' ?>"
-    >
-        <?php echo __('Links', UNDFND_WP_LINKY_DOMAIN); ?>
-    </a>
-    <a
-        href="<?php echo admin_url('admin.php?page=' . $this->_appareanceMenuSlug); ?>"
-       class="<?php echo (!empty($_GET['page']) && $_GET['page'] == $this->_appareanceMenuSlug) ? 'active' : '' ?>"
-    >
-        <?php echo __('Appareance', UNDFND_WP_LINKY_DOMAIN); ?>
-    </a>
-    <a
-        href="<?php echo admin_url('admin.php?page=' . $this->_socialMenuSlug); ?>"
-       class="<?php echo (!empty($_GET['page']) && $_GET['page'] == $this->_socialMenuSlug) ? 'active' : '' ?>"
-    >
-        <?php echo __('Social', UNDFND_WP_LINKY_DOMAIN); ?>
-    </a>
-    <a
-        href="<?php echo admin_url('admin.php?page=' . $this->_themesMenuSlug); ?>"
-       class="<?php echo (!empty($_GET['page']) && $_GET['page'] == $this->_themesMenuSlug) ? 'active' : '' ?>"
-    >
-        <?php echo __('Themes', UNDFND_WP_LINKY_DOMAIN); ?>
-    </a>
+    <?php foreach ($menus as $link => $menu): ?>
+        <a
+                href="<?php echo admin_url('admin.php?page=' . $this->_getMenuSlug($link)); ?>"
+                class="<?php echo (!empty($_GET['page']) && $_GET['page'] == $this->_getMenuSlug($link)) ? 'active' : '' ?>"
+        >
+            <?php echo __($menu, UNDFND_WP_LINKY_DOMAIN); ?>
+        </a>
+    <?php endforeach; ?>
 </nav>

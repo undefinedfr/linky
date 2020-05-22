@@ -54,9 +54,18 @@ abstract class WPLinkyHelper
         return implode(',', $link->get('defaultCategories'));
     }
 
-    public static function getOptionValue($key, $data, $default = null)
+    public static function getOptionValue($key, $data, $default = null, $callback = false)
     {
-        return !empty($data[$key]) ? $data[$key] : $default;
+        $value = !empty($data[$key]) ? $data[$key] : $default;
+        if((bool) $callback) {
+            if(is_array($callback)) {
+                return ($callback[0] == self::class) ? $callback[0]::{$callback[1]}($value) : $callback[0]->{$callback[1]}($value);
+            } else {
+                return call_user_func($callback, $value);
+            }
+        } else {
+            return $value;
+        }
     }
 
     public static function getSocials()
@@ -80,13 +89,20 @@ abstract class WPLinkyHelper
         return !empty($group) ? self::getOptionValue($group, $options) : $options;
     }
 
-    public static function unEscape($field)
+    public static function unEscape($field, $escape = true)
     {
-        if(is_string($field)):
+        if(is_string($field) && $escape):
             $field = stripslashes($field);
             $field = str_replace('"', '&quot;', $field);
         endif;
 
         return $field;
+    }
+
+    public static function codeFilter($value)
+    {
+        $value = str_replace("\'", "'", $value);
+        $value = str_replace('\"', '"', $value);
+        return $value;
     }
 }

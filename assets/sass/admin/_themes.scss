@@ -5,6 +5,9 @@
  * @link      https://www.undefined.fr
  */
 
-@import 'reset';
-@import 'variables';
-@import "themes/default";
+.linky-page {
+    @import 'reset';
+}
+
+@import '../variables';
+@import "../themes/default";

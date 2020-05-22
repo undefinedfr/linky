@@ -25,6 +25,11 @@ class separatorType extends abstractType
     protected $name = 'Separator';
 
     /**
+     * @var bool Active
+     */
+    protected $active;
+
+    /**
      * @var string Link label
      */
     protected $label_link;

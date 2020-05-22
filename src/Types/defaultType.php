@@ -8,6 +8,9 @@
 
 namespace LinkyApp\Type;
 
+use LinkyApp\Entity\Image;
+use LinkyApp\Helpers\WPLinkyHelper;
+
 /**
  * Class defaultType
  * @since 0.0.1
@@ -23,6 +26,11 @@ class defaultType extends abstractType
      * @var string Type Name
      */
     protected $name = 'Link';
+
+    /**
+     * @var bool Active
+     */
+    protected $active;
 
     /**
      * @var string Label
@@ -59,9 +67,36 @@ class defaultType extends abstractType
      */
     protected $color;
 
+    /**
+     * @var int Image
+     */
+    protected $image;
+
+    /**
+     * @var int Image
+     */
+    protected $size;
+
     public function __construct($data = [])
     {
         parent::__construct($this->id, $this->name, $data);
+    }
+
+    /**
+     * Get var
+     * @param $var
+     * @param bool $default
+     * @return bool|array|string|int
+     */
+    public function get($var, $default = false)
+    {
+        switch ($var) {
+            case 'image':
+                return !empty($this->{$var}) ? new Image($this->{$var}) : $default;
+            default:
+                return !empty($this->{$var}) ? WPLinkyHelper::unEscape($this->{$var}) : $default;
+                break;
+        }
     }
 
 }

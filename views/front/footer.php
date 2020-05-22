@@ -1,4 +1,4 @@
-r<?php
+<?php
 /**
  * @author    [Undefined] RIVIERE Nicolas <hello@undefined.fr>
  * @copyright 2020-present Undefined

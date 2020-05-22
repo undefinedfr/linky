@@ -36,9 +36,9 @@ class AbstractEntity
      * @param bool $default
      * @return bool|array|string|int
      */
-    public function get($var, $default = false)
+    public function get($var, $default = false, $escape = true)
     {
-        return !empty($this->{$var}) ? WPLinkyHelper::unEscape($this->{$var}) : $default;
+        return !empty($this->{$var}) ? WPLinkyHelper::unEscape($this->{$var}, $escape) : $default;
     }
 
     /**
@@ -48,7 +48,7 @@ class AbstractEntity
         $properties = get_class_vars(get_class($this));
         $vars = [];
         foreach ($properties as $key => $property) {
-            $vars[$key] = $this->{$key};
+            $vars[$key] = $this->get($key);
         }
 
         return $vars;

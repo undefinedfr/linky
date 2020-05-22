@@ -7,11 +7,13 @@
 var $ = jQuery;
 
 $(document).ready(function() {
-    var render = new renderComponent('.linky-page', {});
-    var linkyForm = new WPLinkyAdminForm('.settings-wp-linky', {
+    var render      = new renderComponent('.linky-page', {});
+    var imgUploader = new imageUploader('.image-uploader', {});
+    var linkyForm   = new WPLinkyAdminForm('.settings-wp-linky', {
+        imgUploader: imgUploader,
         renderComponent: render
     });
-    new linksComponent('.links', {
+    new linksComponent('._js-form .links', {
         linkyForm: linkyForm
     });
 });
@@ -27,6 +29,7 @@ var WPLinkyAdminForm = function (element, options) {
         element = element;
 
     plugin.form = $element.find('form._js-form');
+    plugin.renderButton = $('._js-linky-button');
 
     /* --- PUBLIC FUNCTIONS --- */
     plugin.init = function () {
@@ -42,18 +45,40 @@ var WPLinkyAdminForm = function (element, options) {
 
     // Set Events
     plugin._events = function () {
+        // Choose a theme
         $element.find('.theme-input').click(function() {
             $element.find('.theme-input').removeClass('is-checked');
             $(this).addClass('is-checked');
             $(this).find('input[type="radio"]').prop('checked', true);
         });
 
-        $element.find('._js-delete').click(function() {
+        // Delete link event
+        $(document).on('click', '._js-delete', function() {
             $(this).closest('.link').toggleClass('is-deleted');
             var $hiddenEl = $(this).siblings('input[type="hidden"]');
             $hiddenEl.val($hiddenEl.val() == 'no' ? 'yes' : 'no');
         });
 
+        // Hide link event
+        $(document).on('click', '.link__active', function() {
+            var $hiddenEl = $(this).find('input[type="hidden"]');
+            $(this).closest('.link').toggleClass('is-hidden');
+            $hiddenEl.val($hiddenEl.val() == 'no' ? 'yes' : 'no');
+        });
+
+        // Choose link sive event
+        $(document).on('click', '.js-size-button', function() {
+            var $buttonEl = $(this);
+            var $hiddenEl = $buttonEl.siblings('input[type="hidden"]');
+            var val = $buttonEl.data('value');
+            $buttonEl.closest('.link').toggleClass('half-size', (val == 50));
+            $('.js-size-button').removeClass('active');
+            $buttonEl.addClass('active');
+            $hiddenEl.val(val);
+        });
+
+
+        // On Submit form
         plugin.form.on('submit', function (e) {
             e.preventDefault();
 
@@ -73,12 +98,19 @@ var WPLinkyAdminForm = function (element, options) {
                         var message = plugin.getMessage('success',  plugin.form.data('success-message'));
                         plugin.form.prepend(message);
 
+                        plugin.renderButton.attr('href', plugin.renderButton.data('prefix') + response.data.global.slug);
+
                         plugin.settings.renderComponent.refresh();
                         plugin.form.find('.is-deleted').remove();
                     }
                 }
             });
         });
+
+        plugin.form.find('.links').sortable({
+            handle: ".link__sort"
+        });
+        plugin.form.find('.links').disableSelection();
     };
 
     plugin._libInstance = function () {
@@ -238,6 +270,67 @@ var linksComponent = function (element, options) {
         $element.append(el);
 
         plugin.settings.linkyForm.loadColorPicker();
+    };
+
+    /* --- INITIALISATION --- */
+    // Init Plugin
+    plugin.init();
+}
+
+
+var imageUploader = function (element, options) {
+    /* --- VARIABLES --- */
+    var defaults = {};
+
+    var plugin = this;
+    plugin.settings = {};
+
+    var $element = $(element),
+        element = element;
+
+    /* --- PUBLIC FUNCTIONS --- */
+    plugin.init = function () {
+        // Global plugin settings
+        plugin.settings = $.extend({}, defaults, options);
+
+        // Events
+        plugin._events();
+    };
+
+    // Set Events
+    plugin._events = function () {
+        $(document).on('click', element, function(e) {
+            e.preventDefault();
+
+            var button = $(this),
+                custom_uploader = wp.media({
+                    title: 'Insert image',
+                    library : {
+                        type : 'image'
+                    },
+                    button: {
+                        text: 'Use this image'
+                    },
+                    multiple: false
+                }).on('select', function() {
+                    var attachment = custom_uploader.state().get('selection').first().toJSON();
+                    button.addClass('is-filled');
+                    button.find('input[type="hidden"]').val(attachment.id);
+                    button.css('background-image', 'url(' + attachment.url + ')');
+                }).open();
+        });
+
+        $(document).on('click', '._js-remove-image', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+
+            var el = $(this).closest(element);
+            el.removeClass('is-filled')
+            el.find('input[type="hidden"]').val('');
+            el.attr('style', '');
+
+            return false;
+        });
     };
 
     /* --- INITIALISATION --- */

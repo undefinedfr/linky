@@ -135,13 +135,13 @@ class WP_Linky {
         register_activation_hook( __FILE__, [$this, UNDFND_WP_LINKY_DOMAIN . '_install'] );
 
         add_filter( 'plugin_action_links', [$this, 'addSettingsLink'], 10, 2 );
+        add_filter( 'template_include', [$this, 'linkyTemplateInclude'] );
 
         add_action( 'admin_menu', [ $this, 'addMenu'] );
-        add_action( 'admin_enqueue_scripts', [$this, 'undfndPluginEnqueue'] );
+        add_action( 'admin_enqueue_scripts', [$this, 'linkyAdminPluginEnqueue'] );
         add_action( 'wp_enqueue_scripts', [$this, 'linkyPluginEnqueue'] );
         add_action( 'plugins_loaded', [$this, 'loadPluginTextdomain'] );
         add_action( 'init', [$this, 'linkyRewriteRule'], 10, 0);
-        add_action( 'template_include', [$this, 'linkyTemplateInclude'] );
         add_action( 'query_vars', [$this, 'linkyQueryParams'] );
 
         if(empty($this->_options['global']['theme_style']) || $this->_options['global']['theme_style'] == 'no')
@@ -155,6 +155,7 @@ class WP_Linky {
 //            add_action('init', [$this, 'submitForm']);
 //        }
         $this->instanceTypes();
+        $this->addImageSizes();
 
         do_action(UNDFND_WP_LINKY_DOMAIN . '_after_construct', $this);
 
@@ -199,15 +200,39 @@ class WP_Linky {
      *
      * @return void;
      */
-    public function undfndPluginEnqueue()
+    public function linkyAdminPluginEnqueue()
     {
         do_action(UNDFND_WP_LINKY_DOMAIN . '_before_admin_enqueue', $this->_menuSlug);
 
-        wp_enqueue_script( $this->_menuSlug, UNDFND_WP_LINKY_PLUGIN_URL . '/assets/dist/' . $this->_menuSlug . '.js' );
-        wp_localize_script( $this->_menuSlug, 'args', [
-            'ajaxurl' => admin_url( 'admin-ajax.php' ),
-        ] );
-        wp_enqueue_style( $this->_menuSlug, UNDFND_WP_LINKY_PLUGIN_URL . '/assets/css/' . $this->_menuSlug . '.css' );
+        // Medias
+        if ( ! did_action( 'wp_enqueue_media' ) ) {
+            wp_enqueue_media();
+        }
+
+        // Script
+        wp_enqueue_script(
+                $this->_menuSlug,
+                UNDFND_WP_LINKY_PLUGIN_URL . '/assets/dist/' . $this->_menuSlug . '.js',
+                [
+                    'jquery-ui-core',
+                    'jquery-ui-sortable'
+                ]
+        );
+
+        // Script variables
+        wp_localize_script(
+            $this->_menuSlug,
+            'args',
+            [
+                'ajaxurl' => admin_url( 'admin-ajax.php' ),
+            ]
+        );
+
+        // Style
+        wp_enqueue_style(
+            $this->_menuSlug,
+            UNDFND_WP_LINKY_PLUGIN_URL . '/assets/css/' . $this->_menuSlug . '.css'
+        );
 
         do_action(UNDFND_WP_LINKY_DOMAIN . '_after_admin_enqueue', $this->_menuSlug);
     }
@@ -271,7 +296,7 @@ class WP_Linky {
                 __('Appareance', UNDFND_WP_LINKY_DOMAIN),
                 __('Appareance', UNDFND_WP_LINKY_DOMAIN),
                 apply_filters(UNDFND_WP_LINKY_DOMAIN . '_submenu_page_capalibilty', 'manage_options'),
-                $this->_appareanceMenuSlug,
+                $this->_getMenuSlug($this->_appareanceMenuSlug),
                 [ &$this, 'addAppareancePage' ]
         );
 
@@ -280,7 +305,7 @@ class WP_Linky {
                 __('Social', UNDFND_WP_LINKY_DOMAIN),
                 __('Social', UNDFND_WP_LINKY_DOMAIN),
                 apply_filters(UNDFND_WP_LINKY_DOMAIN . '_submenu_page_capalibilty', 'manage_options'),
-                $this->_socialMenuSlug,
+                $this->_getMenuSlug($this->_socialMenuSlug),
                 [ &$this, 'addSocialPage' ]
         );
 
@@ -289,7 +314,7 @@ class WP_Linky {
                 __('Links', UNDFND_WP_LINKY_DOMAIN),
                 __('Links', UNDFND_WP_LINKY_DOMAIN),
                 apply_filters(UNDFND_WP_LINKY_DOMAIN . '_submenu_page_capalibilty', 'manage_options'),
-                $this->_linksMenuSlug,
+                $this->_getMenuSlug($this->_linksMenuSlug),
                 [ &$this, 'addLinksPage' ]
         );
 
@@ -298,7 +323,7 @@ class WP_Linky {
                 __('Themes', UNDFND_WP_LINKY_DOMAIN),
                 __('Themes', UNDFND_WP_LINKY_DOMAIN),
                 apply_filters(UNDFND_WP_LINKY_DOMAIN . '_submenu_page_capalibilty', 'manage_options'),
-                $this->_themesMenuSlug,
+                $this->_getMenuSlug($this->_themesMenuSlug),
                 [ &$this, 'addThemesPage' ]
         );
     }
@@ -322,6 +347,16 @@ class WP_Linky {
                 }
             }
         }
+    }
+
+    /**
+     * Add image size
+     *
+     * @return void;
+     */
+    public function addImageSizes()
+    {
+        add_image_size( 'icon', 50, 50, true );
     }
 
     /**
@@ -421,7 +456,7 @@ class WP_Linky {
 
     public function linkyRemoveAllStyles()
     {
-        if ( empty(get_query_var( 'is_linky' )) ) {
+        if ( empty(get_query_var( 'is_linky' )) || is_admin() ) {
             return;
         }
 
@@ -440,6 +475,11 @@ class WP_Linky {
         include WPLinkyHelper::getViewPath('header');
         include WPLinkyHelper::getViewPath($page);
         include WPLinkyHelper::getViewPath('footer');
+    }
+
+    private function _getMenuSlug($slug)
+    {
+        return $this->_menuSlug . '-' . $slug;
     }
 }
 

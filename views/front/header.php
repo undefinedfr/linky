@@ -6,17 +6,19 @@
  * @link      https://www.undefined.fr
  */
 
-global $wpLinky;
+if(empty($wpLinky))
+    global $wpLinky;
 $indexController = $wpLinky->getIndexController();
+$page = $indexController->getPage();
 $socials = $indexController->getSocials();
 $menuItems = $indexController->getMenu()->getMenuItems();
 ?>
 <header class="header">
     <div class="header__avatar">
-        <img src="<?php echo $indexController->getPage()->get('avatar')->url; ?>" alt="<?php echo $indexController->getPage()->get('title'); ?>">
+        <img src="<?php echo $page->get('avatar')->getImageUrl('thumbnail'); ?>" alt="<?php echo $page->get('title'); ?>">
     </div>
     <div class="header__name">
-        <?php echo $indexController->getPage()->get('title'); ?>
+        <?php echo $page->get('title'); ?>
     </div>
     <div class="header__burger">
         <div class="js-toggle-menu">
@@ -25,11 +27,11 @@ $menuItems = $indexController->getMenu()->getMenuItems();
     </div>
 </header>
 <?php if(!$socials->isEmpty()): ?>
-    <nav class="header__social-bar <?php echo $indexController->getPage()->get('social_display') == 'yes' ? 'social-hide' : ''; ?>">
+    <nav class="header__social-bar <?php echo $page->get('social_display') == 'yes' ? 'social-hide' : ''; ?>">
         <?php foreach ($socials->getAll() as $social => $value): ?>
             <?php if(!empty($value)): ?>
                 <a href="<?php echo $value; ?>" class="<?php echo sanitize_title($social); ?>" title="<?php echo ucfirst($social); ?>">
-                    <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/' . sanitize_title($social) . '.svg' ?>
+                    <?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/' . sanitize_title($social) . '.svg' ?>
                 </a>
             <?php endif; ?>
         <?php endforeach; ?>

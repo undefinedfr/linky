@@ -101,7 +101,7 @@ class ajaxController
                     break;
                 case 'global':
                     $data = $this->_saveData($group, $this->_formData);
-                    flush_rewrite_rules();
+                    flush_rewrite_rules(true);
                     return $data;
                     break;
                 default:

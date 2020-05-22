@@ -24,6 +24,11 @@ class blankType extends abstractType
      */
     protected $name;
 
+    /**
+     * @var bool Active
+     */
+    protected $active;
+
     public function __construct($data = [])
     {
         parent::__construct($this->id, $this->name, $data);

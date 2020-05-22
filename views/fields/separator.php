@@ -7,10 +7,18 @@
  */
 
 use LinkyApp\Helpers\WPLinkyHelper;
+
+$id = WPLinkyHelper::getRandomIdentifier();
+$active = $this->get('active', 'yes');
 ?>
-<div class="link link--separator">
+<div class="link link--separator <?php echo $active == 'no' ? 'is-hidden' : ''; ?>">
+    <div class="link__active <?php echo $active == 'no' ? 'is-hidden' : ''; ?>">
+        <input type="hidden" name="links[active][]" value="<?php echo $active; ?>">
+        <input type="checkbox" <?php echo ($active  == 'yes') ? 'checked' : ''; ?>>
+        <?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/onoff.svg'?>
+    </div>
     <div class="link__sort">
-        <?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/dots.svg'?>
+        <?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/drag.svg'?>
     </div>
     <div class="link__body">
         <div class="link__label-link form-field">
@@ -28,10 +36,13 @@ use LinkyApp\Helpers\WPLinkyHelper;
         <div class="v-center">
             <div class="link__color">
                 <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('border_color', '#ccc'); ?>" data-property="sepColor" ></div>
-                <input type="hidden" id="border_color" name="links[border_color][]" value="">
+                <input type="hidden" name="links[border_color][]" value="">
             </div>
         </div>
     </div>
 
+    <input type="hidden" name="links[size][]" value="null">
+    <input type="hidden" name="links[link][]" value="null">
+    <input type="hidden" name="links[image][]" value="null">
     <input type="hidden" name="links[type][]" value="separator">
 </div>

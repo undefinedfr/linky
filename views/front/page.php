@@ -6,7 +6,8 @@
  * @link      https://www.undefined.fr
  */
 
-global $wpLinky;
+if(empty($wpLinky))
+    global $wpLinky;
 $indexController = $wpLinky->getIndexController();
 $background = $indexController->getPage()->get('background_color', '#FFF');
 $color = $indexController->getPage()->get('text_color', '#000');

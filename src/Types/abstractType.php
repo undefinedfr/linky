@@ -87,4 +87,22 @@ class abstractType
             }
         }
     }
+
+    /**
+     * Target should be blank
+     *
+     * @return bool;
+     */
+    protected function _shouldBeBlank()
+    {
+        $link = $this->get('link');
+        if (substr($link, 0, 1) == '/')
+            return false;
+
+        $pattern = "#^[^:/.]*[:/]+#i";
+        $link = preg_replace($pattern, '', $link);
+
+        return strpos($link, preg_replace($pattern, '', home_url())) === FALSE;
+
+    }
 }

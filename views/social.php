@@ -21,8 +21,11 @@ $socials = WPLinkyHelper::getSocials();
             data-success-message="<?php echo __('Setting saved', UNDFND_WP_LINKY_DOMAIN); ?>"
     >
         <?php foreach($socials as $social): ?>
-            <div class="form-field">
-                <label for="<?php echo $social; ?>"><?php echo ucfirst(__($social, UNDFND_WP_LINKY_DOMAIN)); ?></label>
+            <div class="form-field social-field">
+                <label for="<?php echo $social; ?>" class="<?php echo $social . '-color'; ?>">
+                    <?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/' . sanitize_title($social) . '.svg' ?>
+                    <?php echo ucfirst(__($social, UNDFND_WP_LINKY_DOMAIN)); ?>
+                </label>
                 <input type="text" id="<?php echo $social; ?>" name="<?php echo sanitize_title($social); ?>" value="<?php echo WPLinkyHelper::getOptionValue($social, $s); ?>">
             </div>
         <?php endforeach; ?>

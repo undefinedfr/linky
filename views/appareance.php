@@ -7,6 +7,7 @@
  */
 
 use \LinkyApp\Helpers\WPLinkyHelper;
+use \LinkyApp\Entity\Image;
 $data = WPLinkyHelper::getPageOption();
 $appareance = WPLinkyHelper::getOptionValue('appareance', $data, []);
 $menus = wp_get_nav_menus();
@@ -20,14 +21,23 @@ $menus = wp_get_nav_menus();
             class="_js-form"
             data-success-message="<?php echo __('Setting saved', UNDFND_WP_LINKY_DOMAIN); ?>"
     >
-        <div class="form-field">
-            <label for="avatar"><?php echo __('Avatar', UNDFND_WP_LINKY_DOMAIN); ?></label>
-<!--            <input type="file" name="_avatar">-->
-            <input type="text" id="avatar" name="avatar" value="<?php echo WPLinkyHelper::getOptionValue('avatar', $appareance); ?>">
-        </div>
-        <div class="form-field">
-            <label for="title"><?php echo __('Title', UNDFND_WP_LINKY_DOMAIN); ?></label>
-            <input type="text" id="title" name="title" placeholder="<?php echo get_bloginfo('name') ?>" value="<?php echo WPLinkyHelper::getOptionValue('title', $appareance); ?>">
+        <div class="form-control form-control--upload">
+            <div class="form-field">
+                <label for="avatar"><?php echo __('Avatar', UNDFND_WP_LINKY_DOMAIN); ?></label>
+                <?php
+                $imageId = WPLinkyHelper::getOptionValue('avatar', $appareance);
+                $image = !empty($imageId) ? new Image($imageId) : false;
+                ?>
+                <div class="image-uploader <?php echo !empty($image) ? 'is-filled' : ''; ?>" <?php echo !empty($image) ? 'style="background-image: url(' . $image->getImageUrl('thumbnail') . ')"' : ''; ?>>
+                    <input type="hidden" name="avatar"  value="<?php echo !empty($image) ? $image->id : ''; ?>">
+                    <button class="_js-remove-image" title="<?php echo __('Remove'); ?>"></button>
+                </div>
+            </div>
+            <div class="form-field">
+                <label for="title"><?php echo __('Title', UNDFND_WP_LINKY_DOMAIN); ?></label>
+                <input type="text" id="title" name="title" placeholder="<?php echo get_bloginfo('name') ?>" value="<?php echo WPLinkyHelper::getOptionValue('title', $appareance); ?>">
+            </div>
+            <div class="clearfix"></div>
         </div>
         <div class="form-control">
             <div class="form-field">

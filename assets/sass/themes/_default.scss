@@ -1,6 +1,8 @@
 @import "skeleton";
 
 .linky-page {
+    font-family: Arial, sans-serif;
+
     .header {
         padding: 15px 20px;
         border-bottom: solid 1px rgba($black, .15);
@@ -52,6 +54,8 @@
     }
 
     .links {
+        max-width: 680px;
+        margin: 0 auto;
         padding: 20px;
 
         .link {
@@ -66,9 +70,34 @@
                 margin-top: 10px;
             }
 
-
             & + .separator{
                 margin-top: 20px;
+            }
+
+            .clearfix {
+                clear: both;
+            }
+
+            &__image {
+                float: left;
+                width: 40px;
+
+                + .link__col {
+                    margin-left: 10px;
+                    max-width: calc(100% - 50px);
+
+                    .link__category {
+                        margin-top: 5px;
+                    }
+
+                    .link__link {
+                        margin-top: 6px;
+                    }
+                }
+            }
+
+            &__col {
+                float: left;
             }
 
             &__label {
@@ -112,13 +141,14 @@
                 opacity: .5;
 
                 & + .link__link {
-                    margin-top: 10px;
+                    margin-top: 8px;
                 }
             }
         }
 
         .separator {
             font-size: 10px;
+            overflow: hidden;
 
             &__label {
                 position: relative;
@@ -150,7 +180,7 @@
 
             & + .link,
             & + .separator{
-                margin-top: 10px;
+                margin-top: 20px;
             }
         }
     }

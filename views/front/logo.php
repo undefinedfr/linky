@@ -6,7 +6,8 @@
  * @link      https://www.undefined.fr
  */
 
-global $wpLinky;
+if(empty($wpLinky))
+    global $wpLinky;
 $color = $wpLinky->getIndexController()->getPage()->get('text_color', '#000');
 ?>
 <svg version="1.1" title="Undefined — spécialiste de la refonte et la création de site internet" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

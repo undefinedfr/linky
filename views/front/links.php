@@ -6,15 +6,19 @@
  * @link      https://www.undefined.fr
  */
 
-global $wpLinky;
+if(empty($wpLinky))
+    global $wpLinky;
 $indexController = $wpLinky->getIndexController();
 $links = $indexController->getLinks()->getAll();
 ?>
 <div class="links">
     <?php
-    foreach($links as $link):
-        /* @var \LinkyApp\Type\abstractType $linkInstance  */
-        $linkInstance = $link->get('data');
-        $linkInstance->getFrontTemplate();
-    endforeach; ?>
+    if(!empty($links)):
+        foreach($links as $link):
+            /* @var \LinkyApp\Type\abstractType $linkInstance  */
+            $linkInstance = $link->get('data');
+            $linkInstance->getFrontTemplate();
+        endforeach;
+    endif;
+    ?>
 </div>

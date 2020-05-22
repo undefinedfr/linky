@@ -33,7 +33,7 @@ class Page extends AbstractEntity
     public function __construct($data = [])
     {
         $this->set('title', get_bloginfo('name'));
-        $this->set('avatar', UNDFND_WP_LINKY_PLUGIN_URL . '/assets/images/logo.png');
+        $this->set('avatar', new Image(0));
 
         parent::__construct($data);
     }
