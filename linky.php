@@ -9,7 +9,7 @@
 namespace LinkyApp;
 
 /*
-  Plugin Name: WP Linky
+  Plugin Name: Linky
   Plugin URI: https://www.undefined.fr
   Description: Create Link Hub Page for your site
   Version: 0.0.1
@@ -81,7 +81,7 @@ class WP_Linky {
     /**
      * @var string Page title & Menu label
      */
-    private $_pageTitle                 = 'WP Linky';
+    private $_pageTitle                 = 'Linky';
 
     /**
      * @var string Settings page slug
@@ -170,7 +170,7 @@ class WP_Linky {
     {
         do_action(UNDFND_WP_LINKY_DOMAIN . '_install');
 
-        register_uninstall_hook( __FILE__, [ $this, UNDFND_WP_LINKY_DOMAIN . '_uninstall' ] );
+        @register_uninstall_hook( __FILE__, [ $this, UNDFND_WP_LINKY_DOMAIN . '_uninstall' ] );
     }
 
     /**
