@@ -26,7 +26,7 @@ class Links extends AbstractEntity
      *
      * @return void;
      */
-    protected function _setData($links)
+    protected function _setData($links = [])
     {
         foreach($links as &$link) {
             $link = new Link($link);

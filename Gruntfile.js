@@ -59,8 +59,12 @@ module.exports = function(grunt) {
             options: {
                 separator: ';'
             },
+            front: {
+                src: ['<%= paths.jsDir %>front/**/*.js'],
+                dest: '<%= paths.distDir %>linky.js'
+            },
             scripts: {
-                src: ['<%= paths.jsDir %>**/*.js'],
+                src: ['<%= paths.jsDir %>**/*.js','!<%= paths.jsDir %>front/**/*.js'],
                 dest: '<%= paths.distDir %>wp-linky.js'
             }
         },

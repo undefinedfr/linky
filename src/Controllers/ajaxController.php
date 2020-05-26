@@ -8,15 +8,18 @@
 
 namespace LinkyApp\Controllers;
 
-use LinkyApp\Helpers\WPLinkyHelper;
-use LinkyApp\Type\defaultType;
-use LinkyApp\Type\separatorType;
+use LinkyApp\Helper\ThemesHelper;
+use LinkyApp\Helper\WPLinkyHelper;
+use LinkyApp\Theme\Body\AbstractBodyTheme;
+use LinkyApp\Theme\Header\AbstractHeaderTheme;
+use LinkyApp\Type\DefaultType;
+use LinkyApp\Type\SeparatorType;
 
 /**
- * Class ajaxController
+ * Class AjaxController
  * @since 0.0.1
  */
-class ajaxController
+class AjaxController
 {
     private $_formData = [];
     private $_dbData = [];
@@ -104,6 +107,20 @@ class ajaxController
                     flush_rewrite_rules(true);
                     return $data;
                     break;
+                case 'themes':
+                    $override = $this->_formData['_override'];
+                    unset($this->_formData['_override']);
+                    $data = $this->_saveData($group, $this->_formData);
+                    if($override == 'true') {
+                        $this->_overridePageWithTheme();
+                    }
+                    return $data;
+                    break;
+                case 'appareance':
+                    $this->_formData['text_color'] = ThemesHelper::getColorTheme();
+                    $data = $this->_saveData($group, $this->_formData);
+                    return $data;
+                    break;
                 default:
                     return $this->_saveData($group, $this->_formData);
                     break;
@@ -123,6 +140,22 @@ class ajaxController
         update_option(WPLinkyHelper::getPageOptionKey(), $this->_dbData);
 
         return $this->_dbData;
+    }
+
+    /**
+     * Save classic group
+     *
+     * @return mixed;
+     */
+    private function _overridePageWithTheme()
+    {
+        $headerTheme = ThemesHelper::getHeaderThemeById($this->_dbData['themes']['header_theme']);
+        $this->_dbData['appareance'] = array_merge($this->_dbData['appareance'], $headerTheme->getAll());
+        
+        $bodyTheme = ThemesHelper::getBodyThemeById($this->_dbData['themes']['body_theme']);
+        $this->_dbData['appareance'] = array_merge($this->_dbData['appareance'], $bodyTheme->getAll());
+
+        $this->_saveData('appareance', $this->_dbData['appareance']);
     }
 
     /**
@@ -164,4 +197,4 @@ class ajaxController
     }
 }
 
-new ajaxController();
+new AjaxController();

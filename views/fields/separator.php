@@ -6,10 +6,12 @@
  * @link      https://www.undefined.fr
  */
 
-use LinkyApp\Helpers\WPLinkyHelper;
+use LinkyApp\Helper\WPLinkyHelper;
 
-$id = WPLinkyHelper::getRandomIdentifier();
-$active = $this->get('active', 'yes');
+$data               = WPLinkyHelper::getPageOption();
+$id         = WPLinkyHelper::getRandomIdentifier();
+$appareance = WPLinkyHelper::getOptionValue('appareance', $data, []);
+$active     = $this->get('active', 'yes');
 ?>
 <div class="link link--separator <?php echo $active == 'no' ? 'is-hidden' : ''; ?>">
     <div class="link__active <?php echo $active == 'no' ? 'is-hidden' : ''; ?>">
@@ -35,14 +37,15 @@ $active = $this->get('active', 'yes');
     <div class="link__customize">
         <div class="v-center">
             <div class="link__color">
-                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('border_color', '#ccc'); ?>" data-property="sepColor" ></div>
+                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('border_color', WPLinkyHelper::getOptionValue('separator_color', $appareance, '#cccccc')); ?>" data-property="sepColor" ></div>
                 <input type="hidden" name="links[border_color][]" value="">
             </div>
         </div>
     </div>
 
-    <input type="hidden" name="links[size][]" value="null">
-    <input type="hidden" name="links[link][]" value="null">
-    <input type="hidden" name="links[image][]" value="null">
+    <?php // rest
+    foreach(['color','size','link','image'] as $val): ?>
+        <input type="hidden" name="links[<?php echo $val ?>][]" value="null">
+    <?php endforeach; ?>
     <input type="hidden" name="links[type][]" value="separator">
 </div>

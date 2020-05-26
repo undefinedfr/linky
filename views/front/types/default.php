@@ -6,16 +6,40 @@
  * @link      https://www.undefined.fr
  */
 
-$active = $this->get('active');
+use LinkyApp\Helper\ThemesHelper;
+
+if(empty($wpLinky))
+    global $wpLinky;
+
+$indexController        = $wpLinky->getIndexController();
+$page                   = $indexController->getPage();
+$active                 = $this->get('active');
+$theme_id               = $page->get('body_theme', 'default');
+$labelLength            = (!$this->get('category') && $this->get('label')) ? strlen($this->get('label')) : 0;
+$labelBackgroundType    = $page->get('links_label_background_type', 'color');
+$labelTextColor         = $page->get('links_label_text_color', '#FFF');
+if($labelBackgroundType == 'gradient') {
+    $gradients = ThemesHelper::getGradients();
+    $gradient = $page->get('links_label_background_gradient_id', 'linky');
+    $labelBackground = 'linear-gradient(120deg,' . implode(',', $gradients[$gradient])  . ')';
+} else {
+    $labelBackground = ($labelBackgroundType == 'none') ? $labelBackgroundType : $page->get('links_label_background_color', '#FFF');
+}
+
+$padding_right = $labelLength + 2;
+$padding_left = 'inherit';
+if($theme_id == 'rounded' || $theme_id == 'rounded-variant') {
+    $padding_left = $padding_right = strlen($this->get('label')) + 2;
+}
 ?>
 <?php if($this->get('link') && $this->get('label_link') && $active == 'yes'): ?>
     <?php if($this->get('size') != 100): ?>
         <div class="_col-md-6">
     <?php endif; ?>
 
-        <div class="link" style="border-color: <?php echo $this->get('border_color'); ?>; background-color: <?php echo $this->get('background_color'); ?>; color: <?php echo $this->get('color'); ?>">
+        <div class="link" style="border-color: <?php echo $this->get('border_color'); ?>; background-color: <?php echo $this->get('background_color'); ?>; color: <?php echo $this->get('color'); ?>; padding-right: <?php echo $padding_right . 'ch' ?>; padding-left: <?php echo $padding_left . 'ch' ?>">
             <?php if($this->get('label')): ?>
-                <div class="link__label">
+                <div class="link__label" style="background: <?php echo $labelBackground ?>; color: <?php echo $labelTextColor ?>">
                     <?php echo $this->get('label'); ?>
                 </div>
             <?php endif; ?>

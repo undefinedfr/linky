@@ -8,7 +8,7 @@
 
 namespace LinkyApp\Entity;
 
-use LinkyApp\Helpers\WPLinkyHelper;
+use LinkyApp\Helper\WPLinkyHelper;
 
 /**
  * Class Settings

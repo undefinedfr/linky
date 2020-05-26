@@ -30,6 +30,7 @@ var WPLinkyAdminForm = function (element, options) {
 
     plugin.form = $element.find('form._js-form');
     plugin.renderButton = $('._js-linky-button');
+    plugin.formIsDirty = false;
 
     /* --- PUBLIC FUNCTIONS --- */
     plugin.init = function () {
@@ -77,6 +78,34 @@ var WPLinkyAdminForm = function (element, options) {
             $hiddenEl.val(val);
         });
 
+        // Override button event
+        $('.js-override').click(function() {
+            $('input[name="_override"]').val($(this).data('override'))
+        });
+
+        // Override button event
+        $('.js-toggle-select').on('change', function() {
+            var $el = $(this);
+            var val = $(this).val();
+            $('.toggle-' + $el.attr('name')).hide();
+            $('#' + $el.attr('name') + '-' + val).show();
+        }).trigger('change');
+
+        plugin.form.find('input, select').change(function() {
+            plugin.formIsDirty = true;
+        });
+
+        window.onbeforeunload = function(e) {
+            e = e || window.event;
+            if (plugin.formIsDirty) {
+                // For IE and Firefox
+                if (e) {
+                    e.returnValue = args.promptMessage;
+                }
+                // For Safari
+                return args.promptMessage;
+            }
+        };
 
         // On Submit form
         plugin.form.on('submit', function (e) {
@@ -124,11 +153,20 @@ var WPLinkyAdminForm = function (element, options) {
 
         $(".colorpicker").colorPick({
             initialColor: '#fff',
-            paletteLabel: 'Linky',
+            paletteLabel: '',
+            palette: ["transparent", "#6be39c", "#39cb75", "#1a7e43", "#06421f", "#68e0c6", "#29bb9c", "#23a085", "#0e5f4d", "#043a2e", "#6fcade", "#3b99d9", "#2f81b7", "#2f59b7", "#354a5d", "#d988de", "#9a5cb4", "#8d48ab", "#6a2887", "#410c58", "#ea827b", "#e54d42", "#be3a31", "#94241c", "#580f0a", "#f1d372", "#f0c330", "#f19b2c", "#e47e31", "#d15519", "#ffffff", "#ecf0f1", "#bdc3c7", "#808c8d", "#1d1d1d"],
             allowCustomColor: true,
             onColorSelected: function() {
-                this.element.css({'backgroundColor': this.color, 'color': this.color});
+                this.element.css({'backgroundColor': this.color, 'color': this.color}).removeClass('is-transparent').toggleClass('is-transparent', (this.color.toLowerCase() == 'transparent'));
                 this.element.siblings('input[type="text"]').val(this.color);
+            }
+        });
+
+        $(".gradientpicker").gradientPick({
+            paletteLabel: '',
+            onColorSelected: function() {
+                this.element.css({'backgroundImage': 'linear-gradient(120deg, ' + args.gradients[this.color].join(',') + ')'});
+                this.element.siblings('input[type="hidden"]').val(this.color);
             }
         });
 
@@ -147,13 +185,13 @@ var WPLinkyAdminForm = function (element, options) {
             onColorSelected: function() {
                 this.element.siblings('input[type="hidden"]').val(this.color);
                 var property = this.element.data('property');
-                this.element.css({'backgroundColor': this.color});
+                this.element.css({'backgroundColor': this.color}).removeClass('is-transparent').toggleClass('is-transparent', (this.color.toLowerCase() == 'transparent'));
                 var $el = this.element.closest('.link');
                 var obj = {};
                 obj[property] = this.color;
-                if(property === 'color' || property === 'sepColor') {
-                    $el.find('select, input[type="text"]').css({'color': this.color});
-                }
+                // if(property === 'color' || property === 'sepColor') {
+                //     $el.find('select, input[type="text"]').css({'color': this.color});
+                // }
                 if(property === 'sepColor') {
                     obj = {'borderColor': this.color, 'color': this.color}
                 }
@@ -206,6 +244,7 @@ var renderComponent = function (element, options) {
                 $('body').removeClass('render-loading');
                 var el = $(html);
                 $element.html(el.html());
+                $element.attr('class', el.attr('class'));
                 $element.attr('style', el.attr('style'));
             }
         });

@@ -6,7 +6,7 @@
  * @link      https://www.undefined.fr
  */
 
-use \LinkyApp\Helpers\WPLinkyHelper;
+use LinkyApp\Helper\WPLinkyHelper;
 use LinkyApp\Type\defaultType;
 use LinkyApp\Type\separatorType;
 

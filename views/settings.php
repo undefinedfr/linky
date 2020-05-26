@@ -6,7 +6,8 @@
  * @link      https://www.undefined.fr
  */
 
-use \LinkyApp\Helpers\WPLinkyHelper;
+use LinkyApp\Helper\WPLinkyHelper;
+
 $data               = WPLinkyHelper::getPageOption();
 $defaultLabels      = WPLinkyHelper::getDefaultLabels();
 $defaultCategories  = WPLinkyHelper::getDefaultCategories();

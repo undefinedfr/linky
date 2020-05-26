@@ -1,0 +1,13 @@
+{
+    "background_type": "gradient",
+    "background_gradient_id": "linky",
+    "text_color": "#FFF",
+    "links_background_color": "transparent",
+    "links_border_color": "#FFF",
+    "links_text_color": "#FFF",
+    "links_label_background_type": "color",
+    "links_label_background_color": "#FFF",
+    "links_label_background_gradient_id": "",
+    "links_label_text_color": "#000",
+    "separator_color": "#FFF"
+}

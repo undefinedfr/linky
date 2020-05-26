@@ -1,0 +1,1 @@
+var $=jQuery;$(document).ready(function(){$(".js-toggle-menu").click(function(){$(this).closest(".header__burger").toggleClass("is-open"),$(".linky-page").toggleClass("menu-open")})});

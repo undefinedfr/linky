@@ -1,12 +1,12 @@
 <?php
-use \LinkyApp\Helpers\WPLinkyHelper;
+use LinkyApp\Helper\WPLinkyHelper;
 
 if(empty($wpLinky))
     global $wpLinky;
 
-$indexController = $wpLinky->getIndexController();
-$analytics = WPLinkyHelper::codeFilter($indexController->getSettings()->get('code_ga', null, false));
-$background = $indexController->getPage()->get('background_color', '#FFF');
+$indexController    = $wpLinky->getIndexController();
+$analytics          = WPLinkyHelper::codeFilter($indexController->getSettings()->get('code_ga', null, false));
+$background         = $indexController->getPage()->get('background_color', '#FFF');
 ?>
 <html>
     <head>
@@ -15,7 +15,7 @@ $background = $indexController->getPage()->get('background_color', '#FFF');
         <title><?php echo $indexController->getPage()->get('title'); ?></title>
         <?php wp_head(); ?>
         <?php if($analytics): ?>
-            <?php echo $analytics; ?>
+            <?php echo html_entity_decode($analytics); ?>
         <?php endif; ?>
     </head>
     <body>

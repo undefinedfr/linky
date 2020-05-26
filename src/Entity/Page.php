@@ -24,7 +24,21 @@ class Page extends AbstractEntity
     public $background_color;
     public $background_gradient_id;
     public $background_image;
-    public $themeId;
+    public $header_theme;
+    public $body_theme;
+    public $links_background_color;
+    public $links_text_color;
+    public $links_border_color;
+    public $links_label_background_type;
+    public $links_label_background_gradient_id;
+    public $links_label_background_color;
+    public $links_label_text_color;
+    public $header_background_type;
+    public $header_background_color;
+    public $header_background_gradient_id;
+    public $header_text_color;
+    public $header_background_image;
+    public $separator_color;
     public $analyticsCode;
     public $labels;
     public $menuId;
@@ -45,7 +59,8 @@ class Page extends AbstractEntity
      */
     public function set($var, $value){
         switch ($var) {
-            case 'backgroundImage':
+            case 'header_background_image':
+            case 'background_image':
             case 'avatar':
                 $this->{$var} = new Image($value);
                 break;

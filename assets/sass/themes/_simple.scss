@@ -1,0 +1,41 @@
+.linky-page {
+    .header {
+        &--simple,
+        &--simple-variant {
+            ._row {
+                padding-top: 30px;
+                padding-bottom: 30px;
+                padding-left: 54px;
+            }
+
+            .header__avatar{
+                width: auto;
+                height: 20px;
+
+                img {
+                    border-radius: 0;
+                    display: inline-block;
+                    width: auto;
+                    height: 100%;
+                }
+            }
+
+            .header__burger {
+                position: absolute;
+                left: 25px;
+                right: auto;
+                top: 50%;
+                transform: translateY(-50%);
+
+                &:after {
+                    display: none;
+                }
+            }
+
+            .header__name {
+                padding: 0 8px;
+            }
+        }
+    }
+}
+

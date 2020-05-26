@@ -53,6 +53,19 @@
         .inside {
             margin: 20px 0 0 0;
             padding: 0 20px 20px;
+
+            &.no-gutter {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            &.no-margin {
+                margin-top: 0;
+            }
+
+            .col-lr {
+                padding: 0 20px;
+            }
         }
     }
 
@@ -97,7 +110,8 @@
         float: right;
     }
 
-    .message {
+    .message,
+    .info-message {
         padding: 10px 20px;
         margin-bottom: 20px;
 
@@ -106,6 +120,20 @@
             color: black;
             border-left: solid 4px #46b450;
         }
+
+        &.info-message {
+            background: rgba($blue, .08);
+            color: black;
+            border-left: solid 4px $blue;
+        }
+    }
+
+    #appareance .message {
+        margin-bottom: 0;
+    }
+
+    #themes {
+        padding: 0 20px 20px;
     }
 
     .postbox {
@@ -179,9 +207,16 @@
 
                         &:first-child {
                             width: 69px;
-                            padding-left: 20px;
                             padding-right: 0;
                         }
+                    }
+                }
+            }
+
+            .link .form-control--upload {
+                > .form-field {
+                    &:first-child {
+                        padding-left: 20px;
                     }
                 }
             }
@@ -244,13 +279,19 @@
                 box-sizing: border-box;
                 transition: box-shadow .3s;
 
-                img {
+                &__image {
                     width: 100%;
                     max-width: 100%;
                     margin-bottom: 4px;
-                    border: solid 1px #ECF0F1;
-                    border-radius: 2px;
+                    min-height: 95px;
+                    display: flex;
+                    align-items: center;
 
+                    img {
+                        width: 100%;
+                        border-radius: 2px;
+                        border: solid 1px #ECF0F1;
+                    }
                 }
 
                 &.is-checked {
@@ -310,10 +351,16 @@
                 vertical-align: top;
                 border-radius: 3px;
                 cursor: pointer;
+                box-shadow: 0 0 1px rgba(0,0,0,.5) !important;
 
                 + input {
                   max-width: calc(100% - 50px);
                   margin-left: 5px;
+                }
+
+                &.gradientpicker {
+                    width: 100px;
+                    height: 28px;
                 }
             }
 
@@ -420,8 +467,10 @@
                     box-sizing: border-box;
                 }
 
-                &--separator .link__body {
-                    padding: 10px 15px;
+                &--separator {
+                    .link__body {
+                        padding: 10px 15px;
+                    }
                 }
 
                 &__sort {
@@ -673,6 +722,32 @@
                     fill: #0077B5;
                 }
             }
+
+            h3 {
+                margin-top: 0;
+                clear: both;
+                width: 100% ;
+                float: left;
+                font-size: 14px;
+                background: rgba($grey, .2);
+                padding: 10px 20px;
+                box-sizing: border-box;
+                margin-bottom: 25px;
+            }
+
+            .separator-form {
+                width: 100%;
+                display: block;
+                margin: 30px 0 0 0;
+                background: rgba($grey, .7);
+                height: 1px;
+                float: left;
+                clear: both;
+
+                &.mg-b-20 {
+                    margin-bottom: 20px;
+                }
+            }
         }
     }
 
@@ -879,6 +954,18 @@
     .settings-wp-linky #poststuff {
         .inside {
             padding: 0 5px 20px;
+
+            form:not(#links) .form-control {
+                padding: 0 10px;
+
+                > .form-field {
+                    width: 100%;
+
+                    + .form-field {
+                       margin-top: 20px;
+                    }
+                }
+            }
             
             .links {
                 padding: 0 10px;
@@ -905,6 +992,14 @@
 
                     .form-control {
                         padding: 0;
+                    }
+
+                    &--separator {
+                        .link__sort svg {
+                            bottom: 6px;
+                            top: auto;
+                            transform: translate(-50%,0);
+                        }
                     }
                 }
             }

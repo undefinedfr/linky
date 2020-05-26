@@ -1,0 +1,30 @@
+.linky-page {
+    .header {
+        &--fantastic {
+            text-align: center;
+
+            ._row {
+                flex-direction: column;
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+
+            .header__title {
+                font-family: 'Kaushan Script', cursive;
+                font-size: 28px;
+                display: block;
+                margin-top: -5px;
+                margin-left: -2px;
+            }
+
+            .header__name {
+                display: inline-block;
+                font-size: 12px;
+                padding: 6px 10px;
+                background: black;
+                color: white;
+            }
+        }
+    }
+}
+

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Linky\n"
 "POT-Creation-Date: 2020-05-03 15:37+1000\n"
-"PO-Revision-Date: 2020-05-22 15:03+0200\n"
+"PO-Revision-Date: 2020-05-26 09:21+0200\n"
 "Last-Translator: RIVIERE Nicolas <hello@undefined.fr>\n"
 "Language-Team: Undefined <hello@undefined.fr>\n"
 "Language: fr\n"
@@ -164,3 +164,66 @@ msgstr "Ajouter le style du theme"
 
 msgid "This can create conflicts"
 msgstr "Cela peut créer des conflits"
+
+msgid "Save and overwrite appareance"
+msgstr "Sauvegarder et écraser apparence"
+
+msgid "Background Type"
+msgstr "Type de fond"
+
+msgid "None"
+msgstr "Aucun"
+
+msgid "Gradient"
+msgstr "Dégradé"
+
+msgid "Label background type"
+msgstr "Type de fond des labels"
+
+msgid "Label gradient"
+msgstr "Dégradé du label"
+
+msgid "Label background color"
+msgstr "Couleur de fond du label"
+
+msgid "Label text color"
+msgstr "Couleur de texte du label"
+
+msgid "You can add one in Appareance > Menus"
+msgstr "Vous pouvez en ajouter un dans Apparence > Menus"
+
+msgid "Links border color"
+msgstr "Bordure des liens"
+
+msgid "Links text color"
+msgstr "Couleur du texte des liens"
+
+msgid "Links background color"
+msgstr "Couleur de fond des liens"
+
+msgid "Header background type"
+msgstr "Type de fond de l'en-tête"
+
+msgid "Header background color"
+msgstr "Couleur de fond de l'en-tête"
+
+msgid "Header background gradient"
+msgstr "Dégradé de l'en-tête"
+
+msgid "Header text color"
+msgstr "Couleur du texte de l'en-tête"
+
+msgid "Separators color"
+msgstr "Couleur des séparateurs"
+
+msgid "My links"
+msgstr "Mes liens"
+
+msgid "Create Link Hub Page for your site"
+msgstr "Créer une page pour regrouper vos liens"
+
+msgid "Choose a theme and customize it in Appareance tab"
+msgstr "Choisissez un thème et customisez le dans l'onglet Apparence"
+
+msgid "You have unsaved changes, are you sure ?"
+msgstr "Vous avez des modifications non sauvegardées, Êtes-vous sûr ?"

@@ -8,8 +8,8 @@
 $menus = [
     $this->_linksMenuSlug       => 'Links',
     $this->_appareanceMenuSlug  => 'Appareance',
-    $this->_socialMenuSlug      => 'Social',
     $this->_themesMenuSlug      => 'Themes',
+    $this->_socialMenuSlug      => 'Social',
 ]
 ?>
 

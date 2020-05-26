@@ -13,13 +13,13 @@ use LinkyApp\Entity\Menu;
 use LinkyApp\Entity\Page;
 use LinkyApp\Entity\Socials;
 use LinkyApp\Entity\Settings;
-use LinkyApp\Helpers\WPLinkyHelper;
+use LinkyApp\Helper\WPLinkyHelper;
 
 /**
- * Class ajaxController
+ * Class IndexController
  * @since 0.0.1
  */
-class indexController
+class IndexController
 {
     public $page;
     public $socials;
@@ -32,7 +32,7 @@ class indexController
         $data               = WPLinkyHelper::getPage();
         $data               = !empty($data) ? $data : [];
         $this->settings     = new Settings($data['global']);
-        $this->page         = new Page($data['appareance']);
+        $this->page         = new Page(array_merge($data['appareance'], $data['themes']));
         $this->socials      = new Socials($data['social']);
         $this->menu         = new Menu(!empty($data['appareance']['menu']) ? $data['appareance']['menu'] : false);
         $this->links        = new Links($data['links']);

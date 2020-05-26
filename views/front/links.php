@@ -8,6 +8,7 @@
 
 if(empty($wpLinky))
     global $wpLinky;
+
 $indexController = $wpLinky->getIndexController();
 $links = $indexController->getLinks()->getAll();
 ?>
@@ -17,7 +18,7 @@ $links = $indexController->getLinks()->getAll();
         foreach($links as $link):
             /* @var \LinkyApp\Type\abstractType $linkInstance  */
             $linkInstance = $link->get('data');
-            $linkInstance->getFrontTemplate();
+            $linkInstance->getFrontTemplate($wpLinky);
         endforeach;
     endif;
     ?>

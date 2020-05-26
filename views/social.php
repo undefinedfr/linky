@@ -6,10 +6,11 @@
  * @link      https://www.undefined.fr
  */
 
-use \LinkyApp\Helpers\WPLinkyHelper;
-$data = WPLinkyHelper::getPageOption();
-$s = WPLinkyHelper::getOptionValue('social', $data, []);
-$socials = WPLinkyHelper::getSocials();
+use LinkyApp\Helper\WPLinkyHelper;
+
+$data       = WPLinkyHelper::getPageOption();
+$s          = WPLinkyHelper::getOptionValue('social', $data, []);
+$socials    = WPLinkyHelper::getSocials();
 
 ?>
 <div class="inside">

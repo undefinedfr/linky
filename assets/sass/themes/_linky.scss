@@ -1,0 +1,19 @@
+.linky-page {
+    .header {
+        &--linky,
+        &--linky-variant {
+            ._row{
+                padding-top: 25px;
+                padding-bottom: 25px;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .header__avatar{
+                margin-bottom: 12px;
+                display: block;
+            }
+        }
+    }
+}
+

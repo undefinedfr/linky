@@ -5,14 +5,17 @@
  * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      https://www.undefined.fr
  */
-use LinkyApp\Helpers\WPLinkyHelper;
+
+use LinkyApp\Helper\WPLinkyHelper;
+
 $data               = WPLinkyHelper::getPageOption();
 $defaultLabels      = WPLinkyHelper::getDefaultLabels();
 $defaultCategories  = WPLinkyHelper::getDefaultCategories();
 $global             = WPLinkyHelper::getOptionValue('global', $data, []);
-$id = WPLinkyHelper::getRandomIdentifier();
-$active = $this->get('active', 'yes');
-$size = $this->get('size', 100);
+$appareance         = WPLinkyHelper::getOptionValue('appareance', $data, []);
+$id                 = WPLinkyHelper::getRandomIdentifier();
+$active             = $this->get('active', 'yes');
+$size               = $this->get('size', 100);
 ?>
 <div class="link <?php echo $active == 'no' ? 'is-hidden' : ''; ?> <?php echo $size == 50 ? 'half-size' : ''; ?>">
     <div class="link__active">
@@ -30,7 +33,7 @@ $size = $this->get('size', 100);
                 <select name="links[category][]">
                     <option value=""><?php echo __('No category', UNDFND_WP_LINKY_DOMAIN); ?></option>
                     <?php foreach($categories as $category): ?>
-                        <option value="<?php echo $category; ?>" <?php echo $this->get('category') ? 'selected' : ''; ?>><?php echo __($category, UNDFND_WP_LINKY_DOMAIN); ?></option>
+                        <option value="<?php echo  __($category, UNDFND_WP_LINKY_DOMAIN); ?>" <?php echo $this->get('category') ? 'selected' : ''; ?>><?php echo __($category, UNDFND_WP_LINKY_DOMAIN); ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -39,7 +42,7 @@ $size = $this->get('size', 100);
                 <select name="links[label][]">
                     <option value=""><?php echo __('No label', UNDFND_WP_LINKY_DOMAIN); ?></option>
                     <?php foreach($labels as $label): ?>
-                        <option value="<?php echo $label; ?>" <?php echo $this->get('label') ? 'selected' : ''; ?>><?php echo __($label, UNDFND_WP_LINKY_DOMAIN); ?></option>
+                        <option value="<?php echo $label; ?>" <?php echo $this->get('label') ? 'selected' : ''; ?>><?php echo $label; ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -76,15 +79,15 @@ $size = $this->get('size', 100);
     <div class="link__customize">
         <div class="v-center">
             <div class="link__color">
-                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Border color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('border_color', '#E5E5E5'); ?>" data-property="borderColor" ></div>
+                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Border color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('border_color', WPLinkyHelper::getOptionValue('links_border_color', $appareance, '#E5E5E5')); ?>" data-property="borderColor" ></div>
                 <input type="hidden" name="links[border_color][]" value="">
             </div>
             <div class="link__color">
-                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Background color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('background_color', '#fff'); ?>" data-property="backgroundColor" ></div>
+                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Background color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('background_color', WPLinkyHelper::getOptionValue('links_background_color', $appareance, '#fff')); ?>" data-property="backgroundColor" ></div>
                 <input type="hidden" name="links[background_color][]" value="">
             </div>
             <div class="link__color">
-                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Text color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('color', '#000'); ?>" data-property="color" ></div>
+                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Text color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('color', WPLinkyHelper::getOptionValue('links_text_color', $appareance, '#000')); ?>" data-property="color" ></div>
                 <input type="hidden" name="links[color][]" value="">
             </div>
         </div>
