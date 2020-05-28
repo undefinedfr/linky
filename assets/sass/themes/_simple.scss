@@ -6,6 +6,10 @@
                 padding-top: 30px;
                 padding-bottom: 30px;
                 padding-left: 54px;
+
+                &.hidden-burger {
+                    padding-left: 20px;
+                }
             }
 
             .header__avatar{

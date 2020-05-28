@@ -5,13 +5,9 @@
  * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      https://www.undefined.fr
  */
-
-if(empty($wpLinky))
-    global $wpLinky;
-$color = $wpLinky->getIndexController()->getPage()->get('text_color', '#000');
 ?>
 <svg version="1.1" title="Undefined — spécialiste de la refonte et la création de site internet" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-     viewBox="0 0 121 19"  style="fill:<?php echo $color ?>" xml:space="preserve">
+     viewBox="0 0 121 19" xml:space="preserve">
     <path class="st0" d="M118.4,18.9c-1.1,0-2-0.9-2-2s0.9-2,2-2c1.1,0,2,0.9,2,2S119.5,18.9,118.4,18.9z"/>
     <path class="st0" d="M112.8,0.3H110l0.1,7.5C109.6,7,108.6,6,106.5,6c-3.4,0-5.8,2.9-5.8,6.4c0,3.7,2.3,6.4,5.8,6.4
 			c1.7,0,2.9-0.9,3.5-1.9c0,0.5,0,1.9,0,1.9h2.8 M106.8,16.3c-2,0-3.3-1.5-3.3-3.9c0-2.3,1.4-3.8,3.3-3.8c1.9,0,3.2,1.5,3.2,3.8

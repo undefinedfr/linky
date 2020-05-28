@@ -22,9 +22,6 @@ class Image
     }
 
     public function getImageUrl($size = 'thumbnail') {
-        if($this->id == 0)
-            return UNDFND_WP_LINKY_PLUGIN_URL . '/assets/images/logo.png';
-
         $image = wp_get_attachment_image_src($this->id, $size);
 
         return $image[0];

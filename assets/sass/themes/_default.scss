@@ -22,6 +22,12 @@
                 left: 0;
                 opacity: .15;
             }
+
+            &.hidden-burger {
+                .header__burger {
+                    display: none;
+                }
+            }
         }
 
         &__avatar {
@@ -165,11 +171,12 @@
             float: left;
             width: 100%;
             clear: both;
+            text-align: center;
 
             &__label {
                 position: relative;
-                display: block;
-                float: left;
+                display: inline-block;
+                vertical-align: middle;
                 text-transform: uppercase;
                 text-align: center;
                 padding: 0 10px;
@@ -177,8 +184,8 @@
 
             &__line{
                 position: relative;
-                display: block;
-                float: left;
+                display: inline-block;
+                vertical-align: middle;
                 width: 50%;
                 height: 10px;
 
@@ -226,6 +233,41 @@
     &--rounded {
         .links .link {
             border-radius: 500px;
+            padding-top: 20px;
+
+            .link__link:before {
+                border-radius: 500px;
+            }
+
+            .link__label {
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                right: auto;
+                padding: 5px 8px;
+                border-radius: 500px;
+            }
+
+            &.has-label {
+                margin-top: 15px;
+
+                & + .link.has-label {
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+
+    &--rounded-left-variant,
+    &--rounded-left {
+        .links .link {
+            border-radius: 500px;
+            padding-top: 20px;
+            padding-left: 30px;
+
+            .link__link:before {
+                border-radius: 500px;
+            }
 
             .link__label {
                 top: 50%;
@@ -279,6 +321,7 @@
                 border-top-style: solid;
                 border-bottom-style: solid;
                 margin-top: -1px !important;
+                text-align: left;
 
                 &__label {
                     width: 100%;

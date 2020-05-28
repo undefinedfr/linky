@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Linky\n"
 "POT-Creation-Date: 2020-05-03 15:37+1000\n"
-"PO-Revision-Date: 2020-05-26 09:21+0200\n"
+"PO-Revision-Date: 2020-05-28 16:31+0200\n"
 "Last-Translator: RIVIERE Nicolas <hello@undefined.fr>\n"
 "Language-Team: Undefined <hello@undefined.fr>\n"
 "Language: fr\n"
@@ -25,7 +25,7 @@ msgid "Save"
 msgstr "Enregistrer"
 
 msgid "Settings saved"
-msgstr "Informations enregistrés"
+msgstr "Informations enregistrées"
 
 msgid "Create Link Hub Page for your site"
 msgstr "Créez un page de liens pour votre site"
@@ -219,11 +219,32 @@ msgstr "Couleur des séparateurs"
 msgid "My links"
 msgstr "Mes liens"
 
-msgid "Create Link Hub Page for your site"
-msgstr "Créer une page pour regrouper vos liens"
-
 msgid "Choose a theme and customize it in Appareance tab"
 msgstr "Choisissez un thème et customisez le dans l'onglet Apparence"
 
 msgid "You have unsaved changes, are you sure ?"
 msgstr "Vous avez des modifications non sauvegardées, Êtes-vous sûr ?"
+
+msgid "To start, you can <a href='%s'>choose a theme</a>"
+msgstr "Pour commencer, vous pouvez <a href='%s'>choisir un thème</a>"
+
+msgid "Welcome to Linky's plugin"
+msgstr "Bienvenue sur le plugin Linky"
+
+msgid "Got it"
+msgstr "J'ai compris"
+
+msgid "If you have already filled in links, they will not be modified so as not to lose the configuration already carried out."
+msgstr "Si vous avez déjà renseigné des liens, ils ne seront pas modifiés pour ne pas perdre la configuration déjà effectuée."
+
+msgid "The above configuration will appear on your future links."
+msgstr "La configuration ci-dessus apparaitra sur vos futurs liens."
+
+msgid "Finally, <a href='%s'>configure your links</a> and view the result!"
+msgstr "Enfin, <a href='%s'>configurer vos liens</a> et visualiser le résultat !"
+
+msgid "Choose the <a href='%s'>links of your social profiles</a> so that they appear on your page"
+msgstr "Choisissez les <a href='%s'>liens de vos profils sociaux</a> pour qu'ils s'affichent dans votre page"
+
+msgid "Then configure the appearance of your page : the header banner, the default colors of your links or the background color of your page from the tab <a href='%s'>Appareance</a>"
+msgstr "Puis configurer l'apparence de votre page comme le bandeau d'en-tête, les couleurs par défaut de vos liens ou encore la couleur de fond de votre page depuis l'onglet <a href='%s'>Apparence</a>"

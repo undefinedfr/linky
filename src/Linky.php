@@ -64,11 +64,10 @@ class Linky {
 
         $this->_options = $this->getOptions();
 
-        register_activation_hook( __FILE__, [$this, UNDFND_WP_LINKY_DOMAIN . '_install'] );
-
         add_filter( 'plugin_action_links', [$this, 'addSettingsLink'], 10, 2 );
         add_filter( 'template_include', [$this, 'linkyTemplateInclude'] );
 
+        add_action( 'activate_' . UNDFND_WP_LINKY_PLUGIN_REALDIRPATH, [$this, UNDFND_WP_LINKY_DOMAIN . '_install'] );
         add_action( 'admin_menu', [ $this, 'addMenu'] );
         add_action( 'admin_enqueue_scripts', [$this, 'linkyAdminPluginEnqueue'] );
         add_action( 'wp_enqueue_scripts', [$this, 'linkyPluginEnqueue'] );
@@ -79,13 +78,8 @@ class Linky {
         if(empty($this->_options['global']['theme_style']) || $this->_options['global']['theme_style'] == 'no')
             add_action( 'wp_print_styles', [$this, 'linkyRemoveAllStyles'], 100);
 
-        if(!empty($_GET['saved']) && !empty($_GET['page']) && $_GET['page'] == UNDFND_WP_LINKY_SLUG){
-            add_action( 'admin_notices', [$this, 'displayAdminNotice'] );
-        }
+        add_action( 'admin_init', [$this, 'welcomeMessageHandler'], 10, 0);
 
-//        if(!empty($_GET['page']) && $_GET['page'] == UNDFND_WP_LINKY_SLUG) {
-//            add_action('init', [$this, 'submitForm']);
-//        }
         $this->addImageSizes();
 
         do_action(UNDFND_WP_LINKY_DOMAIN . '_after_construct', $this);
@@ -100,6 +94,29 @@ class Linky {
     public function wp_linky_install()
     {
         do_action(UNDFND_WP_LINKY_DOMAIN . '_install');
+
+        $options = get_option(WPLinkyHelper::getPageOptionKey());
+        if(empty($options)) {
+            $dbOptions = WPLinkyHelper::getPage();
+            $options = array_merge($dbOptions, [
+                'global' => [
+                    'slug' => 'links',
+                    'categories' => WPLinkyHelper::getDefaultCategories(),
+                    'labels' => WPLinkyHelper::getDefaultLabels(),
+                ],
+                'appareance' => [],
+                'themes' => [
+                    'header_theme' => 'default',
+                    'body_theme' => 'default',
+                ]
+            ]);
+
+            $options['appareance'] = ThemesHelper::prepareThemeOverride($options);
+            $options['appareance']['social_display']  = 'no';
+
+            update_option(WPLinkyHelper::getPageOptionKey(), $options);
+            flush_rewrite_rules(true);
+        }
 
         @register_uninstall_hook( __FILE__, [ $this, UNDFND_WP_LINKY_DOMAIN . '_uninstall' ] );
     }
@@ -334,11 +351,7 @@ class Linky {
 
     public function displayAdminNotice()
     {
-        ?>
-        <div class="notice notice-success is-dismissible">
-            <p><?php echo __( 'Settings saved', UNDFND_WP_LINKY_DOMAIN ); ?></p>
-        </div>
-        <?php
+        include_once WPLinkyHelper::getViewPath('welcome-notice');
     }
 
     public function getIndexController()
@@ -372,6 +385,18 @@ class Linky {
 
         global $wp_styles;
         $wp_styles->queue = [$this->_menuSlug];
+    }
+
+    public function welcomeMessageHandler()
+    {
+        if(isset($_GET['admin_notice_dismissed'])) {
+            update_user_meta(get_current_user_id(), UNDFND_WP_LINKY_DOMAIN . '_notice', 1);
+        }
+
+        $noticeDisplayed = get_user_meta(get_current_user_id(), UNDFND_WP_LINKY_DOMAIN . '_notice');
+        if(!empty($_GET['page']) && strpos($_GET['page'], UNDFND_WP_LINKY_SLUG) !== false && empty($noticeDisplayed)){
+            add_action( 'admin_notices', [$this, 'displayAdminNotice'] );
+        }
     }
 
     public function linkyQueryParams( $query_vars )

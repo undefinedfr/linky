@@ -34,7 +34,8 @@ abstract class WPLinkyHelper
 
     public static function getPageOption()
     {
-        return get_option(self::getPageOptionKey());
+        $options = get_option(self::getPageOptionKey());
+        return !empty($options) ? $options : [];
     }
 
     public static function getRandomIdentifier()
@@ -81,7 +82,7 @@ abstract class WPLinkyHelper
     public static function getPage($group = false)
     {
         $options = self::getPageOption();
-        foreach(['global', 'appareance', 'social', 'links'] as $item) {
+        foreach(['global', 'appareance', 'social', 'links', 'themes'] as $item) {
             if(!array_key_exists($item, $options))
                 $options[$item] = [];
         }

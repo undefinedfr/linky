@@ -27,6 +27,7 @@ define('UNDFND_WP_LINKY_SLUG', 'wp-linky');
 define('UNDFND_WP_LINKY_PLUGIN_URL', plugins_url('', __FILE__));
 define('UNDFND_WP_LINKY_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('UNDFND_WP_LINKY_PLUGIN_REALPATH', dirname( plugin_basename( __FILE__ ) ));
+define('UNDFND_WP_LINKY_PLUGIN_REALDIRPATH', plugin_basename( __FILE__ ));
 define('UNDFND_WP_LINKY_PLUGIN_APP_DIR', UNDFND_WP_LINKY_PLUGIN_DIR . 'src');
 define('UNDFND_WP_LINKY_THEME_DIR', get_template_directory() . '/' . UNDFND_WP_LINKY_SLUG);
 define('UNDFND_WP_LINKY_THEME_APP_DIR', UNDFND_WP_LINKY_THEME_DIR . 'src');
@@ -73,6 +74,5 @@ WPLinkyHelper::includesFiles(UNDFND_WP_LINKY_THEME_APP_DIR . '/Theme/Header'); /
 // Body
 WPLinkyHelper::includesFiles(UNDFND_WP_LINKY_PLUGIN_APP_DIR . '/Theme/Body'); // plugin
 WPLinkyHelper::includesFiles(UNDFND_WP_LINKY_THEME_APP_DIR . '/Theme/Body'); // from theme
-
 
 $wpLinky = new Linky();

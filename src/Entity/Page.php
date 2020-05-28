@@ -47,7 +47,7 @@ class Page extends AbstractEntity
     public function __construct($data = [])
     {
         $this->set('title', get_bloginfo('name'));
-        $this->set('avatar', new Image(0));
+        $this->set('avatar', 0);
 
         parent::__construct($data);
     }

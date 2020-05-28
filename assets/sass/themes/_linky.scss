@@ -10,8 +10,11 @@
             }
 
             .header__avatar{
-                margin-bottom: 12px;
                 display: block;
+
+                & + .header__name {
+                    margin-top: 12px;
+                }
             }
         }
     }

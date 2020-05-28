@@ -35,6 +35,7 @@ $socials    = WPLinkyHelper::getSocials();
             <div class="pull-right">
                 <button type="submit" class="button button-primary button-large"><?php echo __('Save'); ?></button>
             </div>
+            <div class="clearfix"></div>
         </div>
         <input type="hidden" name="action" value="save_form">
         <input type="hidden" name="_group" value="social">

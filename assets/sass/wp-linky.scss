@@ -10,6 +10,17 @@
 @import 'lib/colorpick';
 
 .settings-wp-linky {
+
+    .notice {
+        width: 100% !important;
+        max-width: 100%;
+
+        ul {
+            list-style: circle;
+            padding-left: 30px;
+        }
+    }
+
     *[data-tooltip] {
         position: relative;
 
@@ -69,7 +80,7 @@
         }
     }
 
-    h1 {
+    .h--1 {
         padding: 20px 30px;
         background: linear-gradient(116.69deg, #6A3ACE 7.23%, #53C1E3 76.92%);
 
@@ -111,7 +122,8 @@
     }
 
     .message,
-    .info-message {
+    .info-message,
+    .links-informations {
         padding: 10px 20px;
         margin-bottom: 20px;
 
@@ -125,6 +137,22 @@
             background: rgba($blue, .08);
             color: black;
             border-left: solid 4px $blue;
+        }
+
+        &.links-informations {
+            float: left;
+            width: 100%;
+            margin-bottom: 25px;
+            font-style: italic;
+            padding: 5px 30px;
+            box-sizing: border-box;
+            background: rgba($blue, .08);
+            color: $blue;
+            border-left: solid 4px $blue;
+
+            p {
+                font-size: 12px;
+            }
         }
     }
 

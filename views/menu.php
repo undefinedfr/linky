@@ -6,10 +6,10 @@
  * @link      https://www.undefined.fr
  */
 $menus = [
-    $this->_linksMenuSlug       => 'Links',
-    $this->_appareanceMenuSlug  => 'Appareance',
     $this->_themesMenuSlug      => 'Themes',
+    $this->_appareanceMenuSlug  => 'Appareance',
     $this->_socialMenuSlug      => 'Social',
+    $this->_linksMenuSlug       => 'Links',
 ]
 ?>
 

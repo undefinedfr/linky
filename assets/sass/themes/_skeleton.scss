@@ -4,6 +4,7 @@
     display: block;
     width: 100%;
     padding-bottom: 54px;
+    overflow: scroll;
 
     * {
         box-sizing: border-box;
@@ -107,12 +108,19 @@
 
     .footer {
         font-size: 10px;
-        padding: 15px;
         position: fixed;
-        bottom: 10px;
-        width: 100%;
-        left: 0;
         text-align: center;
+        bottom: 0;
+        background: white;
+        white-space: nowrap;
+        display: inline-block;
+        width: auto;
+        border-radius: 3px 3px 0 0;
+        padding: 12px 18px;
+        color: black;
+        left: 50%;
+        transform: translateX(-50%);
+        line-height: 10px;
 
         span,
         a {
@@ -121,8 +129,6 @@
         }
 
         svg {
-            top: -1px;
-            position: relative;
             margin-left: 1px;
             height: 10px;
         }

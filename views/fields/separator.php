@@ -44,7 +44,7 @@ $active     = $this->get('active', 'yes');
     </div>
 
     <?php // rest
-    foreach(['color','size','link','image'] as $val): ?>
+    foreach(['color', 'size', 'link', 'image', 'category', 'label'] as $val): ?>
         <input type="hidden" name="links[<?php echo $val ?>][]" value="null">
     <?php endforeach; ?>
     <input type="hidden" name="links[type][]" value="separator">

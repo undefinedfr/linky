@@ -21,7 +21,7 @@ $menus      = wp_get_nav_menus();
             enctype="multipart/form-data"
             action="<?php echo admin_url( 'admin-ajax.php' ); ?>"
             class="_js-form"
-            data-success-message="<?php echo __('Setting saved', UNDFND_WP_LINKY_DOMAIN); ?>"
+            data-success-message="<?php echo __('Settings saved', UNDFND_WP_LINKY_DOMAIN); ?>"
     >
         <h3><?php echo __('Header', UNDFND_WP_LINKY_DOMAIN); ?></h3>
         <div class="col-lr">
@@ -148,6 +148,13 @@ $menus      = wp_get_nav_menus();
         <div class="separator-form"></div>
         <h3><?php echo __('Links', UNDFND_WP_LINKY_DOMAIN); ?></h3>
         <div class="col-lr">
+            <div class="links-informations">
+                <p>
+                    <?php echo __('If you have already filled in links, they will not be modified so as not to lose the configuration already carried out.', UNDFND_WP_LINKY_DOMAIN); ?>
+                    <br>
+                    <?php echo __('The above configuration will appear on your future links.', UNDFND_WP_LINKY_DOMAIN); ?>
+                </p>
+            </div>
             <div class="form-control">
                 <div class="form-field">
                     <label for="links_label_background_type"><?php echo __('Label background type', UNDFND_WP_LINKY_DOMAIN); ?></label>
@@ -213,6 +220,7 @@ $menus      = wp_get_nav_menus();
                 <div class="pull-right">
                     <button type="submit" class="button button-primary button-large"><?php echo __('Save'); ?></button>
                 </div>
+                <div class="clearfix"></div>
             </div>
         </div>
         <input type="hidden" name="action" value="save_form">

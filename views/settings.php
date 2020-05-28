@@ -9,8 +9,6 @@
 use LinkyApp\Helper\WPLinkyHelper;
 
 $data               = WPLinkyHelper::getPageOption();
-$defaultLabels      = WPLinkyHelper::getDefaultLabels();
-$defaultCategories  = WPLinkyHelper::getDefaultCategories();
 $global             = WPLinkyHelper::getOptionValue('global', $data, []);
 $homeUrl            = home_url();
 
@@ -31,11 +29,11 @@ $homeUrl            = home_url();
         </div>
         <div class="form-field">
             <label for="categories"><?php echo __('Links categories', UNDFND_WP_LINKY_DOMAIN); ?></label>
-            <input type="text" id="categories" name="categories" placeholder="<?php echo __('Type category and press enter', UNDFND_WP_LINKY_DOMAIN); ?>" class="js-choices" value="<?php echo WPLinkyHelper::getOptionValue('categories', $global, $defaultCategories); ?>">
+            <input type="text" id="categories" name="categories" placeholder="<?php echo __('Type category and press enter', UNDFND_WP_LINKY_DOMAIN); ?>" class="js-choices" value="<?php echo WPLinkyHelper::getOptionValue('categories', $global); ?>">
         </div>
         <div class="form-field">
             <label for="labels"><?php echo __('Links labels', UNDFND_WP_LINKY_DOMAIN); ?></label>
-            <input type="text" id="labels" name="labels" placeholder="<?php echo __('Type label and press enter', UNDFND_WP_LINKY_DOMAIN); ?>" class="js-choices" value="<?php echo WPLinkyHelper::getOptionValue('labels', $global, $defaultLabels); ?>">
+            <input type="text" id="labels" name="labels" placeholder="<?php echo __('Type label and press enter', UNDFND_WP_LINKY_DOMAIN); ?>" class="js-choices" value="<?php echo WPLinkyHelper::getOptionValue('labels', $global); ?>">
         </div>
         <div class="form-field">
             <label for="code_ga"><?php echo __('Google Analytics', UNDFND_WP_LINKY_DOMAIN); ?></label>
@@ -53,6 +51,7 @@ $homeUrl            = home_url();
             <div class="pull-right">
                 <button type="submit" class="button button-primary button-large"><?php echo __('Save'); ?></button>
             </div>
+            <div class="clearfix"></div>
         </div>
 
         <input type="hidden" name="action" value="save_form">

@@ -5,6 +5,7 @@
  * @link      https://www.undefined.fr
  */
 var $ = jQuery;
+var paletteLinky = ["transparent", "#6be39c", "#39cb75", "#1a7e43", "#06421f", "#68e0c6", "#29bb9c", "#23a085", "#0e5f4d", "#043a2e", "#6fcade", "#3b99d9", "#2f81b7", "#2f59b7", "#354a5d", "#d988de", "#9a5cb4", "#8d48ab", "#6a2887", "#410c58", "#ea827b", "#e54d42", "#be3a31", "#94241c", "#580f0a", "#f1d372", "#f0c330", "#f19b2c", "#e47e31", "#d15519", "#ffffff", "#ecf0f1", "#bdc3c7", "#808c8d", "#1d1d1d"];
 
 $(document).ready(function() {
     var render      = new renderComponent('.linky-page', {});
@@ -15,6 +16,10 @@ $(document).ready(function() {
     });
     new linksComponent('._js-form .links', {
         linkyForm: linkyForm
+    });
+
+    $(window).load(function() {
+        linkyForm.dirtyEvent();
     });
 });
 
@@ -91,10 +96,6 @@ var WPLinkyAdminForm = function (element, options) {
             $('#' + $el.attr('name') + '-' + val).show();
         }).trigger('change');
 
-        plugin.form.find('input, select').change(function() {
-            plugin.formIsDirty = true;
-        });
-
         window.onbeforeunload = function(e) {
             e = e || window.event;
             if (plugin.formIsDirty) {
@@ -142,6 +143,14 @@ var WPLinkyAdminForm = function (element, options) {
         plugin.form.find('.links').disableSelection();
     };
 
+    // Set Events
+    plugin.dirtyEvent = function () {
+        plugin.formIsDirty = false;
+        plugin.form.find('input, select').change(function() {
+            plugin.formIsDirty = true;
+        });
+    };
+
     plugin._libInstance = function () {
         const elements = document.querySelectorAll('.js-choices');
         for (var j = 0; j < elements.length; j++) {
@@ -154,11 +163,11 @@ var WPLinkyAdminForm = function (element, options) {
         $(".colorpicker").colorPick({
             initialColor: '#fff',
             paletteLabel: '',
-            palette: ["transparent", "#6be39c", "#39cb75", "#1a7e43", "#06421f", "#68e0c6", "#29bb9c", "#23a085", "#0e5f4d", "#043a2e", "#6fcade", "#3b99d9", "#2f81b7", "#2f59b7", "#354a5d", "#d988de", "#9a5cb4", "#8d48ab", "#6a2887", "#410c58", "#ea827b", "#e54d42", "#be3a31", "#94241c", "#580f0a", "#f1d372", "#f0c330", "#f19b2c", "#e47e31", "#d15519", "#ffffff", "#ecf0f1", "#bdc3c7", "#808c8d", "#1d1d1d"],
+            palette: paletteLinky,
             allowCustomColor: true,
             onColorSelected: function() {
                 this.element.css({'backgroundColor': this.color, 'color': this.color}).removeClass('is-transparent').toggleClass('is-transparent', (this.color.toLowerCase() == 'transparent'));
-                this.element.siblings('input[type="text"]').val(this.color);
+                this.element.siblings('input[type="text"]').val(this.color).trigger('change');
             }
         });
 
@@ -166,7 +175,7 @@ var WPLinkyAdminForm = function (element, options) {
             paletteLabel: '',
             onColorSelected: function() {
                 this.element.css({'backgroundImage': 'linear-gradient(120deg, ' + args.gradients[this.color].join(',') + ')'});
-                this.element.siblings('input[type="hidden"]').val(this.color);
+                this.element.siblings('input[type="hidden"]').val(this.color).trigger('change');
             }
         });
 
@@ -181,9 +190,10 @@ var WPLinkyAdminForm = function (element, options) {
         $(".link_colorpicker").not('.loaded').colorPick({
             initialColor: '#fff',
             paletteLabel: 'Linky',
+            palette: paletteLinky,
             allowCustomColor: true,
             onColorSelected: function() {
-                this.element.siblings('input[type="hidden"]').val(this.color);
+                this.element.siblings('input[type="hidden"]').val(this.color).trigger('change');
                 var property = this.element.data('property');
                 this.element.css({'backgroundColor': this.color}).removeClass('is-transparent').toggleClass('is-transparent', (this.color.toLowerCase() == 'transparent'));
                 var $el = this.element.closest('.link');
@@ -354,7 +364,7 @@ var imageUploader = function (element, options) {
                 }).on('select', function() {
                     var attachment = custom_uploader.state().get('selection').first().toJSON();
                     button.addClass('is-filled');
-                    button.find('input[type="hidden"]').val(attachment.id);
+                    button.find('input[type="hidden"]').val(attachment.id).trigger('change');
                     button.css('background-image', 'url(' + attachment.url + ')');
                 }).open();
         });
@@ -365,7 +375,7 @@ var imageUploader = function (element, options) {
 
             var el = $(this).closest(element);
             el.removeClass('is-filled')
-            el.find('input[type="hidden"]').val('');
+            el.find('input[type="hidden"]').val('').trigger('change');
             el.attr('style', '');
 
             return false;

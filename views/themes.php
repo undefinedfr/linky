@@ -56,9 +56,10 @@ $defaultBodyThemes      = ThemesHelper::getBodyThemes();
         </div>
         <div class="form-field">
             <div class="pull-right">
-                <button type="submit" class="button button-large js-override" data-override="true"><?php echo __('Save and overwrite appareance'); ?></button>
+                <button type="submit" class="button button-large js-override" data-override="true"><?php echo __('Save and overwrite appareance', UNDFND_WP_LINKY_DOMAIN); ?></button>
                 <button type="submit" class="button button-primary button-large js-override" data-override="false"><?php echo __('Save'); ?></button>
             </div>
+            <div class="clearfix"></div>
         </div>
 
         <input type="hidden" name="action" value="save_form">

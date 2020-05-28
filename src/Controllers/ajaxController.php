@@ -149,11 +149,7 @@ class AjaxController
      */
     private function _overridePageWithTheme()
     {
-        $headerTheme = ThemesHelper::getHeaderThemeById($this->_dbData['themes']['header_theme']);
-        $this->_dbData['appareance'] = array_merge($this->_dbData['appareance'], $headerTheme->getAll());
-        
-        $bodyTheme = ThemesHelper::getBodyThemeById($this->_dbData['themes']['body_theme']);
-        $this->_dbData['appareance'] = array_merge($this->_dbData['appareance'], $bodyTheme->getAll());
+        $this->_dbData['appareance'] = ThemesHelper::prepareThemeOverride($this->_dbData);
 
         $this->_saveData('appareance', $this->_dbData['appareance']);
     }

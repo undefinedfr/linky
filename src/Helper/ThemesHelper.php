@@ -67,6 +67,17 @@ abstract class ThemesHelper
         return new $className($theme, $json);
     }
 
+    public static function prepareThemeOverride($data)
+    {
+        $headerTheme = ThemesHelper::getHeaderThemeById($data['themes']['header_theme']);
+        $data['appareance'] = array_merge($data['appareance'], $headerTheme->getAll());
+
+        $bodyTheme = ThemesHelper::getBodyThemeById($data['themes']['body_theme']);
+        $data['appareance'] = array_merge($data['appareance'], $bodyTheme->getAll());
+
+        return $data['appareance'];
+    }
+
     private static function _getThemeFilesByType($type, $only_keys = false)
     {
         return array_merge(self::_getFiles(self::PLUGIN_DATA_APP_DIR, $type, $only_keys), self::_getFiles(self::THEME_DATA_APP_DIR, $type, $only_keys));

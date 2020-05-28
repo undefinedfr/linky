@@ -9,8 +9,6 @@
 use LinkyApp\Helper\WPLinkyHelper;
 
 $data               = WPLinkyHelper::getPageOption();
-$defaultLabels      = WPLinkyHelper::getDefaultLabels();
-$defaultCategories  = WPLinkyHelper::getDefaultCategories();
 $global             = WPLinkyHelper::getOptionValue('global', $data, []);
 $appareance         = WPLinkyHelper::getOptionValue('appareance', $data, []);
 $id                 = WPLinkyHelper::getRandomIdentifier();
@@ -29,16 +27,16 @@ $size               = $this->get('size', 100);
     <div class="link__body">
         <div class="form-control">
             <div class="link__category form-field">
-                <?php $categories = explode(',', $this->get('categories', $defaultCategories)); ?>
+                <?php $categories = explode(',', WPLinkyHelper::getOptionValue('categories', $global)); ?>
                 <select name="links[category][]">
                     <option value=""><?php echo __('No category', UNDFND_WP_LINKY_DOMAIN); ?></option>
                     <?php foreach($categories as $category): ?>
-                        <option value="<?php echo  __($category, UNDFND_WP_LINKY_DOMAIN); ?>" <?php echo $this->get('category') ? 'selected' : ''; ?>><?php echo __($category, UNDFND_WP_LINKY_DOMAIN); ?></option>
+                        <option value="<?php echo $category; ?>" <?php echo $this->get('category') ? 'selected' : ''; ?>><?php echo $category; ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
             <div class="link__label form-field">
-                <?php $labels = explode(',', WPLinkyHelper::getOptionValue('labels', $global, $defaultLabels)); ?>
+                <?php $labels = explode(',', WPLinkyHelper::getOptionValue('labels', $global)); ?>
                 <select name="links[label][]">
                     <option value=""><?php echo __('No label', UNDFND_WP_LINKY_DOMAIN); ?></option>
                     <?php foreach($labels as $label): ?>
