@@ -25,6 +25,11 @@ $menus      = wp_get_nav_menus();
     >
         <h3><?php echo __('Header', UNDFND_WP_LINKY_DOMAIN); ?></h3>
         <div class="col-lr">
+            <div class="links-informations">
+                <p>
+                    <?php echo __('It is recommended to upload a new image to have the module image sizes', UNDFND_WP_LINKY_DOMAIN); ?>
+                </p>
+            </div>
             <div class="form-control form-control--upload">
                 <div class="form-field">
                     <label for="avatar"><?php echo __('Avatar', UNDFND_WP_LINKY_DOMAIN); ?></label>

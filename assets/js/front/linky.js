@@ -12,3 +12,19 @@ $(document).ready(function() {
         $('.linky-page').toggleClass('menu-open');
     });
 });
+
+$(window).load(function() {
+    //fix themes with lazyload
+    $('img').each(function() {
+        var $img = $(this);
+        var imgData = $img.data();
+        var objKeys = Object.keys(imgData);
+        if (objKeys.length > 0) {
+            for(var i = 0; i < objKeys.length; i++) {
+                if (objKeys[i].toLowerCase().indexOf('src') >= 0) {
+                    $img.attr('src', $img.data(objKeys[i]));
+                }
+            }
+        }
+    });
+});

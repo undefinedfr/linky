@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Linky\n"
 "POT-Creation-Date: 2020-05-03 15:37+1000\n"
-"PO-Revision-Date: 2020-05-28 16:31+0200\n"
+"PO-Revision-Date: 2020-05-29 09:10+0200\n"
 "Last-Translator: RIVIERE Nicolas <hello@undefined.fr>\n"
 "Language-Team: Undefined <hello@undefined.fr>\n"
 "Language: fr\n"
@@ -233,6 +233,9 @@ msgstr "Bienvenue sur le plugin Linky"
 
 msgid "Got it"
 msgstr "J'ai compris"
+
+msgid "It is recommended to upload a new image to have the plugin image sizes"
+msgstr "Il est recommandé d'ajouter (upload) une nouvelle image pour bénéficier des tailles d'images du module"
 
 msgid "If you have already filled in links, they will not be modified so as not to lose the configuration already carried out."
 msgstr "Si vous avez déjà renseigné des liens, ils ne seront pas modifiés pour ne pas perdre la configuration déjà effectuée."

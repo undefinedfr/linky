@@ -2352,7 +2352,7 @@ body.render-loading .settings-wp-linky .render-view:after {
 
 /* line 1132, ../sass/wp-linky.scss */
 .screen .linky-page .footer {
-  position: absolute !important;
+  display: none;
 }
 
 /*# sourceMappingURL=wp-linky.css.map */
