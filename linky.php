@@ -9,8 +9,8 @@
 /*
   Plugin Name: Linky
   Plugin URI: https://www.undefined.fr
-  Description: Create Link Hub Page for your site
-  Version: 0.0.1
+  Description: Create & manage link’s hub for your  social profile directly in your websites
+  Version: 1.0.0
   Author Name: Nicolas RIVIERE (hello@undefined.fr)
   Author: Nicolas RIVIERE (Undefined)
   Domain Path: /languages
