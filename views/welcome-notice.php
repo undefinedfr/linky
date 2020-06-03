@@ -6,5 +6,5 @@
         <li><?php echo sprintf(__( "Choose the <a href='%s'>links of your social profiles</a> so that they appear on your page", UNDFND_WP_LINKY_DOMAIN ), admin_url('admin.php?page=' . $this->_getMenuSlug($this->_socialMenuSlug))); ?></li>
         <li><?php echo sprintf(__( "Finally, <a href='%s'>configure your links</a> and view the result!", UNDFND_WP_LINKY_DOMAIN ), admin_url('admin.php?page=' . $this->_getMenuSlug($this->_socialMenuSlug))); ?></li>
     </ul>
-    <p><a href="<?php echo admin_url('admin.php?page=' . $_GET['page'] . '&admin_notice_dismissed'); ?>" class="button button-primary button-large"><?php echo __('Got it', UNDFND_WP_LINKY_DOMAIN ); ?></a></p>
+    <p><a href="<?php echo admin_url('admin.php?page=' . sanitize_text_field($_GET['page']) . '&admin_notice_dismissed'); ?>" class="button button-primary button-large"><?php echo __('Got it', UNDFND_WP_LINKY_DOMAIN ); ?></a></p>
 </div>

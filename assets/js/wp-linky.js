@@ -23,6 +23,17 @@ $(document).ready(function() {
     });
 });
 
+$(window).load(function() {
+    // Sticky iphone
+    if($(window).width() > 1024) {
+        $('.render-view').height($('._col-8').height() - 110);
+        $('.iphone-x').stickit({
+            top: 50,
+            scope: StickScope.Parent
+        });
+    }
+});
+
 var WPLinkyAdminForm = function (element, options) {
     /* --- VARIABLES --- */
     var defaults = {};

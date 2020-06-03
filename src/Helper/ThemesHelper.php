@@ -19,11 +19,21 @@ abstract class ThemesHelper
     const PLUGIN_DATA_GRADIENT_APP_DIR = UNDFND_WP_LINKY_PLUGIN_DIR . 'data/gradients';
     const THEME_DATA_GRADIENT_APP_DIR  = UNDFND_WP_LINKY_THEME_DIR . 'data/gradients';
 
+    /**
+     * Get header themes
+     *
+     * @return array
+     */
     public static function getHeaderThemes()
     {
         return self::_getThemeFilesByType('header');
     }
 
+    /**
+     * Get header themes
+     *
+     * @return array
+     */
     public static function getBodyThemes()
     {
         return self::_getThemeFilesByType('body');

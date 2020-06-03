@@ -81,6 +81,10 @@
                 width: 100%;
                 background: white;
                 border-top: solid 1px rgba($black, .15);
+
+                svg path {
+                    fill: $black;
+                }
             }
 
             .header__menu {

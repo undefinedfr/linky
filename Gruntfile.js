@@ -36,6 +36,19 @@ module.exports = function(grunt) {
                     "dest": "<%= paths.cssDir %>",
                     "ext": ".css"
                 }]
+            },
+            prod: {
+                options: {
+                    style: 'compressed',
+                    lineNumbers: false
+                },
+                files: [{
+                    "expand": true,
+                    "cwd": "<%= paths.sassDir %>",
+                    "src": ["**/*.scss"],
+                    "dest": "<%= paths.cssDir %>",
+                    "ext": ".css"
+                }]
             }
         },
 
@@ -85,6 +98,7 @@ module.exports = function(grunt) {
 
     // Tâche pour watch + concatenation JS Lib
     grunt.registerTask('default', ['watch']);
+    grunt.registerTask('prod', ['sass:prod', 'concat', 'uglify']);
 
     grunt.loadNpmTasks('grunt-simple-watch');
 

@@ -51,7 +51,7 @@ class AjaxController
      */
     public function getLinkTemplate()
     {
-        $type = !empty($_POST['_type']) ? $_POST['_type'] : '';
+        $type = !empty($_POST['_type']) ? sanitize_text_field($_POST['_type']) : '';
         $className = '\LinkyApp\Type\\' . $type . 'Type';
         if(!class_exists($className)) {
             wp_send_json_error();
@@ -94,7 +94,7 @@ class AjaxController
     private function _save()
     {
         if(!empty($_POST['_group'])) {
-            $this->_formData = $_POST;
+            $this->_formData = WPLinkyHelper::recursiveSanitizeTextField($_POST);
             $group = $this->_formData['_group'];
             unset($this->_formData['_group']);
 
