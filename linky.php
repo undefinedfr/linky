@@ -15,7 +15,7 @@
   Author: Nicolas RIVIERE (Undefined)
   Domain Path: /languages
   Text Domain: wp_linky
-  Author URI: https://www.undefined.fr
+  Author URI: https://www.undefined.fr/#about
  */
 
 namespace LinkyApp;

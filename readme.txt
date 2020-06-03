@@ -1,6 +1,6 @@
 === Linky ===
 Contributors: undefinedfr
-Donate link: https://www.undefined.fr
+Donate link: https://www.undefined.fr/#donate
 Tags: linktree, later, link hub, social profile, social, links, links hub, taplink, litelink, contactup, aboutme, carrd, hypelink, inksto, bio links
 Requires at least: 4.0
 Tested up to: 5.4.1
