@@ -60,7 +60,7 @@ Infinite. You can add as many links as you want.
 
 Yes.
 
-= Can i add social links in may page ? =
+= Can i add social links in my page ? =
 
 Yes.
 
