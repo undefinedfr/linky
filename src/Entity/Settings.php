@@ -12,13 +12,32 @@ use LinkyApp\Helper\WPLinkyHelper;
 
 /**
  * Class Settings
- * @since 0.0.1
+ * @since 1.0.0
  */
 class Settings extends AbstractEntity
 {
+    /**
+     * @var string $code_ga
+     */
     public $code_ga;
+
+    /**
+     * @var string $slug
+     */
     public $slug;
+
+    /**
+     * @var string $labels
+     */
     public $labels;
-    public $catagories;
+
+    /**
+     * @var string $categories
+     */
+    public $categories;
+
+    /**
+     * @var bool $theme_style
+     */
     public $theme_style;
 }

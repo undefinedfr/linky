@@ -10,21 +10,72 @@ namespace LinkyApp\Entity;
 
 /**
  * Class Socials
- * @since 0.0.1
+ * @since 1.0.0
  */
 class Socials extends AbstractEntity
 {
+    /**
+     * @var $facebook
+     */
     public $facebook;
+
+    /**
+     * @var $instagram
+     */
     public $instagram;
+
+    /**
+     * @var $pinterest
+     */
     public $pinterest;
+
+    /**
+     * @var $youtube
+     */
     public $youtube;
+
+    /**
+     * @var $twitter
+     */
     public $twitter;
+
+    /**
+     * @var $medium
+     */
     public $medium;
+
+    /**
+     * @var $snapchat
+     */
     public $snapchat;
+
+    /**
+     * @var $behance
+     */
     public $behance;
+
+    /**
+     * @var $dribbble
+     */
     public $dribbble;
+
+    /**
+     * @var $github
+     */
     public $github;
+
+    /**
+     * @var $spotify
+     */
     public $spotify;
+
+    /**
+     * @var $linkedin
+     */
     public $linkedin;
+
+    /**
+     * @var $twitch
+     */
     public $twitch;
 }

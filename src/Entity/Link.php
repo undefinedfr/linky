@@ -8,9 +8,11 @@
 
 namespace LinkyApp\Entity;
 
+use LinkyApp\Helper\WPLinkyHelper;
+
 /**
  * Class Link
- * @since 0.0.1
+ * @since 1.0.0
  */
 class Link extends AbstractEntity
 {
@@ -19,12 +21,12 @@ class Link extends AbstractEntity
 
     public function __construct($data = [])
     {
-        $labels = !empty($data['labels']) ? $data['labels'] : [];
+        $labels = WPLinkyHelper::getOptionValue('labels', $data, []);
         $this->set('defaultLabels', array_merge([
             __('New', UNDFND_WP_LINKY_DOMAIN),
         ], $labels));
 
-        $categories = !empty($data['categories']) ? $data['categories'] : [];
+        $categories = WPLinkyHelper::getOptionValue('categories', $data, []);
         $this->set('defaultCategories', array_merge([
             __('Blog post', UNDFND_WP_LINKY_DOMAIN),
             __('Product', UNDFND_WP_LINKY_DOMAIN),
@@ -37,6 +39,11 @@ class Link extends AbstractEntity
         parent::__construct($data);
     }
 
+    /**
+     * Fill data to object
+     *
+     * @param $link
+     */
     private function _addData($link)
     {
         $className = '\LinkyApp\Type\\' . $link['type'] . 'Type';

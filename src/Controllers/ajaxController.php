@@ -17,7 +17,7 @@ use LinkyApp\Type\SeparatorType;
 
 /**
  * Class AjaxController
- * @since 0.0.1
+ * @since 1.0.0
  */
 class AjaxController
 {

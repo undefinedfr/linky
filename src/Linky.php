@@ -13,7 +13,7 @@ use LinkyApp\Helper\WPLinkyHelper;
 
 /**
  * Class Linky
- * @since 0.0.1
+ * @since 1.0.0
  */
 class Linky {
 
@@ -354,11 +354,19 @@ class Linky {
         return $this->_options;
     }
 
+    /**
+     * Display admin notice
+     */
     public function displayAdminNotice()
     {
         include_once WPLinkyHelper::getViewPath('welcome-notice');
     }
 
+    /**
+     * Get index controller
+     *
+     * @return Controllers\IndexController
+     */
     public function getIndexController()
     {
         if(empty($this->indexController))
@@ -367,12 +375,22 @@ class Linky {
         return $this->indexController;
     }
 
+    /**
+     * Add linky url rewrite
+     */
     public function linkyRewriteRule()
     {
         $options = WPLinkyHelper::getPage('global');
         add_rewrite_rule('^' . (!empty($options['slug']) ? $options['slug'] : $this->_defaultSlug) . '/?' ,'index.php?is_linky=1','top');
     }
 
+    /**
+     * Include linky template
+     *
+     * @param $template
+     *
+     * @return string
+     */
     public function linkyTemplateInclude( $template )
     {
         if ( empty(get_query_var( 'is_linky' )) ) {
@@ -382,6 +400,9 @@ class Linky {
         return WPLinkyHelper::getViewPath('front/index');
     }
 
+    /**
+     * Remove all style if necessary
+     */
     public function linkyRemoveAllStyles()
     {
         if ( empty(get_query_var( 'is_linky' )) || is_admin() ) {
@@ -392,6 +413,9 @@ class Linky {
         $wp_styles->queue = [$this->_menuSlug];
     }
 
+    /**
+     * Remove notice after button click or display it
+     */
     public function welcomeMessageHandler()
     {
         if(isset($_GET['admin_notice_dismissed'])) {
@@ -404,12 +428,24 @@ class Linky {
         }
     }
 
+    /**
+     * Add linky query var param
+     *
+     * @param $query_vars
+     *
+     * @return array
+     */
     public function linkyQueryParams( $query_vars )
     {
         $query_vars[] = 'is_linky';
         return $query_vars;
     }
 
+    /**
+     * Include page files
+     *
+     * @param string $page
+     */
     private function _getPage($page = 'settings')
     {
         include WPLinkyHelper::getViewPath('header');
@@ -417,6 +453,13 @@ class Linky {
         include WPLinkyHelper::getViewPath('footer');
     }
 
+    /**
+     * Return menu slug
+     *
+     * @param $slug
+     *
+     * @return string
+     */
     private function _getMenuSlug($slug)
     {
         return $this->_menuSlug . '-' . $slug;

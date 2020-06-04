@@ -13,7 +13,7 @@ use LinkyApp\Helper\WPLinkyHelper;
 
 /**
  * Class AbstractEntity
- * @since 0.0.1
+ * @since 1.0.0
  */
 class AbstractEntity extends AbstractObject
 {
@@ -22,6 +22,11 @@ class AbstractEntity extends AbstractObject
         $this->_setData($data);
     }
 
+    /**
+     * Define is object is empty
+     *
+     * @return bool
+     */
     public function isEmpty() {
         return empty(array_filter($this->getAll(), function($v, $k) {
             return !empty($v);

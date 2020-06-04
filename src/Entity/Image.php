@@ -10,7 +10,7 @@ namespace LinkyApp\Entity;
 
 /**
  * Class Image
- * @since 0.0.1
+ * @since 1.0.0
  */
 class Image
 {
@@ -21,6 +21,13 @@ class Image
         $this->id = $id;
     }
 
+    /**
+     * Get Image url for specific size
+     * If size icon_* not exist, load thumbnail size
+     *
+     * @param string $size
+     * @return mixed
+     */
     public function getImageUrl($size = 'thumbnail') {
         $image = wp_get_attachment_image_src($this->id, $size);
         if(strpos($size, 'icon') !== false) {

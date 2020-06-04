@@ -12,7 +12,7 @@ use LinkyApp\AbstractObject;
 
 /**
  * Class AbstractTheme
- * @since 0.0.1
+ * @since 1.0.0
  */
 class AbstractTheme extends AbstractObject
 {
@@ -33,6 +33,11 @@ class AbstractTheme extends AbstractObject
         $this->_setType();
     }
 
+    /**
+     * Get Image src
+     *
+     * @return string
+     */
     public function getImageSrc()
     {
         $suffix = '/assets/images/themes/' . $this->type . '/' . $this->id . '.png';
@@ -43,6 +48,11 @@ class AbstractTheme extends AbstractObject
         }
     }
 
+    /**
+     * Set type
+     *
+     * @throws \ReflectionException
+     */
     private function _setType() {
         $className = new \ReflectionClass(get_class($this));
         $this->type = strtolower(preg_replace('#^Abstract([a-zA-Z]{0,})Theme$#', '$1', $className->getShortName()));

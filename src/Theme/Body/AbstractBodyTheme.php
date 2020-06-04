@@ -12,7 +12,7 @@ use LinkyApp\Theme\AbstractTheme;
 
 /**
  * Class AbstractTheme
- * @since 0.0.1
+ * @since 1.0.0
  */
 class AbstractBodyTheme extends AbstractTheme
 {

@@ -10,7 +10,7 @@ namespace LinkyApp\Entity;
 
 /**
  * Class Links
- * @since 0.0.1
+ * @since 1.0.0
  */
 class Links extends AbstractEntity
 {
@@ -23,6 +23,8 @@ class Links extends AbstractEntity
 
     /**
      * Set all links
+     *
+     * @param array $links
      *
      * @return void;
      */

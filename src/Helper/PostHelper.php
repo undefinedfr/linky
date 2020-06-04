@@ -10,13 +10,11 @@ namespace LinkyApp\Helper;
 
 /**
  * Class PostHelper
- * @since 0.0.1
+ * @since 1.0.0
  */
 if(!class_exists('PostHelper')) {
     class PostHelper
     {
-        private $edited = false;
-
         public function __construct($post = '')
         {
             $this->data = new stdClass();
@@ -26,7 +24,7 @@ if(!class_exists('PostHelper')) {
         }
 
         /**
-         * LoadByID
+         * Load Post by ID
          *
          * @param $ID
          * @return PostHelper
@@ -39,10 +37,10 @@ if(!class_exists('PostHelper')) {
         }
 
         /**
-         * Fill Post
+         * Fill Post with data
          *
-         * @param $data
-         * @return $this
+         * @param array $data
+         * @return object $this
          */
         public function fill($data)
         {
@@ -82,6 +80,7 @@ if(!class_exists('PostHelper')) {
 
         /**
          * Get PostID
+         *
          * @return bool|mixed|stdClass
          */
         public function getID()

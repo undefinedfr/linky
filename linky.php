@@ -34,7 +34,7 @@ define('UNDFND_WP_LINKY_THEME_APP_DIR', UNDFND_WP_LINKY_THEME_DIR . 'src');
 
 require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-// Helpers
+// Linky Helper
 require_once( UNDFND_WP_LINKY_PLUGIN_APP_DIR . '/Helper/WPLinkyHelper.php' );
 
 /**

@@ -10,7 +10,7 @@ namespace LinkyApp\Type;
 
 /**
  * Class BlankType
- * @since 0.0.1
+ * @since 1.0.0
  */
 class BlankType extends AbstractType
 {

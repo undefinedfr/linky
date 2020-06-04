@@ -10,7 +10,7 @@ namespace LinkyApp\Entity;
 
 /**
  * Class Socials
- * @since 0.0.1
+ * @since 1.0.0
  */
 class Menu
 {
@@ -23,6 +23,11 @@ class Menu
         }
     }
 
+    /**
+     * Return Menu items
+     *
+     * @return array|false
+     */
     public function getMenuItems()
     {
         return $this->items;

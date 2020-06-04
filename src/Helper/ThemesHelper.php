@@ -10,7 +10,7 @@ namespace LinkyApp\Helper;
 
 /**
  * Class ThemesHelper
- * @since 0.0.1
+ * @since 1.0.0
  */
 abstract class ThemesHelper
 {
@@ -39,30 +39,62 @@ abstract class ThemesHelper
         return self::_getThemeFilesByType('body');
     }
 
+    /**
+     * Get gradients array
+     *
+     * @return array
+     */
     public static function getGradients()
     {
         return self::_getGradientFiles();
     }
 
+    /**
+     * Get header theme by id
+     *
+     * @param string $themeId theme id
+     *
+     * @return object
+     */
     public static function getHeaderThemeById($themeId = 'default')
     {
         return self::getThemeFileById($themeId, 'header');
     }
 
+    /**
+     * Get body theme by id
+     *
+     * @param string $themeId body id
+     *
+     * @return object
+     */
+    public static function getBodyThemeById($themeId = 'default')
+    {
+        return self::getThemeFileById($themeId, 'body');
+    }
+
+    /**
+     * Get color for theme
+     *
+     * @return string
+     */
     public static function getColorTheme()
     {
         global $wpLinky;
         $options = $wpLinky->getOptions();
         $themes = WPLinkyHelper::getOptionValue('themes', $options);
         $themeData = self::getThemeFileById($themes['body_theme'], 'body');
-        return is_array($themeData) ?$themeData['text_color'] : $themeData->get('text_color') ;
+        return is_array($themeData) ? $themeData['text_color'] : $themeData->get('text_color') ;
     }
 
-    public static function getBodyThemeById($themeId = 'default')
-    {
-        return self::getThemeFileById($themeId, 'body');
-    }
-
+    /**
+     * Get theme file by id
+     *
+     * @param string $theme theme name
+     * @param string $type type (header|footer)
+     *
+     * @return object
+     */
     public static function getThemeFileById($theme, $type)
     {
         $suffix = $type . '/' . $theme . '.json';
@@ -77,6 +109,13 @@ abstract class ThemesHelper
         return new $className($theme, $json);
     }
 
+    /**
+     * Prepare theme for override
+     *
+     * @param array $data
+     *
+     * @return array
+     */
     public static function prepareThemeOverride($data)
     {
         $headerTheme = ThemesHelper::getHeaderThemeById($data['themes']['header_theme']);
@@ -88,16 +127,39 @@ abstract class ThemesHelper
         return $data['appareance'];
     }
 
+    /**
+     * Get themes files by type
+     *
+     * @param string $type type (header|footer)
+     * @param bool $only_keys return only keys
+     *
+     * @return array
+     */
     private static function _getThemeFilesByType($type, $only_keys = false)
     {
         return array_merge(self::_getFiles(self::PLUGIN_DATA_APP_DIR, $type, $only_keys), self::_getFiles(self::THEME_DATA_APP_DIR, $type, $only_keys));
     }
 
+    /**
+     * Get gradients files
+     *
+     * @return array
+     */
     private static function _getGradientFiles()
     {
         return array_merge(self::_getGradientFilesData(self::PLUGIN_DATA_GRADIENT_APP_DIR), self::_getGradientFilesData(self::THEME_DATA_GRADIENT_APP_DIR));
     }
 
+    /**
+     * Get files
+     *
+     * @param string $dirPath path of dir
+     * @param string $type type (header|footer)
+     * @param bool $only_keys return only keys
+     * @param bool $load load object or not
+     *
+     * @return array
+     */
     private static function _getFiles($dirPath, $type, $only_keys = false, $load = true)
     {
         $data = [];
@@ -124,6 +186,13 @@ abstract class ThemesHelper
         return ((bool) $only_keys) ? array_keys($data) : $data;
     }
 
+    /**
+     * Get gradient file data
+     *
+     * @param string $dirPath path of dir
+     *
+     * @return array
+     */
     private static function _getGradientFilesData($dirPath)
     {
         $data = [];

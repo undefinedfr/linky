@@ -13,7 +13,7 @@ use LinkyApp\Helper\WPLinkyHelper;
 
 /**
  * Class AbstractType
- * @since 0.0.1
+ * @since 1.0.0
  */
 class AbstractType extends AbstractObject
 {

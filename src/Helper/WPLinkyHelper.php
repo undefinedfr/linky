@@ -14,7 +14,7 @@ use LinkyApp\Entity\Socials;
 
 /**
  * Class WPLinkyHelper
- * @since 0.0.1
+ * @since 1.0.0
  */
 abstract class WPLinkyHelper
 {

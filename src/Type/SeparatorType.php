@@ -10,7 +10,7 @@ namespace LinkyApp\Type;
 
 /**
  * Class SeparatorType
- * @since 0.0.1
+ * @since 1.0.0
  */
 class SeparatorType extends AbstractType
 {
