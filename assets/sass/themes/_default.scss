@@ -198,6 +198,10 @@
                     width: 100%;
                     background-color: black;
                 }
+
+                & + .separator__line{
+                    margin-left: -.3255rem;
+                }
             }
 
             & + .link,

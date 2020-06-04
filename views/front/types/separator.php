@@ -21,9 +21,11 @@ $background = 'none';
         <div class="separator__line" style="max-width: calc(50% - <?php echo $halfTextSize ?>ch)">
             <span style="background-color: <?php echo $this->get('border_color', $page->get('separator_color')); ?>"></span>
         </div>
-        <div class="separator__label" style="color: <?php echo $this->get('border_color'); ?>">
-            <?php echo $this->get('label_link'); ?>
-        </div>
+        <?php if($this->get('label_link')): ?>
+            <div class="separator__label" style="color: <?php echo $this->get('border_color'); ?>">
+                <?php echo $this->get('label_link'); ?>
+            </div>
+        <?php endif; ?>
         <div class="separator__line" style="max-width: calc(50% - <?php echo $halfTextSize ?>ch)">
             <span style="background-color: <?php echo $this->get('border_color', $page->get('separator_color')); ?>"></span>
         </div>

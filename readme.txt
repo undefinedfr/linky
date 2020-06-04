@@ -33,7 +33,7 @@ With Linky, you can:
 * Show page render in admin panel
 
 
- Front Demo : [Demo](https://www.undefined.fr/mes-liens "Front demo")
+Front Demo : [Demo](https://www.undefined.fr/mes-liens "Front demo")
 
 == Installation ==
 
