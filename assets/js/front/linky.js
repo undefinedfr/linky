@@ -23,6 +23,7 @@ $(window).load(function() {
             for(var i = 0; i < objKeys.length; i++) {
                 if (objKeys[i].toLowerCase().indexOf('src') >= 0) {
                     $img.attr('src', $img.data(objKeys[i]));
+                    $img.addClass('lazyloaded');
                 }
             }
         }
