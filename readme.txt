@@ -4,7 +4,7 @@ Donate link: https://www.undefined.fr/#donate
 Tags: linktree, later, link hub, social profile, social, links, links hub, taplink, litelink, contactup, aboutme, carrd, hypelink, inksto, bio links
 Requires at least: 4.0
 Tested up to: 5.4.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
