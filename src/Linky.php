@@ -91,7 +91,7 @@ class Linky {
      *
      * @return void;
      */
-    public function wp_linky_install()
+    public function linky_install()
     {
         do_action(UNDFND_WP_LINKY_DOMAIN . '_install');
 
@@ -126,7 +126,7 @@ class Linky {
      *
      * @return void;
      */
-    public function wp_linky_uninstall()
+    public function linky_uninstall()
     {
         do_action(UNDFND_WP_LINKY_DOMAIN . '_uninstall');
     }

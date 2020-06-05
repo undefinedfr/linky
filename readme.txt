@@ -1,10 +1,10 @@
 === Linky ===
 Contributors: undefinedfr
 Donate link: https://www.undefined.fr/#donate
-Tags: linktree, later, link hub, social profile, social, links, links hub, taplink, litelink, contactup, aboutme, carrd, hypelink, inksto, bio links
+Tags: linktree, later, links, bio links, social
 Requires at least: 4.0
 Tested up to: 5.4.1
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -14,8 +14,8 @@ Create & manage link’s hub for your  social profile directly in your website
 == Description ==
 
 Linky is a free module offering to create a landing page containing all the links you want.
-It works like Linktree, Later or others but directly in your website.
-Much better for your SEO ;)
+
+It works like Linktree, Later or others but directly in your website. Much better for your SEO ;)
 
 With Linky, you can:
 

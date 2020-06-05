@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Linky\n"
+"Project-Id-Version: Linky\n"
 "POT-Creation-Date: 2020-05-03 15:37+1000\n"
-"PO-Revision-Date: 2020-05-29 09:10+0200\n"
+"PO-Revision-Date: 2020-06-05 21:07+0200\n"
 "Last-Translator: RIVIERE Nicolas <hello@undefined.fr>\n"
 "Language-Team: Undefined <hello@undefined.fr>\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-WPHeader: wp-linky.php\n"
+"X-Poedit-WPHeader: linky.php\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
@@ -249,5 +249,122 @@ msgstr "Enfin, <a href='%s'>configurer vos liens</a> et visualiser le résultat 
 msgid "Choose the <a href='%s'>links of your social profiles</a> so that they appear on your page"
 msgstr "Choisissez les <a href='%s'>liens de vos profils sociaux</a> pour qu'ils s'affichent dans votre page"
 
-msgid "Then configure the appearance of your page : the header banner, the default colors of your links or the background color of your page from the tab <a href='%s'>Appareance</a>"
+msgid "Then configure the appearance of your page : the header banner, the default colors of your links or the background color of your page from the tab <a href='%s'>Apparence</a>"
 msgstr "Puis configurer l'apparence de votre page comme le bandeau d'en-tête, les couleurs par défaut de vos liens ou encore la couleur de fond de votre page depuis l'onglet <a href='%s'>Apparence</a>"
+
+msgid "Create &amp; manage link’s hub for your social profile directly in your websites"
+msgstr "Créez et gérez votre page de liens pour vos pages de réseaux sociaux directement sur vos sites"
+
+msgid "Create & manage link’s hub for your social profile directly in your websites"
+msgstr "Créez et gérez votre page de liens pour vos pages de réseaux sociaux directement sur vos sites"
+
+msgid "Yes, you can add social links on your page header."
+msgstr "Oui, vous pouvez ajouter les liens de vos réseaux sociaux dans l'en-tête de votre site."
+
+msgid "Yes, you can add avatar on your page header."
+msgstr "Oui, vous pouvez ajouter un avatar dans l'en-tête de votre site."
+
+msgid "Linky is a free module offering to create a landing page containing all the links you want."
+msgstr "Linky est un module gratuit permettant de créer une page contenant tous les liens que vous voulez."
+
+msgid "It works like Linktree, Later or others but directly in your website. Much better for your SEO ;)"
+msgstr "Il fonctionne comme Linktree, Later ou autres mais directement depuis votre site. C'est mieux pour le SEO ;)"
+
+msgid "Infinite. You can add as many links as you want."
+msgstr "Autant que vous le souhaitez."
+
+msgid "Yes, you can choose a theme for your header and body part. Then, you can choose title, avatar, background color, gradients, link color...ect"
+msgstr "Oui, vous pouvez choisir un thème pour votre en-tête et corps de page. Ensuite, vous pouvez choisir un titre, un avatar, une couleur de fond, un dégradé ou encore les couleurs des liens...ect"
+
+msgid "Can i add social links in my page ?"
+msgstr "Puis-je ajouter les liens de mes réseaux sociaux sur ma page ?"
+
+msgid "Can i add avatar ?"
+msgstr "Puis-je ajouter un avatar ?"
+
+msgid "How much links can i add ?"
+msgstr "Combien de liens puis-je ajouter ?"
+
+msgid "Can i customize my links page ?"
+msgstr "Puis-je personnaliser ma page de liens ?"
+
+msgid "e.g."
+msgstr "Ex."
+
+msgid "This section describes how to install the plugin and get it working."
+msgstr "Cette section explique comment installer l’extension et l’utiliser."
+
+msgid "Configure plugin in Linky menu"
+msgstr "Configurer votre plugin depuis le menu Linky"
+
+msgid "Use the Settings-&gt;Plugin Name screen to configure the plugin"
+msgstr "Utilisez l’écran des réglages pour configurer l’extension"
+
+msgid "Activate the plugin through the 'Plugins' screen in WordPress"
+msgstr "Activez l’extension via l’écran « Extensions » dans WordPress"
+
+msgid "Upload the plugin files to the <code>/wp-content/plugins/plugin-name</code> directory, or install the plugin through the WordPress plugins screen directly."
+msgstr "Téléverser les fichiers de l’extension dans le répertoire <code>/wp-content/plugins/linky</code> ou installez directement l’extension via l’écran des extensions WordPress."
+
+msgid "With Linky, you can:"
+msgstr "Avec Linky, vous pouvez:"
+
+msgid "Show page render in admin panel"
+msgstr "Voir le rendu depuis l'administration du site"
+
+msgid "Choose text and background color for your body page"
+msgstr "Choisir la couleur du texte et du fond de votre page"
+
+msgid "Choose text and background color for your header page"
+msgstr "Choisir la couleur du texte et du fond de votre en-tête de page"
+
+msgid "Choose title for your header page"
+msgstr "Choisir un titre pour votre en-tête"
+
+msgid "Choose avatar for your header page"
+msgstr "Choisir un avatar pour votre en-tête"
+
+msgid "Add analytics code for your page"
+msgstr "Ajouter un code analytics à votre page"
+
+msgid "Add separator between links"
+msgstr "Ajouter un séparateur entre vos liens"
+
+msgid "Add category in your links"
+msgstr "Ajouter une catégorie sur vos liens"
+
+msgid "Add label in your links"
+msgstr "Ajouter un label sur vos liens"
+
+msgid "Choose border, text and background color for your links"
+msgstr "Choisir la couleur du texte, du fond et de la bordure de vos liens"
+
+msgid "Choose menu for your page"
+msgstr "Choisir un menu à afficher sur votre page"
+
+msgid "Add social links in your page"
+msgstr "Ajouter les liens de vos réseaux sociaux sur votre page"
+
+msgid "Customize your page with title, avatar, background color, gradients, link color...ect"
+msgstr "Personnalisez votre page avec un titre, un avatar, une couleur de fond, un dégradé ou encore la couleurs de vos liens ... ect"
+
+msgid "Choose a theme for your page"
+msgstr "Choisir un thème pour votre page"
+
+msgid "Add somes links and configure it"
+msgstr "Ajouter autant de liens que vous le souhaitez et configurez les"
+
+msgid "Add social links to your page"
+msgstr "Ajouter les liens de vos réseaux sociaux sur votre page"
+
+msgid "Choose header and body theme"
+msgstr "Choisissez un thème pour votre en-tête et votre corps de page"
+
+msgid "Configure your Linky Hub Appareance with title, colors, gradients and picture profile"
+msgstr "Configurez l'apparence de votre page de liens avec un titre, des couleurs, des dégradés ainsi qu'une image d'en-tête"
+
+msgid "Configure your Linky Hub"
+msgstr "Configurez votre page de liens Linky"
+
+msgid "1.0.0 - Initial commit"
+msgstr "1.0.0 - Premier versement du module"
