@@ -20,7 +20,7 @@ $global             = WPLinkyHelper::getOptionValue('global', $data, []);
             action="<?php echo admin_url( 'admin-ajax.php' ); ?>"
             class="_js-form"
             id="links"
-            data-success-message="<?php echo __('Links saved', UNDFND_WP_LINKY_DOMAIN); ?>"
+            data-success-message="<?php echo __('Links saved', 'linky'); ?>"
     >
         <div class="links">
             <?php if(count($links) > 0): ?>
@@ -40,10 +40,10 @@ $global             = WPLinkyHelper::getOptionValue('global', $data, []);
             <?php else: ?>
                 <div class="links__empty">
                     <p>
-                        <strong><?php echo __('No links found', UNDFND_WP_LINKY_DOMAIN); ?></strong>
+                        <strong><?php echo __('No links found', 'linky'); ?></strong>
                     </p>
                     <p>
-                        <?php echo __('To begin, please add a new link, click here', UNDFND_WP_LINKY_DOMAIN); ?>
+                        <?php echo __('To begin, please add a new link, click here', 'linky'); ?>
                     </p>
                 </div>
             <?php endif; ?>
@@ -59,14 +59,14 @@ $global             = WPLinkyHelper::getOptionValue('global', $data, []);
                 class="form-field _col-md-4 _col-xs-6 _js-links-form"
         >
             <input type="hidden" name="_type" value="default">
-            <button type="submit" class="button button-new button-large"><?php echo __('Add link', UNDFND_WP_LINKY_DOMAIN); ?></button>
+            <button type="submit" class="button button-new button-large"><?php echo __('Add link', 'linky'); ?></button>
         </form>
         <form
                 method="POST"
                 class="form-field _col-md-4 _col-xs-6 _js-links-form"
         >
             <input type="hidden" name="_type" value="separator">
-            <button type="submit" class="button button-new button-large"><?php echo __('Add separator', UNDFND_WP_LINKY_DOMAIN); ?></button>
+            <button type="submit" class="button button-new button-large"><?php echo __('Add separator', 'linky'); ?></button>
         </form>
         <div class="form-field _col-md-4 _col-xs-12">
             <button type="submit" class="button button-primary button-large" form="links"><?php echo __('Save'); ?></button>

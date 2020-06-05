@@ -12,7 +12,7 @@
         <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/linky.svg'?>
         <div class="pull-right">
             <div class="copyright">
-                <span><?php echo __('powered by', UNDFND_WP_LINKY_DOMAIN); ?></span>
+                <span><?php echo __('powered by', 'linky'); ?></span>
                 <a href="https://www.undefined.fr" target="_blank"><?php require 'front/logo.php' ?></a>
             </div>
         </div>

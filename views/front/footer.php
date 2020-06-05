@@ -8,7 +8,7 @@
 ?>
 <footer class="footer">
     <div class="copyright">
-        <span><?php echo __('powered by', UNDFND_WP_LINKY_DOMAIN); ?></span>
-        <a href="https://www.undefined.fr" target="_blank" title="<?php echo __('powered by', UNDFND_WP_LINKY_DOMAIN); ?> Undefined"><?php require 'logo.php' ?></a>
+        <span><?php echo __('powered by', 'linky'); ?></span>
+        <a href="https://www.undefined.fr" target="_blank" title="<?php echo __('powered by', 'linky'); ?> Undefined"><?php require 'logo.php' ?></a>
     </div>
 </footer>

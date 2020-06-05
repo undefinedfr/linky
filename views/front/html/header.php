@@ -26,7 +26,7 @@ if($backgroundType == 'gradient') {
         <meta name="theme-color" content="<?php echo $background; ?>">
         <meta name="msapplication-navbutton-color" content="<?php echo $background; ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo $page->get('title') ? $page->get('title') : __('My links', UNDFND_WP_LINKY_DOMAIN) . ' | ' . get_bloginfo('blogname'); ?></title>
+        <title><?php echo $page->get('title') ? $page->get('title') : __('My links', 'linky') . ' | ' . get_bloginfo('blogname'); ?></title>
         <?php wp_head(); ?>
         <?php if($analytics): ?>
             <?php echo html_entity_decode($analytics); ?>

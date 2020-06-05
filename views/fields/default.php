@@ -29,7 +29,7 @@ $size               = $this->get('size', 100);
             <div class="link__category form-field">
                 <?php $categories = explode(',', WPLinkyHelper::getOptionValue('categories', $global)); ?>
                 <select name="links[category][]">
-                    <option value=""><?php echo __('No category', UNDFND_WP_LINKY_DOMAIN); ?></option>
+                    <option value=""><?php echo __('No category', 'linky'); ?></option>
                     <?php foreach($categories as $category): ?>
                         <option value="<?php echo $category; ?>" <?php echo $this->get('category') ? 'selected' : ''; ?>><?php echo $category; ?></option>
                     <?php endforeach; ?>
@@ -38,7 +38,7 @@ $size               = $this->get('size', 100);
             <div class="link__label form-field">
                 <?php $labels = explode(',', WPLinkyHelper::getOptionValue('labels', $global)); ?>
                 <select name="links[label][]">
-                    <option value=""><?php echo __('No label', UNDFND_WP_LINKY_DOMAIN); ?></option>
+                    <option value=""><?php echo __('No label', 'linky'); ?></option>
                     <?php foreach($labels as $label): ?>
                         <option value="<?php echo $label; ?>" <?php echo $this->get('label') ? 'selected' : ''; ?>><?php echo $label; ?></option>
                     <?php endforeach; ?>
@@ -59,7 +59,7 @@ $size               = $this->get('size', 100);
             </div>
             <div class="form-field">
                 <div class="link__label-link form-field">
-                    <input type="text" name="links[label_link][]" placeholder="<?php echo __('Enter link label', UNDFND_WP_LINKY_DOMAIN); ?>" value="<?php echo $this->get('label_link'); ?>">
+                    <input type="text" name="links[label_link][]" placeholder="<?php echo __('Enter link label', 'linky'); ?>" value="<?php echo $this->get('label_link'); ?>">
                 </div>
                 <div class="link__link form-field">
                     <input type="text" name="links[link][]" placeholder="<?php echo home_url() . '/my-best-blog-post'; ?>" value="<?php echo $this->get('link'); ?>">
@@ -67,7 +67,7 @@ $size               = $this->get('size', 100);
             </div>
         </div>
 
-        <div class="link__delete" data-tooltip="<?php echo __('Delete', UNDFND_WP_LINKY_DOMAIN); ?>">
+        <div class="link__delete" data-tooltip="<?php echo __('Delete', 'linky'); ?>">
             <label class="_js-delete" for="links_delete_<?php echo $id ?>"><?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/trash.svg'?></label>
             <input type="hidden" name="links[_delete][]" id="links_delete_<?php echo $id ?>" value="no">
         </div>
@@ -77,15 +77,15 @@ $size               = $this->get('size', 100);
     <div class="link__customize">
         <div class="v-center">
             <div class="link__color">
-                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Border color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('border_color', WPLinkyHelper::getOptionValue('links_border_color', $appareance, '#E5E5E5')); ?>" data-property="borderColor" ></div>
+                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Border color', 'linky'); ?>" data-initialcolor="<?php echo $this->get('border_color', WPLinkyHelper::getOptionValue('links_border_color', $appareance, '#E5E5E5')); ?>" data-property="borderColor" ></div>
                 <input type="hidden" name="links[border_color][]" value="">
             </div>
             <div class="link__color">
-                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Background color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('background_color', WPLinkyHelper::getOptionValue('links_background_color', $appareance, '#fff')); ?>" data-property="backgroundColor" ></div>
+                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Background color', 'linky'); ?>" data-initialcolor="<?php echo $this->get('background_color', WPLinkyHelper::getOptionValue('links_background_color', $appareance, '#fff')); ?>" data-property="backgroundColor" ></div>
                 <input type="hidden" name="links[background_color][]" value="">
             </div>
             <div class="link__color">
-                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Text color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('color', WPLinkyHelper::getOptionValue('links_text_color', $appareance, '#000')); ?>" data-property="color" ></div>
+                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Text color', 'linky'); ?>" data-initialcolor="<?php echo $this->get('color', WPLinkyHelper::getOptionValue('links_text_color', $appareance, '#000')); ?>" data-property="color" ></div>
                 <input type="hidden" name="links[color][]" value="">
             </div>
         </div>

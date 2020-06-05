@@ -16,16 +16,16 @@ $defaultBodyThemes      = ThemesHelper::getBodyThemes();
 ?>
 
 <div class="inside no-gutter no-margin">
-    <div class="info-message"><?php echo __('Choose a theme and customize it in Appareance tab', UNDFND_WP_LINKY_DOMAIN); ?></div>
+    <div class="info-message"><?php echo __('Choose a theme and customize it in Appareance tab', 'linky'); ?></div>
     <form
             id="themes"
             method="POST"
             action="<?php echo admin_url( 'admin-ajax.php' ); ?>"
             class="_js-form"
-            data-success-message="<?php echo __('Setting saved', UNDFND_WP_LINKY_DOMAIN); ?>"
+            data-success-message="<?php echo __('Setting saved', 'linky'); ?>"
     >
         <div class="form-control">
-            <label for="header_theme_default"><?php echo __('Header Theme', UNDFND_WP_LINKY_DOMAIN); ?></label>
+            <label for="header_theme_default"><?php echo __('Header Theme', 'linky'); ?></label>
             <?php foreach($defaultHeaderThemes as $themeId => $theme): ?>
                 <div class="form-field">
                     <?php $checked = (WPLinkyHelper::getOptionValue('header_theme', $themes, 'default') == $themeId) ?>
@@ -40,7 +40,7 @@ $defaultBodyThemes      = ThemesHelper::getBodyThemes();
             <div class="clearfix"></div>
         </div>
         <div class="form-control">
-            <label for="body_theme_0"><?php echo __('Body Theme', UNDFND_WP_LINKY_DOMAIN); ?></label>
+            <label for="body_theme_0"><?php echo __('Body Theme', 'linky'); ?></label>
             <?php foreach($defaultBodyThemes as $themeId => $theme): ?>
                 <div class="form-field">
                     <?php $checked = (WPLinkyHelper::getOptionValue('body_theme', $themes, 'default') == $themeId) ?>
@@ -56,7 +56,7 @@ $defaultBodyThemes      = ThemesHelper::getBodyThemes();
         </div>
         <div class="form-field">
             <div class="pull-right">
-                <button type="submit" class="button button-large js-override" data-override="true"><?php echo __('Save and overwrite appareance', UNDFND_WP_LINKY_DOMAIN); ?></button>
+                <button type="submit" class="button button-large js-override" data-override="true"><?php echo __('Save and overwrite appareance', 'linky'); ?></button>
                 <button type="submit" class="button button-primary button-large js-override" data-override="false"><?php echo __('Save'); ?></button>
             </div>
             <div class="clearfix"></div>

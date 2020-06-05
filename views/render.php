@@ -11,8 +11,8 @@ $url = $prefix . $wpLinky->getIndexController()->getSettings()->get('slug', 'lin
 
 ?>
 <h2>
-    <?php echo __('Render', UNDFND_WP_LINKY_DOMAIN); ?>
-    <a href="<?php echo $url; ?>" data-prefix="<?php echo $prefix; ?>" target="_blank" class="button button-secondary pull-right _js-linky-button"><?php echo __('View page', UNDFND_WP_LINKY_DOMAIN); ?></a>
+    <?php echo __('Render', 'linky'); ?>
+    <a href="<?php echo $url; ?>" data-prefix="<?php echo $prefix; ?>" target="_blank" class="button button-secondary pull-right _js-linky-button"><?php echo __('View page', 'linky'); ?></a>
 </h2>
 <div class="render-view" id="render-view">
     <div class="iphone-x">

@@ -24,10 +24,10 @@ $active     = $this->get('active', 'yes');
     </div>
     <div class="link__body">
         <div class="link__label-link form-field">
-            <input type="text" name="links[label_link][]" placeholder="<?php echo __('Enter separator label', UNDFND_WP_LINKY_DOMAIN); ?>" value="<?php echo $this->get('label_link'); ?>">
+            <input type="text" name="links[label_link][]" placeholder="<?php echo __('Enter separator label', 'linky'); ?>" value="<?php echo $this->get('label_link'); ?>">
         </div>
 
-        <div class="link__delete" data-tooltip="<?php echo __('Delete', UNDFND_WP_LINKY_DOMAIN); ?>">
+        <div class="link__delete" data-tooltip="<?php echo __('Delete', 'linky'); ?>">
             <label class="_js-delete" for="links_delete_<?php echo $id ?>"><?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/trash.svg'?></label>
             <input type="hidden" name="links[_delete][]" id="links_delete_<?php echo $id ?>" value="no">
         </div>
@@ -37,7 +37,7 @@ $active     = $this->get('active', 'yes');
     <div class="link__customize">
         <div class="v-center">
             <div class="link__color">
-                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Color', UNDFND_WP_LINKY_DOMAIN); ?>" data-initialcolor="<?php echo $this->get('border_color', WPLinkyHelper::getOptionValue('separator_color', $appareance, '#cccccc')); ?>" data-property="sepColor" ></div>
+                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Color', 'linky'); ?>" data-initialcolor="<?php echo $this->get('border_color', WPLinkyHelper::getOptionValue('separator_color', $appareance, '#cccccc')); ?>" data-property="sepColor" ></div>
                 <input type="hidden" name="links[border_color][]" value="">
             </div>
         </div>

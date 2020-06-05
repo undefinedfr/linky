@@ -19,13 +19,13 @@ $socials    = WPLinkyHelper::getSocials();
             enctype="multipart/form-data"
             action="<?php echo admin_url( 'admin-ajax.php' ); ?>"
             class="_js-form"
-            data-success-message="<?php echo __('Setting saved', UNDFND_WP_LINKY_DOMAIN); ?>"
+            data-success-message="<?php echo __('Setting saved', 'linky'); ?>"
     >
         <?php foreach($socials as $social): ?>
             <div class="form-field social-field">
                 <label for="<?php echo $social; ?>" class="<?php echo $social . '-color'; ?>">
                     <?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/' . sanitize_title($social) . '.svg' ?>
-                    <?php echo ucfirst(__($social, UNDFND_WP_LINKY_DOMAIN)); ?>
+                    <?php echo ucfirst(__($social, 'linky')); ?>
                 </label>
                 <input type="text" id="<?php echo $social; ?>" name="<?php echo sanitize_title($social); ?>" value="<?php echo WPLinkyHelper::getOptionValue($social, $s); ?>">
             </div>

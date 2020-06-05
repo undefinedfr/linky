@@ -60,7 +60,7 @@ class Linky {
 
     public function __construct()
     {
-        $this->_pageTitle = __($this->_pageTitle, UNDFND_WP_LINKY_DOMAIN);
+        $this->_pageTitle = __($this->_pageTitle, 'linky');
 
         $this->_options = $this->getOptions();
 
@@ -173,7 +173,7 @@ class Linky {
             'args',
             [
                 'ajaxurl' => admin_url( 'admin-ajax.php' ),
-                'promptMessage' => __('You have unsaved changes, are you sure ?', UNDFND_WP_LINKY_DOMAIN),
+                'promptMessage' => __('You have unsaved changes, are you sure ?', 'linky'),
                 'gradients' => ThemesHelper::getGradients(),
             ]
         );
@@ -235,8 +235,8 @@ class Linky {
     public function addMenu()
     {
         add_menu_page(
-                __($this->_pageTitle, UNDFND_WP_LINKY_DOMAIN),
-                __($this->_pageTitle, UNDFND_WP_LINKY_DOMAIN),
+                __($this->_pageTitle, 'linky'),
+                __($this->_pageTitle, 'linky'),
                 apply_filters(UNDFND_WP_LINKY_DOMAIN . '_menu_page_capalibilty', 'manage_options'),
                 $this->_menuSlug,
                 [ &$this, 'addPage' ],
@@ -245,8 +245,8 @@ class Linky {
 
         add_submenu_page(
                 $this->_menuSlug,
-                __('Appareance', UNDFND_WP_LINKY_DOMAIN),
-                __('Appareance', UNDFND_WP_LINKY_DOMAIN),
+                __('Appareance', 'linky'),
+                __('Appareance', 'linky'),
                 apply_filters(UNDFND_WP_LINKY_DOMAIN . '_submenu_page_capalibilty', 'manage_options'),
                 $this->_getMenuSlug($this->_appareanceMenuSlug),
                 [ &$this, 'addAppareancePage' ]
@@ -254,8 +254,8 @@ class Linky {
 
         add_submenu_page(
                 $this->_menuSlug,
-                __('Social', UNDFND_WP_LINKY_DOMAIN),
-                __('Social', UNDFND_WP_LINKY_DOMAIN),
+                __('Social', 'linky'),
+                __('Social', 'linky'),
                 apply_filters(UNDFND_WP_LINKY_DOMAIN . '_submenu_page_capalibilty', 'manage_options'),
                 $this->_getMenuSlug($this->_socialMenuSlug),
                 [ &$this, 'addSocialPage' ]
@@ -263,8 +263,8 @@ class Linky {
 
         add_submenu_page(
                 $this->_menuSlug,
-                __('Links', UNDFND_WP_LINKY_DOMAIN),
-                __('Links', UNDFND_WP_LINKY_DOMAIN),
+                __('Links', 'linky'),
+                __('Links', 'linky'),
                 apply_filters(UNDFND_WP_LINKY_DOMAIN . '_submenu_page_capalibilty', 'manage_options'),
                 $this->_getMenuSlug($this->_linksMenuSlug),
                 [ &$this, 'addLinksPage' ]
@@ -272,8 +272,8 @@ class Linky {
 
         add_submenu_page(
                 $this->_menuSlug,
-                __('Themes', UNDFND_WP_LINKY_DOMAIN),
-                __('Themes', UNDFND_WP_LINKY_DOMAIN),
+                __('Themes', 'linky'),
+                __('Themes', 'linky'),
                 apply_filters(UNDFND_WP_LINKY_DOMAIN . '_submenu_page_capalibilty', 'manage_options'),
                 $this->_getMenuSlug($this->_themesMenuSlug),
                 [ &$this, 'addThemesPage' ]
