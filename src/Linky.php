@@ -139,7 +139,7 @@ class Linky {
      */
     public function loadPluginTextdomain()
     {
-        load_plugin_textdomain( UNDFND_WP_LINKY_DOMAIN, FALSE, UNDFND_WP_LINKY_PLUGIN_REALPATH . '/languages/' );
+        load_plugin_textdomain( 'linky', FALSE, UNDFND_WP_LINKY_PLUGIN_REALPATH . '/languages/' );
     }
 
 
@@ -419,10 +419,10 @@ class Linky {
     public function welcomeMessageHandler()
     {
         if(isset($_GET['admin_notice_dismissed'])) {
-            update_user_meta(get_current_user_id(), UNDFND_WP_LINKY_DOMAIN . '_notice', 1);
+            update_user_meta(get_current_user_id(), 'wp_linky_notice', 1);
         }
 
-        $noticeDisplayed = get_user_meta(get_current_user_id(), UNDFND_WP_LINKY_DOMAIN . '_notice');
+        $noticeDisplayed = get_user_meta(get_current_user_id(), 'wp_linky_notice');
         if(!empty($_GET['page']) && strpos($_GET['page'], UNDFND_WP_LINKY_SLUG) !== false && empty($noticeDisplayed)){
             add_action( 'admin_notices', [$this, 'displayAdminNotice'] );
         }

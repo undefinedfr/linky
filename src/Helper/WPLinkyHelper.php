@@ -39,7 +39,7 @@ abstract class WPLinkyHelper
      */
     public static function getPageOptionKey()
     {
-        return UNDFND_WP_LINKY_DOMAIN . '_' . self::WP_LINKY_OPTION_PAGE_KEY;
+        return 'wp_linky_' . self::WP_LINKY_OPTION_PAGE_KEY;
     }
 
     /**
