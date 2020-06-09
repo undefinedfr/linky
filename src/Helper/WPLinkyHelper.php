@@ -213,7 +213,7 @@ abstract class WPLinkyHelper
             if ( is_array( $value ) ) {
                 $value = self::recursiveSanitizeTextField($value);
             }
-            else {
+            else if($key !== 'code_ga') {
                 $value = sanitize_text_field( $value );
             }
         }

@@ -8,7 +8,8 @@
 ?>
 <footer class="footer">
     <div class="copyright">
-        <span><?php echo __('powered by', 'linky'); ?></span>
-        <a href="https://www.undefined.fr" target="_blank" title="<?php echo __('powered by', 'linky'); ?> Undefined"><?php require 'logo.php' ?></a>
+        <a href="https://wordpress.org/plugins/linky/" target="_blank" title="<?php echo __('Create Link Hub Page for your site with Linky', 'linky'); ?>"><?php echo __('Linky plugin', 'linky'); ?></a>
+        <?php echo __('powered by', 'linky'); ?>
+        <a href="https://www.undefined.fr" target="_blank" title="<?php echo __('powered by', 'linky'); ?> Undefined">Undefined</a>
     </div>
 </footer>

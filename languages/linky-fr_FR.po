@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Linky\n"
 "POT-Creation-Date: 2020-05-03 15:37+1000\n"
-"PO-Revision-Date: 2020-06-05 21:07+0200\n"
+"PO-Revision-Date: 2020-06-09 16:14+0200\n"
 "Last-Translator: RIVIERE Nicolas <hello@undefined.fr>\n"
 "Language-Team: Undefined <hello@undefined.fr>\n"
 "Language: fr\n"
@@ -30,8 +30,14 @@ msgstr "Informations enregistrées"
 msgid "Create Link Hub Page for your site"
 msgstr "Créez un page de liens pour votre site"
 
+msgid "Create Link Hub Page for your site with Linky"
+msgstr "Créez un page de liens pour votre site avec Linky"
+
 msgid "Appareance"
 msgstr "Apparence"
+
+msgid "Linky plugin"
+msgstr "Module Linky"
 
 msgid "Render"
 msgstr "Rendu"

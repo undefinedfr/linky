@@ -111,32 +111,30 @@
     }
 
     .footer {
-        font-size: 10px;
-        position: fixed;
+        font-size: 11px;
         text-align: center;
-        bottom: 0;
-        background: white;
-        box-shadow: 0 0 10px rgba(0,0,0,.1);
         white-space: nowrap;
         z-index: 10;
         display: inline-block;
-        width: auto;
         border-radius: 3px 3px 0 0;
-        padding: 12px 18px;
         color: black;
-        left: 50%;
-        transform: translateX(-50%);
         line-height: 10px;
+        position: relative;
+        margin: 0 auto;
+        width: 100%;
+        margin-top: 40px;
+        padding: 0;
 
-        span,
-        a {
+        .copyright {
+            border-radius: 3px 3px 0 0;
+            background: white;
+            padding: 12px 18px;
             display: inline-block;
-            vertical-align: top;
-        }
 
-        svg {
-            margin-left: 1px;
-            height: 10px;
+            a {
+                color: black;
+                font-weight: bold;
+            }
         }
     }
 }
