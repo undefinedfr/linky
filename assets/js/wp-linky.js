@@ -136,6 +136,8 @@ var WPLinkyAdminForm = function (element, options) {
                 },
                 success: function(response) {
                     if(response.success != void 0) {
+                        plugin.formIsDirty = false;
+
                         var message = plugin.getMessage('success',  plugin.form.data('success-message'));
                         plugin.form.prepend(message);
 

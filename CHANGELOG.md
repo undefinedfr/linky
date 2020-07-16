@@ -13,3 +13,7 @@ All notable changes to this project will be documented in this file.
 ## [1.0.12]
 ### Fixes
 - fix problem with background color
+
+## [1.0.13]
+### Fixes
+- fix js prompt after save
