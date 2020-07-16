@@ -31,7 +31,7 @@ $size               = $this->get('size', 100);
                 <select name="links[category][]">
                     <option <?php echo empty($this->get('category')) ? 'selected' : ''; ?> value=""><?php echo __('No category', 'linky'); ?></option>
                     <?php foreach($categories as $category): ?>
-                        <option value="<?php echo $category; ?>" <?php echo $this->get('category') ? 'selected' : ''; ?>><?php echo $category; ?></option>
+                        <option value="<?php echo $category; ?>" <?php echo ($this->get('category') == $category) ? 'selected' : ''; ?>><?php echo $category; ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -40,7 +40,7 @@ $size               = $this->get('size', 100);
                 <select name="links[label][]">
                     <option <?php echo empty($this->get('label')) ? 'selected' : ''; ?> value=""><?php echo __('No label', 'linky'); ?></option>
                     <?php foreach($labels as $label): ?>
-                        <option value="<?php echo $label; ?>" <?php echo $this->get('label') ? 'selected' : ''; ?>><?php echo $label; ?></option>
+                        <option value="<?php echo $label; ?>" <?php echo ($this->get('label') == $label) ? 'selected' : ''; ?>><?php echo $label; ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
