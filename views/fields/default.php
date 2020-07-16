@@ -29,7 +29,7 @@ $size               = $this->get('size', 100);
             <div class="link__category form-field">
                 <?php $categories = explode(',', WPLinkyHelper::getOptionValue('categories', $global)); ?>
                 <select name="links[category][]">
-                    <option value=""><?php echo __('No category', 'linky'); ?></option>
+                    <option <?php echo empty($this->get('category')) ? 'selected' : ''; ?> value=""><?php echo __('No category', 'linky'); ?></option>
                     <?php foreach($categories as $category): ?>
                         <option value="<?php echo $category; ?>" <?php echo $this->get('category') ? 'selected' : ''; ?>><?php echo $category; ?></option>
                     <?php endforeach; ?>
@@ -38,7 +38,7 @@ $size               = $this->get('size', 100);
             <div class="link__label form-field">
                 <?php $labels = explode(',', WPLinkyHelper::getOptionValue('labels', $global)); ?>
                 <select name="links[label][]">
-                    <option value=""><?php echo __('No label', 'linky'); ?></option>
+                    <option <?php echo empty($this->get('label')) ? 'selected' : ''; ?> value=""><?php echo __('No label', 'linky'); ?></option>
                     <?php foreach($labels as $label): ?>
                         <option value="<?php echo $label; ?>" <?php echo $this->get('label') ? 'selected' : ''; ?>><?php echo $label; ?></option>
                     <?php endforeach; ?>
