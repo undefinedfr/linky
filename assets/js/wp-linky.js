@@ -307,6 +307,9 @@ var linksComponent = function (element, options) {
             e.preventDefault();
 
             var form = $(this);
+            var position = form.data('position');
+            console.log(position);
+
             $.ajax({
                 url: args.ajaxurl,
                 method: 'POST',
@@ -320,16 +323,20 @@ var linksComponent = function (element, options) {
                 },
                 success: function(html) {
                     plugin.form.find('button').prop('disabled', false);
-                    plugin.addLink(html);
+                    plugin.addLink(html, position);
                 }
             });
         });
     };
 
-    plugin.addLink = function (html) {
+    plugin.addLink = function (html, position) {
+        position = position != void 0 ? position : 'append';
         var el = $(html);
         $element.find('.links__empty').remove();
-        $element.append(el);
+        if(position == 'prepend')
+            $element.prepend(el);
+        else
+            $element.append(el);
 
         plugin.settings.linkyForm.loadColorPicker();
     };

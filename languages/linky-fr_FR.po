@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Linky\n"
 "POT-Creation-Date: 2020-05-03 15:37+1000\n"
-"PO-Revision-Date: 2020-06-09 16:14+0200\n"
+"PO-Revision-Date: 2020-08-08 14:12+0200\n"
 "Last-Translator: RIVIERE Nicolas <hello@undefined.fr>\n"
 "Language-Team: Undefined <hello@undefined.fr>\n"
 "Language: fr\n"
@@ -374,3 +374,18 @@ msgstr "Configurez votre page de liens Linky"
 
 msgid "1.0.0 - Initial commit"
 msgstr "1.0.0 - Premier versement du module"
+
+msgid "Body text color"
+msgstr "Couleur du texte du corps"
+
+msgid "Socials links position"
+msgstr "Position des liens de réseaux sociaux"
+
+msgid "Top"
+msgstr "En haut"
+
+msgid "Bottom"
+msgstr "En bas"
+
+msgid "Both"
+msgstr "Les deux"

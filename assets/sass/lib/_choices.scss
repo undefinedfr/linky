@@ -221,8 +221,8 @@ $choices-z-index: 1;
       margin-left: 3.75px;
     }
     &.is-highlighted {
-      background-color: darken($choices-primary-color, 5%);
-      border: 1px solid darken($choices-primary-color, 10%);
+      background-color: darken($choices-primary-color, 25%);
+      border: 1px solid darken($choices-primary-color, 25%);
     }
     .is-disabled & {
       background-color: darken($choices-disabled-color, 25%);

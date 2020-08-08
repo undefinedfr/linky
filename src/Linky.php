@@ -195,6 +195,9 @@ class Linky {
      */
     public function linkyPluginEnqueue()
     {
+        if(empty(get_query_var( 'is_linky' )))
+            return;
+
         do_action(UNDFND_WP_LINKY_DOMAIN . '_before_enqueue', $this->_menuSlug);
 
         wp_enqueue_script( $this->_menuSlug . '-front', UNDFND_WP_LINKY_PLUGIN_URL . '/assets/dist/linky.js', ['jquery'] );
@@ -202,10 +205,7 @@ class Linky {
         wp_enqueue_style($this->_menuSlug . '-kaushan-font', 'https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap', false);
         wp_enqueue_style($this->_menuSlug . '-open-sans-font', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap', false);
 
-
-        if(!empty(get_query_var( 'is_linky' ))) {
-            wp_enqueue_style($this->_menuSlug, UNDFND_WP_LINKY_PLUGIN_URL . '/assets/css/themes.css');
-        }
+        wp_enqueue_style($this->_menuSlug, UNDFND_WP_LINKY_PLUGIN_URL . '/assets/css/themes.css');
 
         do_action(UNDFND_WP_LINKY_DOMAIN . '_after_enqueue', $this->_menuSlug);
     }

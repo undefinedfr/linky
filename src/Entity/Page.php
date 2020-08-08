@@ -37,9 +37,9 @@ class Page extends AbstractEntity
     public $background_type;
 
     /**
-     * @var string $text_color
+     * @var string $body_text_color
      */
-    public $text_color;
+    public $body_text_color;
 
     /**
      * @var string $background_color
@@ -135,6 +135,11 @@ class Page extends AbstractEntity
      * @var string $analyticsCode
      */
     public $analyticsCode;
+
+    /**
+     * @var string $social_position
+     */
+    public $social_position;
 
     /**
      * @var array $labels

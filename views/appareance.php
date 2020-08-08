@@ -105,13 +105,24 @@ $menus      = wp_get_nav_menus();
                         <?php endforeach; ?>
                     </select>
                 </div>
+                <div class="form-field"></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="form-control">
                 <div class="form-field">
                     <label for="social_display"><?php echo __('Display socials links with menu', 'linky'); ?></label>
                     <span class="minitext"><?php echo __('By default, socials links are visible everytime', 'linky'); ?></span>
                     <input type="radio" id="social_display" value="yes" name="social_display" <?php echo WPLinkyHelper::getOptionValue('social_display', $appareance) == 'yes' ? 'checked' : ''; ?>> <span><?php echo __('Yes', 'linky'); ?></span>
                     <input type="radio" value="no" name="social_display" <?php echo WPLinkyHelper::getOptionValue('social_display', $appareance) != 'yes' ? 'checked' : ''; ?>> <span><?php echo __('No', 'linky'); ?></span>
                 </div>
-                <div class="clearfix"></div>
+                <div class="form-field">
+                    <label for="menu"><?php echo __('Socials links position', 'linky'); ?></label>
+                    <select name="social_position" id="social_position">
+                        <?php foreach(['top', 'bottom', 'both'] as $position): ?>
+                            <option value="<?php echo $position ?>" <?php echo WPLinkyHelper::getOptionValue('social_position', $appareance) == $position ? 'selected' : ''; ?>><?php echo __(ucfirst($position), 'linky'); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
             </div>
         </div>
         <div class="separator-form"></div>
@@ -148,6 +159,14 @@ $menus      = wp_get_nav_menus();
                     </div>
                 </div>
                 <div class="clearfix"></div>
+            </div>
+            <div class="form-control">
+                <div class="form-field" id="body_text_color">
+                    <label for="body_text_color"><?php echo __('Body text color', 'linky'); ?></label>
+                    <div class="_colorpicker colorpicker" data-initialcolor="<?php echo WPLinkyHelper::getOptionValue('body_text_color', $appareance, '#000'); ?>"></div>
+                    <input type="text" id="body_text_color" name="body_text_color" value="<?php echo WPLinkyHelper::getOptionValue('body_text_color', $appareance, '#000'); ?>">
+                </div>
+                <div class="form-field"></div>
             </div>
         </div>
         <div class="separator-form"></div>

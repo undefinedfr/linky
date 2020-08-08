@@ -21,3 +21,10 @@ All notable changes to this project will be documented in this file.
 ## [1.0.14]
 ### Fixes
 - fix selected category / label
+
+## [1.1.0]
+### Fixes
+- add action bar to top of links 
+- add social links position option
+- fix translation 
+- fix separator width
