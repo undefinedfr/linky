@@ -28,3 +28,7 @@ All notable changes to this project will be documented in this file.
 - add social links position option
 - fix translation 
 - fix separator width
+
+## [1.1.1]
+### Fixes
+- add condition to social bar in top position

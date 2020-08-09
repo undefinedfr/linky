@@ -4,7 +4,7 @@ Donate link: https://www.undefined.fr/#donate
 Tags: linktree, later, links, bio links, social
 Requires at least: 4.0
 Tested up to: 5.4.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html

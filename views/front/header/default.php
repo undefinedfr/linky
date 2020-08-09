@@ -25,7 +25,9 @@
             <div class="clearfix"></div>
             <div class="header__row-border" style="background-color: <?php echo $textColor ?>"></div>
         </div>
-        <?php require UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/socials.php'; ?>
+        <?php if($page->get('social_position', 'top') != 'bottom'): ?>
+            <?php require UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/socials.php'; ?>
+        <?php endif ?>
     </header>
     <?php if(!empty($menuItems)): ?>
         <nav class="header__menu">
