@@ -36,3 +36,8 @@ All notable changes to this project will be documented in this file.
 ## [1.1.2]
 ### Fixes
 - remove linky assets on another pages
+
+
+## [1.1.3]
+### Fixes
+- override version number
