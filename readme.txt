@@ -4,7 +4,7 @@ Donate link: https://www.undefined.fr/#donate
 Tags: linktree, later, links, bio links, social
 Requires at least: 4.0
 Tested up to: 5.4.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -77,7 +77,32 @@ Yes, you can add social links on your page header.
 6. Add somes links and configure it
 
 == Changelog ==
-1.0.0 - Initial commit
+=1.0.0=
+* Initial commit
+
+=1.0.11=
+* Selected empty option for categories / labels
+
+=1.0.12=
+* fix problem with background color
+
+=1.0.13=
+* fix js prompt after save
+
+=1.0.14=
+* fix selected category / label
+
+=1.1.0=
+* add action bar to top of links
+* add social links position option
+* fix translation
+* fix separator width
+
+=1.1.1=
+* add condition to social bar in top position
+
+=1.1.2=
+* remove linky assets on another pages
 
 == Upgrade Notice ==
 

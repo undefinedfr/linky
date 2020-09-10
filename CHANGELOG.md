@@ -32,3 +32,7 @@ All notable changes to this project will be documented in this file.
 ## [1.1.1]
 ### Fixes
 - add condition to social bar in top position
+
+## [1.1.2]
+### Fixes
+- remove linky assets on another pages

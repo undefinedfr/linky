@@ -150,6 +150,9 @@ class Linky {
      */
     public function linkyAdminPluginEnqueue()
     {
+        if(strpos(get_current_screen()->base,  'wp-linky') === false)
+            return;
+
         do_action(UNDFND_WP_LINKY_DOMAIN . '_before_admin_enqueue', $this->_menuSlug);
 
         // Medias
