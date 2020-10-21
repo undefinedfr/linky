@@ -48,7 +48,7 @@ $size               = $this->get('size', 100);
         </div>
         <div class="form-control form-control--upload">
             <div class="form-field">
-                <?php 
+                <?php
                 /* @var $image \LinkyApp\Entity\Image */
                 $image = $this->get('image');
                 ?>
@@ -59,7 +59,8 @@ $size               = $this->get('size', 100);
             </div>
             <div class="form-field">
                 <div class="link__label-link form-field">
-                    <input type="text" name="links[label_link][]" placeholder="<?php echo __('Enter link label', 'linky'); ?>" value="<?php echo $this->get('label_link'); ?>">
+                    <input type="text" name="links[label_link][]" autocomplete="off" placeholder="<?php echo __('Enter link label', 'linky'); ?>" value="<?php echo $this->get('label_link'); ?>">
+                    <div class="link__autocomplete"></div>
                 </div>
                 <div class="link__link form-field">
                     <input type="text" name="links[link][]" placeholder="<?php echo home_url() . '/my-best-blog-post'; ?>" value="<?php echo $this->get('link'); ?>">

@@ -41,3 +41,9 @@ All notable changes to this project will be documented in this file.
 ## [1.1.3]
 ### Fixes
 - override version number
+
+
+## [1.2.0]
+### Added
+- add social networks (apple music, dailymotion, deezer, etsy, itunes, soundcloud, telegram, tiktok, whatsapp)
+- add posts auto-complete on label link field

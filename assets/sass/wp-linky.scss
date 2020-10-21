@@ -50,7 +50,7 @@
 
 
     #poststuff {
-        overflow: hidden;
+        //overflow: hidden;
         background: white;
         border: solid 1px $grey;
         padding-top: 0;
@@ -427,6 +427,93 @@
                 position: relative;
                 margin-bottom: 10px;
 
+                $self: &;
+
+                .form-field {
+                    position: relative;
+
+                    &.is-autocomplete {
+                        .link__autocomplete {
+                            display: block;
+                        }
+                    }
+
+                    &:after {
+                        opacity: 0;
+                    }
+
+                    &.is-loading {
+                        &:after {
+                            opacity: 1;
+                            z-index: 2;
+                            content: '';
+                            position: absolute;
+                            right: 0;
+                            top: 2px;
+                            pointer-events: none;
+                            width: 12px;
+                            height: 12px;
+                            transition: opacity .3s;
+                            display: block;
+                            background-repeat: no-repeat;
+                            background-image: url('../images/loading.gif');
+                            background-size: 100%;
+                            background-position: center;
+                        }
+                    }
+                }
+
+                &__autocomplete {
+                    background: white;
+                    z-index: 10;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    border-radius: 5px;
+                    margin-top: 4px;
+                    border: solid 1px rgba(black, .1);
+                    display: none;
+
+                    ul {
+                        max-height: 170px;
+                        overflow-x: hidden;
+                        overflow-y: auto;
+                        list-style: none;
+                        margin: 0;
+
+                        li {
+                            padding: 10px 15px;
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 0;
+
+                            & + li {
+                                border-top: solid 1px rgba(black, .1);
+                            }
+
+                            img {
+                                width: 15px;
+                                height: auto;
+                                margin-right: 8px;
+                            }
+
+                            .label-link {
+                                color: rgba(black, .7);
+                                max-width: 90%;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                white-space: nowrap;
+                            }
+
+                            &:hover {
+                                background-color: rgba($purple, .1);
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+
                 &.is-deleted {
                     opacity: 0.4;
                     border-color: red !important;
@@ -753,6 +840,46 @@
                 .linkedin-color,
                 .linkedin-color svg path{
                     fill: #0077B5;
+                }
+
+                .telegram-color,
+                .telegram-color svg path{
+                    fill: #1fa3de;
+                }
+
+                .tiktok-color,
+                .tiktok-color svg path{
+                    fill: #000;
+                }
+
+                .whatsapp-color,
+                .whatsapp-color svg path{
+                    fill: #00b401;
+                }
+
+                .soundcloud-color,
+                .soundcloud-color svg path{
+                    fill: #f75c10;
+                }
+
+                .deezer-color,
+                .deezer-color svg path{
+                    fill: #000;
+                }
+
+                .itunes-color,
+                .itunes-color svg path{
+                    fill: #c256dd;
+                }
+
+                .dailymotion-color,
+                .dailymotion-color svg path{
+                    fill: #01bafc;
+                }
+
+                .etsy-color,
+                .etsy-color svg path{
+                    fill: #ea611e;
                 }
             }
 

@@ -3,8 +3,8 @@ Contributors: undefinedfr
 Donate link: https://www.undefined.fr/#donate
 Tags: linktree, later, links, bio links, social
 Requires at least: 4.0
-Tested up to: 5.4.1
-Stable tag: 1.1.3
+Tested up to: 5.5.1
+Stable tag: 1.2.0
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -35,7 +35,18 @@ With Linky, you can:
 * Show page render in admin panel
 
 
-Front Demo : [Demo](https://www.undefined.fr/mes-liens "Front demo")
+Front Demo :
+[Demo 1](https://www.undefined.fr/mes-liens "Front demo")
+[Demo 2](http://www.studio-polette.com/mes-liens/ "Front demo")
+[Demo 3](https://www.blandeen.com/liens/ "Front demo")
+[Demo 4](https://graphisme.app/liens/ "Front demo")
+[Demo 5](https://www.pamcoaching.fr/mes-liens "Front demo")
+[Demo 6](https://micocoulestudio.fr/links/ "Front demo")
+[Demo 7](https://elodieletombe.com/mesliens/ "Front demo")
+[Demo 8](https://studio-birdie.com/links/ "Front demo")
+[Demo 9](https://florianallignon.fr/liens "Front demo")
+[Demo 10](https://hello-kaleidoscope.com/links "Front demo")
+[Demo 10](https://hello-kaleidoscope.com/links "Front demo")
 
 == Installation ==
 
@@ -106,6 +117,11 @@ Yes, you can add social links on your page header.
 
 =1.1.3=
 * override version number
+
+
+=1.2.0=
+* add social networks (apple music, dailymotion, deezer, etsy, itunes, soundcloud, telegram, tiktok, whatsapp)
+* add posts auto-complete on label link field
 
 == Upgrade Notice ==
 

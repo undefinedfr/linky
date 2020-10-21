@@ -78,4 +78,49 @@ class Socials extends AbstractEntity
      * @var $twitch
      */
     public $twitch;
+
+    /**
+     * @var $whatsapp
+     */
+    public $whatsapp;
+
+    /**
+     * @var $telegram
+     */
+    public $telegram;
+
+    /**
+     * @var $tiktok
+     */
+    public $tiktok;
+
+    /**
+     * @var $apple_music
+     */
+    public $apple_music;
+
+    /**
+     * @var $soundcloud
+     */
+    public $soundcloud;
+
+    /**
+     * @var $deezer
+     */
+    public $deezer;
+
+    /**
+     * @var $itunes
+     */
+    public $itunes;
+
+    /**
+     * @var $itunes
+     */
+    public $dailymotion;
+
+    /**
+     * @var $etsy
+     */
+    public $etsy;
 }

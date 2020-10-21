@@ -249,7 +249,63 @@ var renderComponent = function (element, options) {
 
     // Set Events
     plugin._events = function () {
+        $('.link__label-link input').on({
+            'keyup': function() {
+                var $input = $(this);
+                var $formField = $input.closest('.form-field');
+                $formField.find('.link__autocomplete').html('');
+                $formField.removeClass('is-autocomplete');
+                if(!$input.val()) {
+                    $formField.removeClass('is-loading');
+                    return;
+                }
+                $formField.addClass('is-loading');
 
+                $.ajax({
+                    url: args.ajaxurl,
+                    method: 'POST',
+                    dataType: 'html',
+                    data: {
+                        action: 'get_suggests',
+                        s: $input.val()
+                    },
+                    success: function(html) {
+                        $formField.removeClass('is-loading');
+                        if (html) {
+                            $formField.addClass('is-autocomplete');
+                            $formField.find('.link__autocomplete').html(html);
+                        } else {
+                            $(this).closest('.form-field').removeClass('is-loading is-autocomplete');
+                        }
+
+                    }
+                });
+            }
+        });
+
+        $(document).on('click', '.link__autocomplete li', function(e) {
+            e.preventDefault();
+
+            var $li             = $(this);
+            var $link           = $li.closest('.link');
+            var $imageButton    = $link.find('.image-uploader');
+            var id              = $li.data('thumbnail-id');
+
+            $link.find('.link__label-link input').val($li.find('.label-link').text().trim());
+            $link.find('._js-remove-image').trigger('click');
+            $link.find('.link__link input').val($li.data('link'));
+            if (id) {
+                $imageButton.addClass('is-filled');
+                $imageButton.find('input[type="hidden"]').val(id).trigger('change');
+                $imageButton.css('background-image', 'url(' + $li.find('img').attr('src') + ')');
+            }
+            $link.find('.link__autocomplete').html('');
+        });
+
+        $(document).on('click', function(e) {
+            if(!$(e.target).hasClass('link__autocomplete'))
+                $('.form-field').removeClass('is-loading is-autocomplete');
+        });
     };
 
     plugin.refresh = function () {
@@ -308,7 +364,6 @@ var linksComponent = function (element, options) {
 
             var form = $(this);
             var position = form.data('position');
-            console.log(position);
 
             $.ajax({
                 url: args.ajaxurl,

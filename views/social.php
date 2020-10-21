@@ -25,7 +25,7 @@ $socials    = WPLinkyHelper::getSocials();
             <div class="form-field social-field">
                 <label for="<?php echo $social; ?>" class="<?php echo $social . '-color'; ?>">
                     <?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/' . sanitize_title($social) . '.svg' ?>
-                    <?php echo ucfirst(__($social, 'linky')); ?>
+                    <?php echo ucfirst(__(str_replace('_', ' ', $social), 'linky')); ?>
                 </label>
                 <input type="text" id="<?php echo $social; ?>" name="<?php echo sanitize_title($social); ?>" value="<?php echo WPLinkyHelper::getOptionValue($social, $s); ?>">
             </div>

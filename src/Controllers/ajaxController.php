@@ -30,6 +30,7 @@ class AjaxController
         add_action( 'wp_ajax_save_form', [ $this, 'saveForm' ] );
         add_action( 'wp_ajax_get_admin_page_content', [ $this, 'getAdminPageContent' ] );
         add_action( 'wp_ajax_get_link_template', [ $this, 'getLinkTemplate' ] );
+        add_action( 'wp_ajax_get_suggests', [ $this, 'getSuggests' ] );
 
         $this->_dbData = get_option(WPLinkyHelper::getPageOptionKey());
         if(!is_array($this->_dbData))
@@ -66,8 +67,27 @@ class AjaxController
 
         $template = ob_get_contents();
         ob_end_clean();
-        
+
         echo $template;
+        die;
+    }
+
+    /**
+     * get Posts Suggests
+     *
+     * @return void
+     */
+    public function getSuggests()
+    {
+        $s = !empty($_POST['s']) ? $_POST['s'] : '';
+
+        $posts = new \WP_Query([
+            'post_type'         => 'any',
+            'posts_per_page'    => 5,
+            's'                 => $s,
+        ]);
+
+        require UNDFND_WP_LINKY_PLUGIN_DIR . 'views/parts/suggests.php';
         die;
     }
 
