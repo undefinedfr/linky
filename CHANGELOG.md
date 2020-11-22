@@ -47,3 +47,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - add social networks (apple music, dailymotion, deezer, etsy, itunes, soundcloud, telegram, tiktok, whatsapp)
 - add posts auto-complete on label link field
+
+
+## [1.2.1]
+### Added
+- edit add_submenu_page hook tag

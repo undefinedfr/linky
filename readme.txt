@@ -4,7 +4,7 @@ Donate link: https://www.undefined.fr/#donate
 Tags: linktree, later, links, bio links, social
 Requires at least: 4.0
 Tested up to: 5.5.1
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -118,10 +118,12 @@ Yes, you can add social links on your page header.
 =1.1.3=
 * override version number
 
-
 =1.2.0=
 * add social networks (apple music, dailymotion, deezer, etsy, itunes, soundcloud, telegram, tiktok, whatsapp)
 * add posts auto-complete on label link field
+
+=1.2.1=
+* edit add_submenu_page hook tag
 
 == Upgrade Notice ==
 
