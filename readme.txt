@@ -4,7 +4,7 @@ Donate link: https://www.undefined.fr/#contact
 Tags: linktree, later, links, bio links, social
 Requires at least: 4.0
 Tested up to: 5.6
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -128,6 +128,9 @@ Yes, you can add social links on your page header.
 * add empty header theme
 * add technical documentation
 * add avatar link
+
+=1.2.3=
+* minify assets
 
 == Upgrade Notice ==
 

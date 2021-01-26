@@ -60,3 +60,8 @@ All notable changes to this project will be documented in this file.
 - add empty header theme
 - add technical documentation
 - add avatar link
+
+
+## [1.2.3]
+### Fixes
+- minify assets
