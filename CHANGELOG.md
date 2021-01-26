@@ -23,9 +23,10 @@ All notable changes to this project will be documented in this file.
 - fix selected category / label
 
 ## [1.1.0]
-### Fixes
+### Added
 - add action bar to top of links 
 - add social links position option
+### Fixes
 - fix translation 
 - fix separator width
 
@@ -50,5 +51,12 @@ All notable changes to this project will be documented in this file.
 
 
 ## [1.2.1]
-### Added
+### Edit
 - edit add_submenu_page hook tag
+
+
+## [1.2.2]
+### Added
+- add empty header theme
+- add technical documentation
+- add avatar link

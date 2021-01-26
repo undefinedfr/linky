@@ -27,6 +27,11 @@ class Page extends AbstractEntity
     public $avatar;
 
     /**
+     * @var string $avatar_link
+     */
+    public $avatar_link;
+
+    /**
      * @var bool $social_display
      */
     public $social_display;

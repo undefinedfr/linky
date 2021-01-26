@@ -4,15 +4,16 @@
             <?php if(!empty($header_row_before)): ?>
                 <?php echo $header_row_before; ?>
             <?php endif; ?>
+            <?php $avatar_link = $page->get('avatar_link') ?>
             <?php if(empty($hide_avatar) && $page->get('avatar')->id != 0): ?>
-                <div class="header__avatar">
+                <<?php echo $avatar_link ? ('a href="' . $avatar_link . '"') : 'div'; ?> class="header__avatar">
                     <img src="<?php echo $page->get('avatar')->getImageUrl(!empty($image_size) ? $image_size : 'icon'); ?>" alt="<?php echo $page->get('title'); ?>">
-                </div>
+                <<?php echo $avatar_link ? '/a' : '/div'; ?>>
             <?php endif; ?>
             <?php if($page->get('title')): ?>
-                <div class="header__name">
+                <<?php echo $avatar_link ? ('a href="' . $avatar_link . '"') : 'div'; ?> class="header__name">
                     <?php echo $page->get('title'); ?>
-                </div>
+                </<?php echo $avatar_link ? 'a' : 'div'; ?>>
             <?php endif; ?>
             <div class="header__burger">
                 <div class="js-toggle-menu" style="fill: <?php echo $textColor ?>">
@@ -40,5 +41,4 @@
             <?php endforeach; ?>
         </nav>
     <?php endif; ?>
-
 </div>

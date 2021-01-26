@@ -1,10 +1,10 @@
 === Linky ===
 Contributors: undefinedfr
-Donate link: https://www.undefined.fr/#donate
+Donate link: https://www.undefined.fr/#contact
 Tags: linktree, later, links, bio links, social
 Requires at least: 4.0
-Tested up to: 5.5.1
-Stable tag: 1.2.1
+Tested up to: 5.6
+Stable tag: 1.2.2
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -46,7 +46,6 @@ Front Demo :
 [Demo 8](https://studio-birdie.com/links/ "Front demo")
 [Demo 9](https://florianallignon.fr/liens "Front demo")
 [Demo 10](https://hello-kaleidoscope.com/links "Front demo")
-[Demo 10](https://hello-kaleidoscope.com/links "Front demo")
 
 == Installation ==
 
@@ -55,9 +54,9 @@ This section describes how to install the plugin and get it working.
 e.g.
 
 1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
-1. Use the Settings->Plugin Name screen to configure the plugin
-1. Configure plugin in Linky menu
+2. Activate the plugin through the 'Plugins' screen in WordPress
+3. Use the Settings->Plugin Name screen to configure the plugin
+4. Configure plugin in Linky menu
 
 == Frequently Asked Questions ==
 
@@ -124,6 +123,11 @@ Yes, you can add social links on your page header.
 
 =1.2.1=
 * edit add_submenu_page hook tag
+
+=1.2.2=
+* add empty header theme
+* add technical documentation
+* add avatar link
 
 == Upgrade Notice ==
 

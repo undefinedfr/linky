@@ -243,6 +243,19 @@
                             padding-right: 0;
                         }
                     }
+
+                    &.with-two-fields {
+                        > .form-field {
+                            width: 80px;
+
+                            & + .form-control {
+                                float: left;
+                                margin-top: 0;
+                                padding-right: 20px;
+                                width: calc(100% - 80px);
+                            }
+                        }
+                    }
                 }
             }
 

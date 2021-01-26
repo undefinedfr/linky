@@ -10,12 +10,12 @@
   Plugin Name: Linky
   Plugin URI: https://www.undefined.fr
   Description: Create & manage link’s hub for your  social profile directly in your websites
-  Version: 1.2.1
+  Version: 1.2.2
   Author Name: Nicolas RIVIERE (hello@undefined.fr)
   Author: Nicolas RIVIERE (Undefined)
   Domain Path: /languages
   Text Domain: linky
-  Author URI: https://www.undefined.fr/#about
+  Author URI: https://www.undefined.fr/undefined-expert-de-la-creation-de-sites-internet-a-paris
  */
 
 namespace LinkyApp;

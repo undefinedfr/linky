@@ -30,7 +30,7 @@ $menus      = wp_get_nav_menus();
                     <?php echo __('It is recommended to upload a new image to have the module image sizes', 'linky'); ?>
                 </p>
             </div>
-            <div class="form-control form-control--upload">
+            <div class="form-control form-control--upload with-two-fields">
                 <div class="form-field">
                     <label for="avatar"><?php echo __('Avatar', 'linky'); ?></label>
                     <?php
@@ -42,9 +42,17 @@ $menus      = wp_get_nav_menus();
                         <button class="_js-remove-image" title="<?php echo __('Remove'); ?>"></button>
                     </div>
                 </div>
-                <div class="form-field">
-                    <label for="title"><?php echo __('Title', 'linky'); ?></label>
-                    <input type="text" id="title" name="title" placeholder="<?php echo get_bloginfo('name') ?>" value="<?php echo WPLinkyHelper::getOptionValue('title', $appareance); ?>">
+                <div class="form-control">
+                    <div class="form-field">
+                        <label for="title"><?php echo __('Title', 'linky'); ?></label>
+                        <input type="text" id="title" name="title" placeholder="<?php echo get_bloginfo('name') ?>" value="<?php echo WPLinkyHelper::getOptionValue('title', $appareance); ?>">
+                    </div>
+                    <div class="form-field">
+                        <div class="form-field">
+                            <label for="avatar_link"><?php echo __('Avatar link', 'linky'); ?></label>
+                            <input type="text" id="avatar_link" name="avatar_link" placeholder="<?php echo __('Optional', 'linky') ?>" value="<?php echo WPLinkyHelper::getOptionValue('avatar_link', $appareance); ?>">
+                        </div>
+                    </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
