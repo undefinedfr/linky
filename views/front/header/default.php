@@ -11,7 +11,7 @@
                 <<?php echo $avatar_link ? '/a' : '/div'; ?>>
             <?php endif; ?>
             <?php if($page->get('title')): ?>
-                <<?php echo $avatar_link ? ('a href="' . $avatar_link . '"') : 'div'; ?> class="header__name">
+                <<?php echo $avatar_link ? ('a href="' . $avatar_link . '"') : 'div'; ?> class="header__name" style="color: <?php echo $textColor ?>">
                     <?php echo $page->get('title'); ?>
                 </<?php echo $avatar_link ? 'a' : 'div'; ?>>
             <?php endif; ?>
