@@ -10,6 +10,43 @@
 @import 'lib/colorpick';
 
 .settings-wp-linky {
+    .button {
+        &-primary {
+            background: $purple;
+            border-color: $purple;
+            transition: background-color .3s, border-color .3s;
+
+            &:hover {
+                background: darken($purple, 10%);
+                border-color: darken($purple, 10%);
+            }
+        }
+        &-secondary {
+            background: white;
+            border-color: $purple;
+            color: $purple;
+            transition: background-color .3s, border-color .3s, color .3s;
+
+            &:hover {
+                border-color: $purple;
+                background: $purple;
+                color: white;
+            }
+        }
+
+        &-error {
+            background: $red;
+            border-color: $red;
+            color: white;
+            transition: background-color .3s, color .3s;
+
+            &:hover {
+                border-color: darken($red, 10%);
+                background: darken($red, 10%);
+                color: white;
+            }
+        }
+    }
 
     .mg-b-20 {
         margin-bottom: 20px;
@@ -169,36 +206,56 @@
         padding: 0 20px 20px;
     }
 
+    .postbox form,
+    .page-modal form,
+    .postbox .inside {
+        .link_url {
+            > * {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            > span {
+                line-height: 30px;
+                opacity: .6;
+
+                &:after{
+                    content: '/';
+                }
+            }
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+
+            + .minitext{
+                color: rgba($black, .5);
+                font-size: 12px;
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+
+        .form-field,
+        .form-control {
+            + .form-field,
+            + .form-control{
+                margin-top: 25px;
+
+                &.form-control--upload {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
     .postbox {
         margin-bottom: 0;
 
         form,
         .inside {
-            label {
-                font-weight: bold;
-                display: block;
-                margin-bottom: 10px;
-
-                + .minitext{
-                    color: rgba($black, .5);
-                    font-size: 12px;
-                    display: block;
-                    margin-bottom: 10px;
-                }
-            }
-
-            .form-field,
-            .form-control {
-                + .form-field,
-                + .form-control{
-                    margin-top: 25px;
-
-                    &.form-control--upload {
-                        margin-top: 10px;
-                    }
-                }
-            }
-
             .form-control {
                 margin-left: -10px;
                 margin-right: -10px;
@@ -365,29 +422,8 @@
                 min-width: 300px;
             }
 
-            .link_url {
-                > * {
-                    display: inline-block;
-                    vertical-align: top;
-                }
-
-                > span {
-                    line-height: 30px;
-                    opacity: .6;
-
-                    &:after{
-                        content: '/';
-                    }
-                }
-            }
-
             textarea {
                 min-height: 150px;
-            }
-
-            .button-primary {
-                background: $purple;
-                border-color: $purple;
             }
 
             ._colorpicker {
@@ -420,9 +456,63 @@
                 }
             }
 
+            .stats {
+                border-radius: 3px;
+                border: solid 1px #ccc;
+                display: flex;
+                margin-bottom: 30px;
+
+                &__row {
+                    display: flex;
+                }
+
+                &__count {
+                    font-weight: bold;
+                    font-size: 20px;
+                    color: $purple;
+                }
+
+                &__col {
+                    padding: 25px;
+                    padding-right: 0;
+                    flex-basis: 50%;
+
+                    > strong {
+                        display: block;
+                        font-size: 16px;
+                        margin-bottom: 15px;
+                    }
+
+                    .stats__col {
+                        padding: 0;
+                        flex-basis: 36%;
+
+                        > strong {
+                            opacity: .7;
+                            font-size: 12px;
+                            margin-bottom: 5px;
+                        }
+
+                        &:last-of-type {
+                            flex-basis: 28%;
+                        }
+
+                        &:first-child {
+                            border-right: none;
+                        }
+                    }
+
+                    &:first-child {
+                        border-right: solid 1px #ccc;
+                    }
+                }
+            }
+
             .links {
                 margin-bottom: 20px;
                 padding: 0 40px;
+
+                $self: &;
 
                 &__empty{
                     padding: 20px;
@@ -431,6 +521,39 @@
                     padding-left: 90px;
                     background: rgba($blue, .1) url('../images/arrow-down.png') no-repeat left 30px center;
                     background-size: 40px auto;
+                }
+
+                &--stats {
+                    padding: 0;
+
+                    &__head {
+                        display: flex;
+                        font-weight: bold;
+                        padding: 0 20px 15px 5px;
+
+                        &__counts {
+                            flex: 0;
+                            margin-left: auto;
+                            display: flex;
+
+                            span {
+                                padding: 0 10px;
+                                width: 122px;
+                                white-space: nowrap;
+                                box-sizing: border-box;
+                                text-align: center;
+
+                                &:last-of-type {
+                                    width: 71px;
+                                }
+                            }
+                        }
+                    }
+
+                    .links__empty {
+                        padding: 15px 30px;
+                        background: rgba($blue, .1);
+                    }
                 }
             }
 
@@ -441,6 +564,37 @@
                 margin-bottom: 10px;
 
                 $self: &;
+
+                &-stat {
+                    padding: 15px 20px;
+                    border-radius: 3px;
+                    border: solid 1px #ccc;
+                    position: relative;
+                    margin-bottom: 10px;
+                    display: flex;
+
+                    &__url {
+                        opacity: .7;
+                    }
+
+                    &__count {
+                        padding: 0 10px;
+                        width: 122px;
+                        text-align: center;
+                        box-sizing: border-box;
+
+                        &:last-of-type {
+                            width: 71px;
+                        }
+
+                        &s {
+                            flex: 0;
+                            display: flex;
+                            font-weight: bold;
+                            margin-left: auto;
+                        }
+                    }
+                }
 
                 .form-field {
                     position: relative;
@@ -935,7 +1089,7 @@
         position: relative;
         z-index: 2;
         border-right: solid 1px $grey;
-        width: 60%;
+        width: 62%;
         min-height: 801px;
         max-width: calc(100% - 410px);
 
@@ -947,9 +1101,61 @@
     ._col-4 {
         position: relative;
         z-index: 1;
-        width: calc(40% - 1px);
+        width: calc(38% - 1px);
         min-width: 410px;
         min-height: 754px;
+    }
+
+    .pages-switcher {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        background: white;
+        padding: 15px 16px 15px 20px;
+        box-sizing: border-box;
+
+        .pull-left {
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+
+            select {
+                margin-left: 10px;
+                border: none;
+                background-color: rgba($black, .08);
+                min-width: 200px;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                margin-left: 10px;
+                border: none;
+                cursor: pointer;
+                background: none;
+
+                svg {
+                    width: 16px;
+                }
+            }
+        }
+
+        .pull-right {
+            flex: 0;
+            margin-left: auto;
+
+            button {
+                display: flex;
+                align-items: center;
+
+                svg {
+                    width: 10px;
+                    height: auto;
+                    margin-right: 5px;
+                }
+            }
+        }
     }
 
     .menu-wp-linky {
@@ -1271,6 +1477,7 @@ body.render-loading {
     }
 }
 
+@import "admin/modal";
 @import "admin/themes";
 
 .screen .linky-page {

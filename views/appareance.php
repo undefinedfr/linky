@@ -9,7 +9,7 @@
 use \LinkyApp\Helper\WPLinkyHelper;
 use \LinkyApp\Entity\Image;
 
-$data       = WPLinkyHelper::getPageOption();
+$data       = WPLinkyHelper::getPageOption($this->getCurrentPage());
 $appareance = WPLinkyHelper::getOptionValue('appareance', $data, []);
 $menus      = wp_get_nav_menus();
 
@@ -257,5 +257,6 @@ $menus      = wp_get_nav_menus();
         </div>
         <input type="hidden" name="action" value="save_form">
         <input type="hidden" name="_group" value="appareance">
+        <input type="hidden" name="page_id" value="<?php echo $this->getCurrentPage(); ?>">
     </form>
 </div>

@@ -21,15 +21,17 @@ use LinkyApp\Helper\WPLinkyHelper;
  */
 class IndexController
 {
+    public $page_id;
     public $page;
     public $socials;
     public $settings;
     public $menu;
     public $links;
 
-    public function __construct()
+    public function __construct($page_id = false)
     {
-        $data               = WPLinkyHelper::getPage();
+        $this->page_id      = $page_id;
+        $data               = WPLinkyHelper::getPage(false, $this->page_id);
         $data               = !empty($data) ? $data : [];
         $this->settings     = new Settings($data['global']);
         $this->page         = new Page(array_merge($data['appareance'], $data['themes']));

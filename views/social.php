@@ -8,7 +8,7 @@
 
 use LinkyApp\Helper\WPLinkyHelper;
 
-$data       = WPLinkyHelper::getPageOption();
+$data       = WPLinkyHelper::getPageOption($this->getCurrentPage());
 $s          = WPLinkyHelper::getOptionValue('social', $data, []);
 $socials    = WPLinkyHelper::getSocials();
 
@@ -39,5 +39,6 @@ $socials    = WPLinkyHelper::getSocials();
         </div>
         <input type="hidden" name="action" value="save_form">
         <input type="hidden" name="_group" value="social">
+        <input type="hidden" name="page_id" value="<?php echo $this->getCurrentPage(); ?>">
     </form>
 </div>

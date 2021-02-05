@@ -9,7 +9,7 @@
 use LinkyApp\Helper\WPLinkyHelper;
 use LinkyApp\Helper\ThemesHelper;
 
-$data                   = WPLinkyHelper::getPageOption();
+$data                   = WPLinkyHelper::getPageOption($this->getCurrentPage());
 $themes                 = WPLinkyHelper::getOptionValue('themes', $data, []);
 $defaultHeaderThemes    = ThemesHelper::getHeaderThemes();
 $defaultBodyThemes      = ThemesHelper::getBodyThemes();
@@ -65,5 +65,6 @@ $defaultBodyThemes      = ThemesHelper::getBodyThemes();
         <input type="hidden" name="action" value="save_form">
         <input type="hidden" name="_override" value="false">
         <input type="hidden" name="_group" value="themes">
+        <input type="hidden" name="page_id" value="<?php echo $this->getCurrentPage(); ?>">
     </form>
 </div>

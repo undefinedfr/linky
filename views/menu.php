@@ -10,19 +10,20 @@ $menus = [
     $this->_appareanceMenuSlug  => 'Appareance',
     $this->_socialMenuSlug      => 'Social',
     $this->_linksMenuSlug       => 'Links',
+    $this->_statsMenuSlug       => 'Stats',
 ]
 ?>
 
 <nav class="menu-wp-linky">
     <a
-        href="<?php echo admin_url('admin.php?page=' . $this->_menuSlug); ?>"
+        href="<?php echo admin_url('admin.php?page=' . $this->_menuSlug . '&page_id=' . $this->getCurrentPage()); ?>"
         class="<?php echo (!empty($_GET['page']) && $_GET['page'] == $this->_menuSlug) ? 'active' : '' ?>"
     >
         <?php echo __('Settings', 'linky'); ?>
     </a>
     <?php foreach ($menus as $link => $menu): ?>
         <a
-                href="<?php echo admin_url('admin.php?page=' . $this->_getMenuSlug($link)); ?>"
+                href="<?php echo admin_url('admin.php?page=' . $this->_getMenuSlug($link) . '&page_id=' . $this->getCurrentPage()); ?>"
                 class="<?php echo (!empty($_GET['page']) && $_GET['page'] == $this->_getMenuSlug($link)) ? 'active' : '' ?>"
         >
             <?php echo __($menu, 'linky'); ?>

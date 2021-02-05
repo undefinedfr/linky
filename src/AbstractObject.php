@@ -45,6 +45,7 @@ class AbstractObject
      */
     protected function _setData($data = [])
     {
+
         if(!empty($data)) {
             foreach($data as $var => $property) {
                 if(property_exists($this, $var)) {

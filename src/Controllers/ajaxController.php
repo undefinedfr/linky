@@ -23,26 +23,90 @@ class AjaxController
 {
     private $_formData = [];
     private $_dbData = [];
-
+    private $_pageId = false;
+    private $_methods = [
+        'save_form' => 'saveForm',
+        'edit_page' => 'editPage',
+        'page_viewed' => 'pageViewed',
+        'link_clicked' => 'linkClicked',
+        'get_admin_page_content' => 'getAdminPageContent',
+        'get_link_template' => 'getLinkTemplate',
+        'get_suggests' => 'getSuggests',
+    ];
 
     public function __construct()
     {
-        add_action( 'wp_ajax_save_form', [ $this, 'saveForm' ] );
-        add_action( 'wp_ajax_get_admin_page_content', [ $this, 'getAdminPageContent' ] );
-        add_action( 'wp_ajax_get_link_template', [ $this, 'getLinkTemplate' ] );
-        add_action( 'wp_ajax_get_suggests', [ $this, 'getSuggests' ] );
-
-        $this->_dbData = get_option(WPLinkyHelper::getPageOptionKey());
-        if(!is_array($this->_dbData))
-            $this->_dbData = [];
+        foreach($this->_methods as $action => $method) {
+            add_action( 'wp_ajax_' . $action, [ $this, $method ] );
+        }
     }
 
     public function saveForm()
     {
         if(!empty($_POST['_group'])){
+            $this->_pageId = !empty($_POST['page_id']) ? $_POST['page_id'] : false;
+            $this->_dbData = get_option(WPLinkyHelper::getPageOptionKey($this->_pageId));
+            if(!is_array($this->_dbData))
+                $this->_dbData = [];
+
             $data = $this->_save();
             wp_send_json_success($data);
         }
+    }
+
+    public function pageViewed()
+    {
+        if(isset($_GET['page_id'])) {
+            $page_stat = get_option('page_stat_' . $_GET['page_id']);
+            $page_stat = !empty($page_stat) ? $page_stat : [];
+
+            $page_stat[] = strtotime(date('YmdHis'));
+            update_option('page_stat_' . $_GET['page_id'], $page_stat);
+        }
+    }
+
+    public function linkClicked()
+    {
+        if(isset($_GET['page_id']) && isset($_GET['link_url'])) {
+            $link_stat = get_option('link_stat_' . $_GET['page_id'] . '_' . md5($_GET['link_url']));
+            $link_stat = !empty($link_stat) ? $link_stat : [];
+
+            $link_stat[] = strtotime(date('YmdHis'));
+            update_option('link_stat_' . $_GET['page_id'] . '_' . md5($_GET['link_url']), $link_stat);
+        }
+    }
+
+    public function editPage()
+    {
+        $this->_pageId = $_POST['page_id'] != '' ? $_POST['page_id'] : false;
+        $actionType = !empty($_POST['action_type']) ? $_POST['action_type'] : false;
+
+        $args = [];
+        if ($actionType == 'save') {
+            $args['reload'] = $this->_pageId !== false;
+            $pname = reset(WPLinkyHelper::recursiveSanitizeTextField([$_POST['page_name']]));
+
+            // Edit page
+            if ($this->_pageId !== false) {
+                // Set page name
+                $this->_dbData = get_option(WPLinkyHelper::getPageOptionKey($this->_pageId));
+
+                $this->_saveData('page_name', $pname, $this->_pageId);
+            } else { // Add page
+                $page_id = WPLinkyHelper::getNextPageId();
+                $slug = !empty($_POST['slug']) ? $_POST['slug'] : 'linky_' . $page_id;
+                WPLinkyHelper::setDefaultContent($page_id, $slug, $pname);
+                flush_rewrite_rules(true);
+                $args['reloadPage'] = admin_url('admin.php') . '?page=wp-linky&page_id=' . $page_id;
+            }
+        }
+
+        if ($actionType == 'remove' && $this->_pageId > 0) {
+            WPLinkyHelper::removePage($this->_pageId);
+            $args['reloadPage'] = admin_url('admin.php') . '?page=wp-linky';
+        }
+
+        wp_send_json_success($args);
     }
 
     /**
@@ -99,8 +163,9 @@ class AjaxController
     public function getAdminPageContent()
     {
         global $wpLinky;
+        $this->_pageId = !empty($_POST['page_id']) ? $_POST['page_id'] : false;
 
-        $html = $wpLinky->getIndexController()->getContent(false);
+        $html = $wpLinky->getIndexController($this->_pageId)->getContent(false);
 
         echo $html;
         die;
@@ -114,35 +179,36 @@ class AjaxController
     private function _save()
     {
         if(!empty($_POST['_group'])) {
-            $this->_formData = WPLinkyHelper::recursiveSanitizeTextField($_POST);
-            $group = $this->_formData['_group'];
+            $this->_formData    = WPLinkyHelper::recursiveSanitizeTextField($_POST);
+            $group              = $this->_formData['_group'];
             unset($this->_formData['_group']);
+            unset($this->_formData['page_id']);
 
             switch($group) {
                 case 'links':
                     return $this->_processLinksAction();
                     break;
                 case 'global':
-                    $data = $this->_saveData($group, $this->_formData);
+                    $data = $this->_saveData($group, $this->_formData, $this->_pageId);
                     flush_rewrite_rules(true);
                     return $data;
                     break;
                 case 'themes':
                     $override = $this->_formData['_override'];
                     unset($this->_formData['_override']);
-                    $data = $this->_saveData($group, $this->_formData);
+                    $data = $this->_saveData($group, $this->_formData, $this->_pageId);
                     if($override == 'true') {
-                        $this->_overridePageWithTheme();
+                        $this->_overridePageWithTheme($this->_pageId);
                     }
                     return $data;
                     break;
                 case 'appareance':
-                    $this->_formData['text_color'] = ThemesHelper::getColorTheme();
-                    $data = $this->_saveData($group, $this->_formData);
+                    $this->_formData['text_color'] = ThemesHelper::getColorTheme($this->_pageId);
+                    $data = $this->_saveData($group, $this->_formData, $this->_pageId);
                     return $data;
                     break;
                 default:
-                    return $this->_saveData($group, $this->_formData);
+                    return $this->_saveData($group, $this->_formData, $this->_pageId);
                     break;
             }
         }
@@ -153,11 +219,11 @@ class AjaxController
      *
      * @return mixed;
      */
-    private function _saveData($group, $data = [])
+    private function _saveData($group, $data = [], $page_id = false)
     {
         $this->_dbData[$group] = $data;
 
-        update_option(WPLinkyHelper::getPageOptionKey(), $this->_dbData);
+        update_option(WPLinkyHelper::getPageOptionKey($page_id), $this->_dbData);
 
         return $this->_dbData;
     }
@@ -167,11 +233,11 @@ class AjaxController
      *
      * @return mixed;
      */
-    private function _overridePageWithTheme()
+    private function _overridePageWithTheme($page_id = false)
     {
         $this->_dbData['appareance'] = ThemesHelper::prepareThemeOverride($this->_dbData);
 
-        $this->_saveData('appareance', $this->_dbData['appareance']);
+        $this->_saveData('appareance', $this->_dbData['appareance'], $page_id);
     }
 
     /**
@@ -192,7 +258,7 @@ class AjaxController
             }
         }
 
-        return $this->_saveData($group, $this->_formData[$group]);
+        return $this->_saveData($group, $this->_formData[$group], $this->_pageId);
     }
 
     /**

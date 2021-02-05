@@ -1,0 +1,111 @@
+.page-modal {
+    position: fixed;
+    left: -20px;
+    top: 0;
+    background-color: rgba($purple, .8);
+    width: calc(100% + 20px);
+    height: 100vh;
+    z-index: 5;
+    display: none;
+
+    form {
+        input[type="text"] {
+            width: 100%;
+        }
+    }
+
+    &__content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background-color: white;
+        width: 500px;
+        max-width: 95%;
+        height: auto;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+    }
+
+    &__header {
+        padding: 15px 20px;
+        border-bottom: solid 1px $grey;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        h3 {
+            margin: 0;
+        }
+
+        .close {
+            transform: rotate(45deg);
+            flex: 0;
+            margin-left: auto;
+            background: none;
+            border: none;
+            outline: none;
+            padding: 0;
+            cursor: pointer;
+
+            svg {
+                pointer-events: none;
+                width: 15px;
+                height: auto;
+
+                path {
+                    fill: black;
+                }
+            }
+        }
+    }
+
+    &__body {
+        padding: 20px;
+    }
+
+    &__footer {
+        padding-top: 15px;
+        border-top: solid 1px $grey;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 30px;
+
+        .save {
+            flex: 0;
+            margin-left: auto;
+        }
+    }
+
+    &.page-0 {
+        input[name="remove"] {
+            opacity: .3;
+            pointer-events: none;
+        }
+    }
+}
+
+body {
+    &.page-modal-opened {
+        overflow: hidden;
+
+        .page-modal {
+            display: block;
+        }
+
+        &.linky_page_wp-linky-themes,
+        &.linky_page_wp-linky-social,
+        &.linky_page_wp-linky-links,
+        &.linky_page_wp-linky-appareance,
+        &.toplevel_page_wp-linky {
+            #adminmenumain {
+                z-index: 2;
+                position: relative;
+            }
+            #wpcontent {
+                z-index: 1;
+                position: relative;
+            }
+        }
+    }
+}

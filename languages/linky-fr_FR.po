@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Linky\n"
 "POT-Creation-Date: 2020-05-03 15:37+1000\n"
-"PO-Revision-Date: 2021-01-26 13:10+0100\n"
+"PO-Revision-Date: 2021-02-05 09:33+0100\n"
 "Last-Translator: RIVIERE Nicolas <hello@undefined.fr>\n"
 "Language-Team: Undefined <hello@undefined.fr>\n"
 "Language: fr\n"
@@ -395,3 +395,42 @@ msgstr "Optionnel"
 
 msgid "Avatar link"
 msgstr "Lien de l‘avatar"
+
+msgid "Default page"
+msgstr "Page par défaut"
+
+msgid "Choose page"
+msgstr "Choisir une page"
+
+msgid "Remove page"
+msgstr "Supprimer la page"
+
+msgid "Add page"
+msgstr "Ajouter une page"
+
+msgid "Edit page"
+msgstr "Modifier une page"
+
+msgid "Page name"
+msgstr "Nom de la page"
+
+msgid "Are you sure ?"
+msgstr "Êtes-vous sûr ?"
+
+msgid "Stats"
+msgstr "Stats"
+
+msgid "Last 7 days"
+msgstr "7 derniers jours"
+
+msgid "Last 30 days"
+msgstr "30 derniers jours"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Viewed page"
+msgstr "Page consultée"
+
+msgid "Clicked links"
+msgstr "Page consultée"

@@ -10,7 +10,7 @@ use LinkyApp\Helper\WPLinkyHelper;
 use LinkyApp\Type\defaultType;
 use LinkyApp\Type\separatorType;
 
-$data               = WPLinkyHelper::getPageOption();
+$data               = WPLinkyHelper::getPageOption($this->getCurrentPage());
 $links              = WPLinkyHelper::getOptionValue('links', $data, []);
 $global             = WPLinkyHelper::getOptionValue('global', $data, []);
 ?>
@@ -74,6 +74,7 @@ $global             = WPLinkyHelper::getOptionValue('global', $data, []);
 
         <input type="hidden" name="action" value="save_form">
         <input type="hidden" name="_group" value="links">
+        <input type="hidden" name="page_id" value="<?php echo $this->getCurrentPage(); ?>">
     </form>
 
     <div class="form-control">

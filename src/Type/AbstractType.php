@@ -28,6 +28,21 @@ class AbstractType extends AbstractObject
      */
     protected $name;
 
+    /**
+     * @var string Weekly Count
+     */
+    protected $weekly_count = 0;
+
+    /**
+     * @var string Monthly Count
+     */
+    protected $monthly_count = 0;
+
+    /**
+     * @var string Total Count
+     */
+    protected $total_count = 0;
+
 
     public function __construct($id = null, $name = null, $data = [])
     {
@@ -44,6 +59,15 @@ class AbstractType extends AbstractObject
     public function getAdminTemplate()
     {
         require UNDFND_WP_LINKY_PLUGIN_DIR . 'views/fields/' . $this->get('id')  . '.php';
+    }
+
+    /**
+     * Get admin stat template
+     * @return void
+     */
+    public function getAdminStatTemplate()
+    {
+        require UNDFND_WP_LINKY_PLUGIN_DIR . 'views/fields/stat.php';
     }
 
     /**

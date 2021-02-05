@@ -78,10 +78,10 @@ abstract class ThemesHelper
      *
      * @return string
      */
-    public static function getColorTheme()
+    public static function getColorTheme($page_id = false)
     {
         global $wpLinky;
-        $options = $wpLinky->getOptions();
+        $options = $wpLinky->getOptions($page_id);
         $themes = WPLinkyHelper::getOptionValue('themes', $options);
         $themeData = self::getThemeFileById($themes['body_theme'], 'body');
         return is_array($themeData) ? $themeData['text_color'] : $themeData->get('text_color') ;

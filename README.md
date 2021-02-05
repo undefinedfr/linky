@@ -1,12 +1,12 @@
 # WP Linky
 
-Version : **1.2.4**
+Version : **1.0.0**
 
 Author : **Nicolas RIVIERE**
 
 ### Description :
 
-Linky is a free module offering to create a landing page containing all the links you want.
+Linky Pro is a module offering to create a landing pages containing all the links you want.
 
 It works like Linktree, Later or others but directly in your website. Much better for your SEO ;)
 

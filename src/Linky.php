@@ -48,6 +48,11 @@ class Linky {
     private $_themesMenuSlug             = 'themes';
 
     /**
+     * @var string Stats settings page slug
+     */
+    private $_statsMenuSlug             = 'stats';
+
+    /**
      * @var string Default front slug
      */
     private $_defaultSlug               = 'linky';
@@ -57,12 +62,24 @@ class Linky {
      */
     private $_options                   = [];
 
+    /**
+     * @var array
+     */
+    private $_pages                     = [];
+
+    /**
+     * @var array
+     */
+    private $_currentPage               = 0;
+
 
     public function __construct()
     {
+        $this->_setCurrentPage();
         $this->_pageTitle = __($this->_pageTitle, 'linky');
 
-        $this->_options = $this->getOptions();
+        $this->_pages = $this->getPages();
+        $this->_options = $this->getOptions($this->getCurrentPage());
 
         add_filter( 'plugin_action_links', [$this, 'addSettingsLink'], 10, 2 );
         add_filter( 'template_include', [$this, 'linkyTemplateInclude'] );
@@ -95,28 +112,7 @@ class Linky {
     {
         do_action(UNDFND_WP_LINKY_DOMAIN . '_install');
 
-        $options = get_option(WPLinkyHelper::getPageOptionKey());
-        if(empty($options)) {
-            $dbOptions = WPLinkyHelper::getPage();
-            $options = array_merge($dbOptions, [
-                'global' => [
-                    'slug' => 'links',
-                    'categories' => WPLinkyHelper::getDefaultCategories(),
-                    'labels' => WPLinkyHelper::getDefaultLabels(),
-                ],
-                'appareance' => [],
-                'themes' => [
-                    'header_theme' => 'default',
-                    'body_theme' => 'default',
-                ]
-            ]);
-
-            $options['appareance'] = ThemesHelper::prepareThemeOverride($options);
-            $options['appareance']['social_display']  = 'no';
-
-            update_option(WPLinkyHelper::getPageOptionKey(), $options);
-            flush_rewrite_rules(true);
-        }
+        WPLinkyHelper::setDefaultContent();
 
         @register_uninstall_hook( __FILE__, [ $this, UNDFND_WP_LINKY_DOMAIN . '_uninstall' ] );
     }
@@ -204,6 +200,7 @@ class Linky {
         do_action(UNDFND_WP_LINKY_DOMAIN . '_before_enqueue', $this->_menuSlug);
 
         wp_enqueue_script( $this->_menuSlug . '-front', UNDFND_WP_LINKY_PLUGIN_URL . '/assets/dist/linky.js', ['jquery'] );
+        wp_localize_script( $this->_menuSlug . '-front', 'linky', [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ] );
 
         wp_enqueue_style($this->_menuSlug . '-kaushan-font', 'https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap', false);
         wp_enqueue_style($this->_menuSlug . '-open-sans-font', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap', false);
@@ -281,6 +278,15 @@ class Linky {
                 $this->_getMenuSlug($this->_themesMenuSlug),
                 [ &$this, 'addThemesPage' ]
         );
+
+        add_submenu_page(
+                $this->_menuSlug,
+                __('Stats', 'linky'),
+                __('Stats', 'linky'),
+                apply_filters(UNDFND_WP_LINKY_DOMAIN . '_submenu_stats_page_capalibilty', 'manage_options'),
+                $this->_getMenuSlug($this->_statsMenuSlug),
+                [ &$this, 'addStatsPage' ]
+        );
     }
 
     /**
@@ -345,16 +351,49 @@ class Linky {
     }
 
     /**
+     * Add Stats Page
+     *
+     * @return void;
+     */
+    public function addStatsPage()
+    {
+        $this->_getPage('stats');
+    }
+
+    /**
      * Get Plugin Options
      *
      * @return array;
      */
-    public function getOptions()
+    public function getOptions($page_id = false)
     {
-        if(empty($this->options)) {
-            $this->_options = WPLinkyHelper::getPage();
+        if(empty($this->_options)) {
+            $this->_options = WPLinkyHelper::getPage(false, $page_id);
         }
         return $this->_options;
+    }
+
+    /**
+     * Get Links Pages
+     *
+     * @return array;
+     */
+    public function getPages()
+    {
+        if(empty($this->_pages)) {
+            $this->_pages = WPLinkyHelper::getPages();
+        }
+        return $this->_pages;
+    }
+
+    /**
+     * Get Current Links Page
+     *
+     * @return array;
+     */
+    public function getCurrentPage()
+    {
+        return $this->_currentPage;
     }
 
     /**
@@ -370,10 +409,13 @@ class Linky {
      *
      * @return Controllers\IndexController
      */
-    public function getIndexController()
+    public function getIndexController($page_id = false)
     {
+        if(!is_admin())
+            $page_id = get_query_var('linky_pageid');
+
         if(empty($this->indexController))
-            $this->indexController = WPLinkyHelper::getIndexController();
+            $this->indexController = WPLinkyHelper::getIndexController(!empty($page_id) ? $page_id : $this->getCurrentPage());
 
         return $this->indexController;
     }
@@ -383,8 +425,10 @@ class Linky {
      */
     public function linkyRewriteRule()
     {
-        $options = WPLinkyHelper::getPage('global');
-        add_rewrite_rule('^' . (!empty($options['slug']) ? $options['slug'] : $this->_defaultSlug) . '/?' ,'index.php?is_linky=1','top');
+        foreach($this->getPages() as $page_id => $v) {
+            $options = WPLinkyHelper::getPage('global', $page_id);
+            add_rewrite_rule('^' . (!empty($options['slug']) ? $options['slug'] : $this->_defaultSlug) . '/?' ,'index.php?is_linky=1&linky_pageid=' . $page_id,'top');
+        }
     }
 
     /**
@@ -441,6 +485,7 @@ class Linky {
     public function linkyQueryParams( $query_vars )
     {
         $query_vars[] = 'is_linky';
+        $query_vars[] = 'linky_pageid';
         return $query_vars;
     }
 
@@ -466,5 +511,15 @@ class Linky {
     private function _getMenuSlug($slug)
     {
         return $this->_menuSlug . '-' . $slug;
+    }
+
+    /**
+     * Set Current page id
+     *
+     * @return int;
+     */
+    private function _setCurrentPage()
+    {
+        $this->_currentPage = !empty($_GET['page_id']) ? $_GET['page_id'] : $this->_currentPage;
     }
 }

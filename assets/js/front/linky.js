@@ -11,6 +11,35 @@ $(document).ready(function() {
         $(this).closest('.header__burger').toggleClass('is-open');
         $('.linky-page').toggleClass('menu-open');
     });
+
+    $('.link__link').click(function(e) {
+        e.preventDefault();
+
+        let link = $(this).attr('href');
+        // Add clicked link stat
+        $.ajax({
+            url: linky.ajax_url,
+            method: 'GET',
+            data: {
+                'action': 'link_clicked',
+                'link_url': link,
+                'page_id': $('.linky-page').data('page-id')
+            },
+            success: function() {
+                window.location.href = link
+            }
+        });
+    });
+
+    // Add viewed page stat
+    $.ajax({
+        url: linky.ajax_url,
+        method: 'GET',
+        data: {
+            'action': 'page_viewed',
+            'page_id': $('.linky-page').data('page-id')
+        }
+    });
 });
 
 $(window).load(function() {

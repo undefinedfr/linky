@@ -17,6 +17,7 @@
             </div>
         </div>
     </div>
+    <?php require_once __DIR__ . '/pages-switcher.php' ?>
     <div id="poststuff">
         <div class="postbox _col-8">
         <?php require_once __DIR__ . '/menu.php' ?>

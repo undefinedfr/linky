@@ -8,7 +8,7 @@
 
 use LinkyApp\Helper\WPLinkyHelper;
 
-$data               = WPLinkyHelper::getPageOption();
+$data               = WPLinkyHelper::getPageOption($this->getCurrentPage());
 $global             = WPLinkyHelper::getOptionValue('global', $data, []);
 $homeUrl            = home_url();
 
@@ -24,7 +24,7 @@ $homeUrl            = home_url();
             <label for="slug"><?php echo __('Slug URL', 'linky'); ?></label>
             <div class="link_url">
                 <span style="width: <?php echo strlen($homeUrl) - 2 ?>ch"><?php echo home_url(); ?></span>
-                <input  style="max-width: calc(100% - <?php echo strlen($homeUrl) - 2 ?>ch)" type="text" id="slug" name="slug" placeholder="linky" value="<?php echo WPLinkyHelper::getOptionValue('slug', $global); ?>">
+                <input style="max-width: calc(100% - <?php echo strlen($homeUrl) - 2 ?>ch)" type="text" id="slug" name="slug" placeholder="linky" value="<?php echo WPLinkyHelper::getOptionValue('slug', $global); ?>">
             </div>
         </div>
         <div class="form-field">
@@ -56,5 +56,6 @@ $homeUrl            = home_url();
 
         <input type="hidden" name="action" value="save_form">
         <input type="hidden" name="_group" value="global">
+        <input type="hidden" name="page_id" value="<?php echo $this->getCurrentPage(); ?>">
     </form>
 </div>

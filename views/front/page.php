@@ -27,7 +27,7 @@ if($backgroundType == 'gradient') {
 }
 $color = $page->get('body_text_color', '#000');
 ?>
-<div class="linky-page linky-page--<?php echo $theme_id ?>" style="background: <?php echo $background ?>; color: <?php echo $color ?>">
+<div class="linky-page linky-page--<?php echo $theme_id ?>" data-page-id="<?php echo $indexController->page_id; ?>" style="background: <?php echo $background ?>; color: <?php echo $color ?>">
     <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/header.php'; ?>
     <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/links.php'; ?>
     <?php if($page->get('social_position', 'top') != 'top'): ?>

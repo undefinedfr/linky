@@ -14,6 +14,7 @@ $(document).ready(function() {
         imgUploader: imgUploader,
         renderComponent: render
     });
+
     new linksComponent('._js-form .links', {
         linkyForm: linkyForm
     });
@@ -74,6 +75,30 @@ var WPLinkyAdminForm = function (element, options) {
             $(this).closest('.link').toggleClass('is-deleted');
             var $hiddenEl = $(this).siblings('input[type="hidden"]');
             $hiddenEl.val($hiddenEl.val() == 'no' ? 'yes' : 'no');
+        });
+
+        // Submit form on change
+        $(document).on('change', '._js-submit-on-change', function() {
+            $(this).closest('form').submit();
+        });
+
+        // Open modal
+        $(document).on('click', '._js-open-modal', function(e) {
+            e.preventDefault();
+
+            var $pageModal = $('.page-modal');
+            var pageId = $(this).data('page-id');
+            $('body').toggleClass('page-modal-opened');
+            $pageModal.removeClass();
+            $pageModal.addClass('page-modal page-' + pageId);
+            $pageModal.find('input[name="page_id"]').val(pageId);
+
+            $pageModal.find('.add-title').css('display', (typeof pageId !== 'undefined' ? 'none' : 'block'));
+            $pageModal.find('.edit-title').css('display', (typeof pageId === 'undefined' ? 'none' : 'block'));
+            $pageModal.find('input[name="slug"]').prop('type', (typeof pageId !== 'undefined' ? 'hidden' : 'text'));
+
+            $pageModal.find('input[name="page_name"]').val($(this).data('page-name'));
+
         });
 
         // Hide link event
@@ -143,11 +168,37 @@ var WPLinkyAdminForm = function (element, options) {
 
                         plugin.renderButton.attr('href', plugin.renderButton.data('prefix') + response.data.global.slug);
 
-                        plugin.settings.renderComponent.refresh();
+                        plugin.settings.renderComponent.refresh(formData.get('page_id'));
                         plugin.form.find('.is-deleted').remove();
                     }
                 }
             });
+        });
+
+        // On Edit/Add Submit form
+        $('._js-edit-form-submit').on('click', function (e) {
+            e.preventDefault();
+
+            if(!$(this).data('confirm') || confirm($(this).data('confirm'))) {
+                var form = $(this).closest('form');
+                var formData = new FormData(form[0]);
+                formData.set('action_type', $(this).data('action'));
+                $.ajax({
+                    url: form.attr('action'),
+                    method: 'POST',
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    success: function(response) {
+                        if(response.success != void 0) {
+                            if(!response.data.reloadPage)
+                                window.location.reload();
+                            else
+                                window.location.href = response.data.reloadPage
+                        }
+                    }
+                });
+            }
         });
 
         plugin.form.find('.links').sortable({
@@ -308,13 +359,14 @@ var renderComponent = function (element, options) {
         });
     };
 
-    plugin.refresh = function () {
+    plugin.refresh = function (page_id) {
         $.ajax({
             url: args.ajaxurl,
             method: 'POST',
             dataType: 'html',
             data: {
-                action: 'get_admin_page_content'
+                action: 'get_admin_page_content',
+                page_id: page_id,
             },
             beforeSend: function() {
                 $('body').addClass('render-loading');
