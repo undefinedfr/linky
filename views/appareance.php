@@ -12,6 +12,7 @@ use \LinkyApp\Entity\Image;
 $data       = WPLinkyHelper::getPageOption($this->getCurrentPage());
 $appareance = WPLinkyHelper::getOptionValue('appareance', $data, []);
 $menus      = wp_get_nav_menus();
+$fonts      = WPLinkyHelper::getGoogleFonts();
 
 ?>
 <div class="inside no-gutter no-margin">
@@ -99,6 +100,14 @@ $menus      = wp_get_nav_menus();
                     <label for="header_text_color"><?php echo __('Header text color', 'linky'); ?></label>
                     <div class="_colorpicker colorpicker" data-initialcolor="<?php echo WPLinkyHelper::getOptionValue('header_text_color', $appareance, '#000'); ?>"></div>
                     <input type="text" id="header_text_color" name="header_text_color" value="<?php echo WPLinkyHelper::getOptionValue('header_text_color', $appareance, '#000'); ?>">
+                </div>
+                <div class="form-field">
+                    <label for="header_font_family"><?php echo __('Header font family', 'linky'); ?></label>
+                    <select name="header_font_family" class="js-toggle-select">
+                        <?php foreach($fonts as $font): ?>
+                            <option value="<?php echo $font; ?>" <?php echo WPLinkyHelper::getOptionValue('header_font_family', $appareance, 'Open Sans') == $font ? 'selected' : ''; ?>><?php echo $font; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -215,6 +224,14 @@ $menus      = wp_get_nav_menus();
                     <div class="_colorpicker colorpicker" data-initialcolor="<?php echo WPLinkyHelper::getOptionValue('links_label_text_color', $appareance, '#FFF'); ?>"></div>
                     <input type="text" id="links_label_text_color" name="links_label_text_color" value="<?php echo WPLinkyHelper::getOptionValue('links_label_text_color', $appareance, '#FFF'); ?>">
                 </div>
+                <div class="form-field">
+                    <label for="links_label_font_family"><?php echo __('Label text font family', 'linky'); ?></label>
+                    <select name="links_label_font_family" class="js-toggle-select">
+                        <?php foreach($fonts as $font): ?>
+                            <option value="<?php echo $font; ?>" <?php echo WPLinkyHelper::getOptionValue('links_label_font_family', $appareance, 'Open Sans') == $font ? 'selected' : ''; ?>><?php echo $font; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
                 <div class="clearfix"></div>
             </div>
             <div class="separator-form mg-b-20"></div>
@@ -237,6 +254,14 @@ $menus      = wp_get_nav_menus();
                     <div class="_colorpicker colorpicker" data-initialcolor="<?php echo WPLinkyHelper::getOptionValue('links_background_color', $appareance, '#FFF'); ?>"></div>
                     <input type="text" id="links_background_color" name="links_background_color" value="<?php echo WPLinkyHelper::getOptionValue('links_background_color', $appareance, '#FFF'); ?>">
                 </div>
+                <div class="form-field">
+                    <label for="links_font_family"><?php echo __('Links font family', 'linky'); ?></label>
+                    <select name="links_font_family" class="js-toggle-select">
+                        <?php foreach($fonts as $font): ?>
+                            <option value="<?php echo $font; ?>" <?php echo WPLinkyHelper::getOptionValue('links_font_family', $appareance, 'Open Sans') == $font ? 'selected' : ''; ?>><?php echo $font; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
                 <div class="clearfix"></div>
             </div>
             <div class="separator-form mg-b-20"></div>
@@ -245,6 +270,26 @@ $menus      = wp_get_nav_menus();
                     <label for="separator_color"><?php echo __('Separators color', 'linky'); ?></label>
                     <div class="_colorpicker colorpicker" data-initialcolor="<?php echo WPLinkyHelper::getOptionValue('separator_color', $appareance, '#cccccc'); ?>"></div>
                     <input type="text" id="separator_color" name="separator_color" value="<?php echo WPLinkyHelper::getOptionValue('separator_color', $appareance, '#cccccc'); ?>">
+                </div>
+                <div class="form-field">
+                    <label for="separator_font_family"><?php echo __('Separators font family', 'linky'); ?></label>
+                    <select name="separator_font_family" class="js-toggle-select">
+                        <?php foreach($fonts as $font): ?>
+                            <option value="<?php echo $font; ?>" <?php echo WPLinkyHelper::getOptionValue('separator_font_family', $appareance, 'Open Sans') == $font ? 'selected' : ''; ?>><?php echo $font; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="separator-form"></div>
+        <h3><?php echo __('Footer', 'linky'); ?></h3>
+        <div class="col-lr">
+            <div class="form-control">
+                <div class="form-field">
+                    <label for="footer_display"><?php echo __('Display footer ?', 'linky'); ?></label>
+                    <input type="radio" id="footer_display" value="yes" name="footer_display" <?php echo WPLinkyHelper::getOptionValue('footer_display', $appareance) != 'no' ? 'checked' : ''; ?>> <span><?php echo __('Yes', 'linky'); ?></span>
+                    <input type="radio" value="no" name="footer_display" <?php echo WPLinkyHelper::getOptionValue('footer_display', $appareance) == 'no' ? 'checked' : ''; ?>> <span><?php echo __('No', 'linky'); ?></span>
                 </div>
                 <div class="clearfix"></div>
             </div>

@@ -203,7 +203,6 @@ class Linky {
         wp_localize_script( $this->_menuSlug . '-front', 'linky', [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ] );
 
         wp_enqueue_style($this->_menuSlug . '-kaushan-font', 'https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap', false);
-        wp_enqueue_style($this->_menuSlug . '-open-sans-font', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap', false);
 
         wp_enqueue_style($this->_menuSlug, UNDFND_WP_LINKY_PLUGIN_URL . '/assets/css/themes.css');
 

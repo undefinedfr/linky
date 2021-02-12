@@ -87,6 +87,11 @@ class Page extends AbstractEntity
     public $links_border_color;
 
     /**
+     * @var string $links_font_family
+     */
+    public $links_font_family;
+
+    /**
      * @var string $links_label_background_type
      */
     public $links_label_background_type;
@@ -105,6 +110,11 @@ class Page extends AbstractEntity
      * @var string $links_label_text_color
      */
     public $links_label_text_color;
+
+    /**
+     * @var string $links_label_font_family
+     */
+    public $links_label_font_family;
 
     /**
      * @var string $header_background_type
@@ -127,6 +137,11 @@ class Page extends AbstractEntity
     public $header_text_color;
 
     /**
+     * @var string $header_font_family
+     */
+    public $header_font_family;
+
+    /**
      * @var int|\LinkyApp\Entity\Image $header_background_image
      */
     public $header_background_image;
@@ -135,6 +150,16 @@ class Page extends AbstractEntity
      * @var string $separator_color
      */
     public $separator_color;
+
+    /**
+     * @var string $separator_font_family
+     */
+    public $separator_font_family;
+
+    /**
+     * @var string $footer_display
+     */
+    public $footer_display;
 
     /**
      * @var string $analyticsCode

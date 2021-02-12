@@ -57,6 +57,11 @@ class AbstractBodyTheme extends AbstractTheme
     protected $links_text_color;
 
     /**
+     * @var string Links font family
+     */
+    protected $links_font_family;
+
+    /**
      * @var string Links label background type
      */
     protected $links_label_background_type;
@@ -77,7 +82,17 @@ class AbstractBodyTheme extends AbstractTheme
     protected $links_label_text_color;
 
     /**
+     * @var string Links label font family
+     */
+    protected $links_label_font_family;
+
+    /**
      * @var string Separator color
      */
     protected $separator_color;
+
+    /**
+     * @var string Separator font family
+     */
+    protected $separator_font_family;
 }

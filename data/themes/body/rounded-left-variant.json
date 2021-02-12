@@ -9,5 +9,8 @@
     "links_label_background_color": "#FFF",
     "links_label_background_gradient_id": "",
     "links_label_text_color": "#000",
+    "links_label_font_family": "Open Sans",
+    "links_font_family": "Open Sans",
+    "separator_font_family": "Open Sans",
     "separator_color": "#FFF"
 }

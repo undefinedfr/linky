@@ -88,17 +88,29 @@ var WPLinkyAdminForm = function (element, options) {
 
             var $pageModal = $('.page-modal');
             var pageId = $(this).data('page-id');
+            var pageType = $(this).data('type');
             $('body').toggleClass('page-modal-opened');
-            $pageModal.removeClass();
-            $pageModal.addClass('page-modal page-' + pageId);
-            $pageModal.find('input[name="page_id"]').val(pageId);
+            $pageModal.find('.page-modal__content').hide();
+            $pageModal.find('.page-modal__content.content--' + pageType).show();
+            switch(pageType) {
+                case 'settings':
+                    $pageModal.removeClass();
+                    $pageModal.addClass('page-modal page-' + pageId);
+                    $pageModal.find('input[name="page_id"]').val(pageId);
 
-            $pageModal.find('.add-title').css('display', (typeof pageId !== 'undefined' ? 'none' : 'block'));
-            $pageModal.find('.edit-title').css('display', (typeof pageId === 'undefined' ? 'none' : 'block'));
-            $pageModal.find('input[name="slug"]').prop('type', (typeof pageId !== 'undefined' ? 'hidden' : 'text'));
+                    $pageModal.find('.add-title').css('display', (typeof pageId !== 'undefined' ? 'none' : 'block'));
+                    $pageModal.find('.edit-title').css('display', (typeof pageId === 'undefined' ? 'none' : 'block'));
+                    $pageModal.find('input[name="slug"]').prop('type', (typeof pageId !== 'undefined' ? 'hidden' : 'text'));
 
-            $pageModal.find('input[name="page_name"]').val($(this).data('page-name'));
-
+                    $pageModal.find('input[name="page_name"]').val($(this).data('page-name'));
+                    break;
+                case 'qr':
+                    var $img = $pageModal.find('img');
+                    var url = $img.data('src') + '&page_id=' + pageId;
+                    $img.attr('src', url);
+                    $pageModal.find('a').attr('href', url + '&download=1');
+                    break;
+            }
         });
 
         // Hide link event

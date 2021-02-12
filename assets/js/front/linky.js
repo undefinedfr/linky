@@ -15,7 +15,29 @@ $(document).ready(function() {
     $('.link__link').click(function(e) {
         e.preventDefault();
 
-        let link = $(this).attr('href');
+        var link = $(this).attr('href');
+
+        var event_category = 'Linky Link';
+        var event_action = 'click';
+
+        // Google Analytics
+        if (typeof ga == 'function') {
+            ga('send', 'event', {
+                eventCategory: event_category,
+                eventAction: event_action,
+                eventLabel: link
+            });
+        }
+
+        // Universal Google Analytics Tag
+        if (typeof gtag == 'function') {
+            gtag('event', event_action, {
+                'event_category': event_category,
+                'event_label': link,
+            });
+        }
+
+
         // Add clicked link stat
         $.ajax({
             url: linky.ajax_url,

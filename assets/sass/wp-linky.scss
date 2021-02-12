@@ -1138,6 +1138,10 @@
                 svg {
                     width: 16px;
                 }
+
+                + button {
+                    margin-left: 0;
+                }
             }
         }
 
@@ -1232,6 +1236,9 @@
     .iphone-x *, .iphone-x *::before, .iphone-x *::after {
         box-sizing: border-box;
         display: block;
+    }
+    .iphone-x style {
+        display: none !important;
     }
     .iphone-x .iphoneside {
         background: #1c1c1c;

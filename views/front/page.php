@@ -26,6 +26,7 @@ if($backgroundType == 'gradient') {
     $background = ($backgroundType == 'none') ? $backgroundType : $page->get('background_color', '#FFF');
 }
 $color = $page->get('body_text_color', '#000');
+
 ?>
 <div class="linky-page linky-page--<?php echo $theme_id ?>" data-page-id="<?php echo $indexController->page_id; ?>" style="background: <?php echo $background ?>; color: <?php echo $color ?>">
     <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/header.php'; ?>
@@ -36,5 +37,11 @@ $color = $page->get('body_text_color', '#000');
             <?php require UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/socials.php'; ?>
         </div>
     <?php endif; ?>
-    <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/footer.php'; ?>
+    <?php if($page->get('footer_display', 'yes') == 'yes'): ?>
+        <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/footer.php'; ?>
+    <?php endif; ?>
+
+    <style type="text/css">
+        <?php echo ThemesHelper::getFonts($page); ?>
+    </style>
 </div>

@@ -18,6 +18,7 @@ $theme_id               = $page->get('body_theme', 'default');
 $labelLength            = ((!$this->get('category') || ($theme_id == 'rounded-left' || $theme_id == 'roundedeft-variant')) && $this->get('label')) ? strlen($this->get('label')) : 0;
 $labelBackgroundType    = $page->get('links_label_background_type', 'color');
 $labelTextColor         = $page->get('links_label_text_color', '#FFF');
+
 if($labelBackgroundType == 'gradient') {
     $gradients = ThemesHelper::getGradients();
     $gradient = $page->get('links_label_background_gradient_id', 'linky');
@@ -39,9 +40,9 @@ if($labelLength
         <div class="_col-md-6">
     <?php endif; ?>
 
-        <div class="link <?php echo $this->get('label') ? 'has-label' : ''; ?>" style="border-color: <?php echo $this->get('border_color'); ?>; background-color: <?php echo $this->get('background_color'); ?>; color: <?php echo $this->get('color'); ?>; padding-right: <?php echo $padding_right ?>;">
+        <div class="link <?php echo $this->get('label') ? 'has-label' : ''; ?>" style="border-color: <?php echo $this->get('border_color'); ?>; background-color: <?php echo $this->get('background_color'); ?>; color: <?php echo $this->get('color'); ?>; padding-right: <?php echo $padding_right ?>; font-family: '<?php echo $page->get('links_font_family', "Open Sans") ?>';">
             <?php if($this->get('label')): ?>
-                <div class="link__label" style="background: <?php echo $labelBackground ?>; color: <?php echo $labelTextColor ?>">
+                <div class="link__label" style="background: <?php echo $labelBackground ?>; color: <?php echo $labelTextColor ?>; font-family: '<?php echo $page->get('links_label_font_family', "Open Sans") ?>';">
                     <?php echo $this->get('label'); ?>
                 </div>
             <?php endif; ?>

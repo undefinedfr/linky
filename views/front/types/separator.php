@@ -22,7 +22,7 @@ $background = 'none';
             <span style="background-color: <?php echo $this->get('border_color', $page->get('separator_color')); ?>"></span>
         </div>
         <?php if($this->get('label_link')): ?>
-            <div class="separator__label" style="color: <?php echo $this->get('border_color'); ?>">
+            <div class="separator__label" style="color: <?php echo $this->get('border_color'); ?>; font-family: '<?php echo $page->get('separator_font_family', "Open Sans") ?>';">
                 <?php echo $this->get('label_link'); ?>
             </div>
         <?php endif; ?>

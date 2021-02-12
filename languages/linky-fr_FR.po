@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Linky\n"
 "POT-Creation-Date: 2020-05-03 15:37+1000\n"
-"PO-Revision-Date: 2021-02-05 09:33+0100\n"
+"PO-Revision-Date: 2021-02-12 13:34+0100\n"
 "Last-Translator: RIVIERE Nicolas <hello@undefined.fr>\n"
 "Language-Team: Undefined <hello@undefined.fr>\n"
 "Language: fr\n"
@@ -240,7 +240,7 @@ msgstr "Bienvenue sur le plugin Linky"
 msgid "Got it"
 msgstr "J'ai compris"
 
-msgid "It is recommended to upload a new image to have the plugin image sizes"
+msgid "It is recommended to upload a new image to have the module image sizes"
 msgstr "Il est recommandé d'ajouter (upload) une nouvelle image pour bénéficier des tailles d'images du module"
 
 msgid "If you have already filled in links, they will not be modified so as not to lose the configuration already carried out."
@@ -434,3 +434,27 @@ msgstr "Page consultée"
 
 msgid "Clicked links"
 msgstr "Page consultée"
+
+msgid "Display footer ?"
+msgstr "Afficher le pied de page ?"
+
+msgid "Footer"
+msgstr "Pied de page"
+
+msgid "Get QR Code"
+msgstr "Obtenir QR Code"
+
+msgid "Page QR Code"
+msgstr "QR Code de la page"
+
+msgid "Separators font family"
+msgstr "Police des séparateurs"
+
+msgid "Links font family"
+msgstr "Police des liens"
+
+msgid "Label text font family"
+msgstr "Police des labels"
+
+msgid "Header font family"
+msgstr "Police de l‘en-tête"

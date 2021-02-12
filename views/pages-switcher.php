@@ -26,19 +26,22 @@ $homeUrl        = home_url();
             <?php endif; ?>
             <input type="hidden" name="page" value="<?php echo !empty($_GET['page']) ? $_GET['page'] : ''; ?>">
         </form>
-        <button type="button" title="<?php echo __('Edit page', 'linky'); ?>" data-page-name="<?php echo $pages[$currentPage]; ?>" data-page-id="<?php echo $currentPage; ?>" class="_js-open-modal settings-button">
+        <button type="button" title="<?php echo __('Edit page', 'linky'); ?>" data-type="settings" data-page-name="<?php echo $pages[$currentPage]; ?>" data-page-id="<?php echo $currentPage; ?>" class="_js-open-modal settings-button">
             <?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/settings.svg' ?>
+        </button>
+        <button type="button" title="<?php echo __('Get QR Code', 'linky'); ?>" data-type="qr" data-page-id="<?php echo $currentPage; ?>" class="_js-open-modal qr-button">
+            <?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/qr.svg' ?>
         </button>
     </div>
     <div class="pull-right">
-        <button type="button" class="_js-open-modal button button-primary button-large">
+        <button type="button" data-type="settings" class="_js-open-modal button button-primary button-large">
             <?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/plus.svg' ?>
             <span class="text"><?php echo __('Add page', 'linky'); ?></span>
         </button>
     </div>
 </div>
 <div class="page-modal">
-    <div class="page-modal__content">
+    <div class="page-modal__content content--settings">
         <div class="page-modal__header">
             <h3 class="add-title"><?php echo __('Add page', 'linky'); ?></h3>
             <h3 class="edit-title" style="display:none"><?php echo __('Edit page', 'linky'); ?></h3>
@@ -46,7 +49,7 @@ $homeUrl        = home_url();
                 <?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/plus.svg' ?>
             </button>
         </div>
-        <div class="page-modal__body ">
+        <div class="page-modal__body">
             <form action="<?php echo admin_url( 'admin-ajax.php' ); ?>">
                 <div class="form-field">
                     <label for="page_name"><?php echo __('Page name', 'linky'); ?></label>
@@ -68,6 +71,23 @@ $homeUrl        = home_url();
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="page-modal__content content--qr">
+        <div class="page-modal__header">
+            <h3><?php echo __('Page QR Code', 'linky'); ?></h3>
+            <button class="close _js-open-modal">
+                <?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/plus.svg' ?>
+            </button>
+        </div>
+        <div class="page-modal__body">
+            <img src="<?php echo UNDFND_WP_LINKY_PLUGIN_URL . '/assets/images/loading.gif'; ?>" data-src="<?php echo admin_url('admin-ajax.php?action=get_qr_code'); ?>" alt="">
+
+            <div class="page-modal__footer">
+                <div class="save">
+                    <a href="" class="button button-primary button-large"><?php echo __('Download', 'linky'); ?></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

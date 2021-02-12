@@ -128,6 +128,37 @@ abstract class ThemesHelper
     }
 
     /**
+     * Get google fonts
+     *
+     * @param \LinkyApp\Entity\Page $page
+     */
+    public static function getFonts($page)
+    {
+        $fonts = [
+            'header_font_family',
+            'links_label_font_family',
+            'links_font_family',
+            'separator_font_family',
+        ];
+        $fontsToInclude = [];
+        foreach($fonts as $key) {
+            $font = $page->get($key);
+            $value = str_replace(' ', '+', $font) . ':wght@400;600';
+            if(!in_array($value, $fontsToInclude) && $font)
+                $fontsToInclude[] = $value;
+        }
+
+        $url = 'https://fonts.googleapis.com/css2?family=' . ($fontsToInclude ? implode('&family=', $fontsToInclude): 'Open+Sans:wght@400;600') . '&display=swap';
+        $css = get_transient(md5($url));
+        if(!$css) {
+            $css = file_get_contents($url);
+            set_transient(md5($url), $css);
+        }
+
+        return $css;
+    }
+
+    /**
      * Get themes files by type
      *
      * @param string $type type (header|footer)

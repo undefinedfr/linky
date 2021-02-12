@@ -32,6 +32,7 @@ class AjaxController
         'get_admin_page_content' => 'getAdminPageContent',
         'get_link_template' => 'getLinkTemplate',
         'get_suggests' => 'getSuggests',
+        'get_qr_code' => 'getQRCode',
     ];
 
     public function __construct()
@@ -169,6 +170,33 @@ class AjaxController
 
         echo $html;
         die;
+    }
+
+    /**
+     * getQRCode
+     *
+     * @return string;
+     */
+    public function getQRCode()
+    {
+        $page_id = !empty($_GET['page_id']) ? $_GET['page_id'] : 0;
+        require_once UNDFND_WP_LINKY_PLUGIN_DIR . '/vendor/qrcodegenerator/phpqrcode.php';
+
+        $options = WPLinkyHelper::getPage('global', $page_id);
+        \QRcode::png(site_url() . '/' . $options['slug'], false, QR_ECLEVEL_L, 10, 3);
+
+        if(!empty($_GET['download'])) {
+            $filename = sanitize_title($options['slug']).'.png';
+            header('Pragma: public');   // required
+            header('Expires: 0');       // no cache
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Cache-Control: private',false);
+            header('Content-Type: image/png');
+            header('Content-Disposition: attachment; filename="'.$filename.'"');
+            header('Content-Transfer-Encoding: binary');
+            header('Content-Length: '.filesize($filename));    // provide file size
+            readfile($filename);
+        }
     }
 
     /**

@@ -7,6 +7,7 @@
     height: 100vh;
     z-index: 5;
     display: none;
+    $self: &;
 
     form {
         input[type="text"] {
@@ -24,6 +25,14 @@
         height: auto;
         transform: translate(-50%, -50%);
         z-index: 2;
+
+        &.content--qr {
+            width: 400px;
+
+            #{$self}__body {
+                text-align: center;
+            }
+        }
     }
 
     &__header {
@@ -61,6 +70,11 @@
 
     &__body {
         padding: 20px;
+
+        img {
+            display: inline-block;
+            max-width: 100%;
+        }
     }
 
     &__footer {

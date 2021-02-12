@@ -2,5 +2,6 @@
     "header_background_type": "gradient",
     "header_background_color": "#FFF",
     "header_background_gradient_id": "linky",
-    "header_text_color": "#FFF"
+    "header_text_color": "#FFF",
+    "header_font_family": "Open Sans"
 }

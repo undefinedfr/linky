@@ -40,4 +40,9 @@ class AbstractHeaderTheme extends AbstractTheme
      * @var string Header text color
      */
     protected $header_text_color = '#000';
+
+    /**
+     * @var string Header font family
+     */
+    protected $header_font_family = 'Open Sans';
 }
