@@ -75,3 +75,8 @@ All notable changes to this project will be documented in this file.
 ## [1.2.5]
 ### Fixes
 - fix template_include for elementor
+
+
+## [1.2.6]
+### Fixes
+- test on latest WordPress version
