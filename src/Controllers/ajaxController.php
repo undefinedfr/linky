@@ -35,10 +35,14 @@ class AjaxController
         'get_qr_code' => 'getQRCode',
     ];
 
+    private $_methods_front = ['page_viewed', 'link_clicked'];
+
     public function __construct()
     {
         foreach($this->_methods as $action => $method) {
             add_action( 'wp_ajax_' . $action, [ $this, $method ] );
+            if(in_array($action, $this->_methods_front))
+                add_action( 'wp_ajax_nopriv_' . $action, [ $this, $method ] );
         }
     }
 

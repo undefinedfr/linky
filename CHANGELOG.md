@@ -8,3 +8,4 @@ All notable changes to this project will be documented in this file.
 - Add clicked links statistics
 - Send link's click in Google Analytics
 - Add Google fonts selector for links, labels, separators and header
+- Download QR Code for your page
