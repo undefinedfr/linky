@@ -65,7 +65,7 @@ class Linky {
         $this->_options = $this->getOptions();
 
         add_filter( 'plugin_action_links', [$this, 'addSettingsLink'], 10, 2 );
-        add_filter( 'template_include', [$this, 'linkyTemplateInclude'] );
+        add_filter( 'template_include', [$this, 'linkyTemplateInclude'], 99, 1 );
 
         add_action( 'activate_' . UNDFND_WP_LINKY_PLUGIN_REALDIRPATH, [$this, UNDFND_WP_LINKY_DOMAIN . '_install'] );
         add_action( 'admin_menu', [ $this, 'addMenu'] );

@@ -135,5 +135,8 @@ Yes, you can add social links on your page header.
 =1.2.4=
 * header link color
 
+=1.2.5=
+* fix template_include for elementor
+
 == Upgrade Notice ==
 
