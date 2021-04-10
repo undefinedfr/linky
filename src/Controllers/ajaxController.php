@@ -114,7 +114,7 @@ class AjaxController
     private function _save()
     {
         if(!empty($_POST['_group'])) {
-            $this->_formData = WPLinkyHelper::recursiveSanitizeTextField($_POST);
+            $this->_formData = WPLinkyHelper::recursiveSanitizeTextField($_POST, ($_POST['_group'] == 'links'));
             $group = $this->_formData['_group'];
             unset($this->_formData['_group']);
 

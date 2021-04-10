@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Linky\n"
 "POT-Creation-Date: 2020-05-03 15:37+1000\n"
-"PO-Revision-Date: 2021-01-26 13:10+0100\n"
+"PO-Revision-Date: 2021-04-10 17:33+0200\n"
 "Last-Translator: RIVIERE Nicolas <hello@undefined.fr>\n"
 "Language-Team: Undefined <hello@undefined.fr>\n"
 "Language: fr\n"
@@ -255,7 +255,7 @@ msgstr "Enfin, <a href='%s'>configurer vos liens</a> et visualiser le résultat 
 msgid "Choose the <a href='%s'>links of your social profiles</a> so that they appear on your page"
 msgstr "Choisissez les <a href='%s'>liens de vos profils sociaux</a> pour qu'ils s'affichent dans votre page"
 
-msgid "Then configure the appearance of your page : the header banner, the default colors of your links or the background color of your page from the tab <a href='%s'>Apparence</a>"
+msgid "Then configure the appearance of your page : the header banner, the default colors of your links or the background color of your page from the tab <a href='%s'>Appareance</a>"
 msgstr "Puis configurer l'apparence de votre page comme le bandeau d'en-tête, les couleurs par défaut de vos liens ou encore la couleur de fond de votre page depuis l'onglet <a href='%s'>Apparence</a>"
 
 msgid "Create &amp; manage link’s hub for your social profile directly in your websites"
@@ -395,3 +395,6 @@ msgstr "Optionnel"
 
 msgid "Avatar link"
 msgstr "Lien de l‘avatar"
+
+msgid "Recommended size: 50x50 pixels"
+msgstr "Taille recommandée: 50x50 pixels"

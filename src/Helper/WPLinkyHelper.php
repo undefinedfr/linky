@@ -208,16 +208,15 @@ abstract class WPLinkyHelper
      *
      * @return mixed
      */
-    public static function recursiveSanitizeTextField($array) {
+    public static function recursiveSanitizeTextField($array, $is_links = false) {
         foreach ( $array as $key => &$value ) {
             if ( is_array( $value ) ) {
                 $value = self::recursiveSanitizeTextField($value);
             }
-            else if($key !== 'code_ga') {
+            else if($key !== 'code_ga' && (!filter_var($value, FILTER_VALIDATE_URL) || $is_links)) {
                 $value = sanitize_text_field( $value );
             }
         }
-
         return $array;
     }
 }

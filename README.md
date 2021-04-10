@@ -1,6 +1,6 @@
 # WP Linky
 
-Version : **1.2.6**
+Version : **1.3.0**
 
 Author : **Nicolas RIVIERE**
 
@@ -286,6 +286,22 @@ function on_linky_header_title( $title ) {
     return __('Welcome');
 }
 add_filter( 'linky_header_title', 'on_linky_header_title', 10, 1 );
+```
+
+###### --
+
+**`linky_avatar_image_size`**
+- string $icon_image_size default image size
+
+###### Definition:
+Override avatar image size
+
+###### Exemple:
+```
+function on_linky_avatar_image_size( $icon_image_size ) {
+    return 'large';
+}
+add_filter( 'linky_avatar_image_size', 'on_linky_avatar_image_size', 10, 1 );
 ```
 
 

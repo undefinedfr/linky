@@ -80,3 +80,14 @@ All notable changes to this project will be documented in this file.
 ## [1.2.6]
 ### Fixes
 - test on latest WordPress version
+
+
+## [1.3.0]
+### Fixes
+- add vimeo social link
+- add signal social link
+- add email social link
+- fix translation
+- add indication for avatar image
+- fix escape url for links
+- add filter for image size

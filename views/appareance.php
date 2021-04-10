@@ -27,7 +27,8 @@ $menus      = wp_get_nav_menus();
         <div class="col-lr">
             <div class="links-informations">
                 <p>
-                    <?php echo __('It is recommended to upload a new image to have the module image sizes', 'linky'); ?>
+                    <?php echo __('It is recommended to upload a new image to have the module image sizes', 'linky'); ?>.<br>
+                    <?php echo __('Recommended size: 50x50 pixels', 'linky'); ?>
                 </p>
             </div>
             <div class="form-control form-control--upload with-two-fields">

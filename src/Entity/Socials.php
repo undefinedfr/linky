@@ -123,4 +123,19 @@ class Socials extends AbstractEntity
      * @var $etsy
      */
     public $etsy;
+
+    /**
+     * @var $vimeo
+     */
+    public $vimeo;
+
+    /**
+     * @var $signal
+     */
+    public $signal;
+
+    /**
+     * @var $email
+     */
+    public $email;
 }
