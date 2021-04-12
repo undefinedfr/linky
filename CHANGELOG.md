@@ -91,3 +91,7 @@ All notable changes to this project will be documented in this file.
 - add indication for avatar image
 - fix escape url for links
 - add filter for image size
+
+## [1.3.1]
+### Fixes
+- fix email link with mailto
