@@ -72,7 +72,10 @@ class Linky {
         add_action( 'admin_enqueue_scripts', [$this, 'linkyAdminPluginEnqueue'] );
         add_action( 'wp_enqueue_scripts', [$this, 'linkyPluginEnqueue'] );
         add_action( 'plugins_loaded', [$this, 'loadPluginTextdomain'] );
-        add_action( 'init', [$this, 'linkyRewriteRule'], 10, 0);
+
+        $ps = get_option('permalink_structure');
+        if(!empty($ps))
+            add_action( 'init', [$this, 'linkyRewriteRule'], 10, 0);
         add_action( 'query_vars', [$this, 'linkyQueryParams'] );
 
         if(empty($this->_options['global']['theme_style']) || $this->_options['global']['theme_style'] == 'no')

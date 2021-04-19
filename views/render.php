@@ -6,9 +6,8 @@
  * @link      https://www.undefined.fr
  */
 global $wpLinky;
-$prefix = home_url() . '/';
-$url = $prefix . $wpLinky->getIndexController()->getSettings()->get('slug', 'linky');
 
+$url = $wpLinky->getIndexController()->getSettings()->getPageUrl();
 ?>
 <h2>
     <?php echo __('Render', 'linky'); ?>

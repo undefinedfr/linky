@@ -4,7 +4,7 @@ Donate link: https://www.undefined.fr/#contact
 Tags: linktree, later, links, bio links, social
 Requires at least: 4.0
 Tested up to: 5.6.2
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -152,6 +152,26 @@ Yes, you can add social links on your page header.
 
 =1.3.1=
 * fix email link with mailto
+
+=1.3.2=
+* fix with no permalink structure
+* add amazon social link
+* add bentbox social link
+* add onlyfans social link
+* add ebay social link
+* add offerup social link
+* add flickr social link
+* add gurushots social link
+* add lifeframer social link
+* add viewbug social link
+* add 500px social link
+* add reddit social link
+* add vocal media social link
+* add quora social link
+* add flipboard social link
+* add digg social link
+* add mix social link
+* add airbnb social link
 
 == Upgrade Notice ==
 

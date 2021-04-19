@@ -84,14 +84,37 @@ All notable changes to this project will be documented in this file.
 
 ## [1.3.0]
 ### Fixes
+- fix translation
+- fix escape url for links
+### Added
 - add vimeo social link
 - add signal social link
 - add email social link
-- fix translation
 - add indication for avatar image
-- fix escape url for links
 - add filter for image size
 
 ## [1.3.1]
 ### Fixes
 - fix email link with mailto
+
+## [1.3.2]
+### Fixes
+- fix with no permalink structure
+### Added
+- add amazon social link
+- add bentbox social link
+- add onlyfans social link
+- add ebay social link
+- add offerup social link
+- add flickr social link
+- add gurushots social link
+- add lifeframer social link
+- add viewbug social link
+- add 500px social link
+- add reddit social link
+- add vocal media social link
+- add quora social link
+- add flipboard social link
+- add digg social link
+- add mix social link
+- add airbnb social link

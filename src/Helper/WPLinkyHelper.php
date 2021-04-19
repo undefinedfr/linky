@@ -116,7 +116,10 @@ abstract class WPLinkyHelper
      */
     public static function getSocials()
     {
-        return array_keys(get_class_vars(Socials::class));
+        $socials = array_keys(get_class_vars(Socials::class));
+        asort($socials);
+
+        return $socials;
     }
 
     /**
