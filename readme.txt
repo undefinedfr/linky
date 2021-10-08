@@ -3,8 +3,8 @@ Contributors: undefinedfr
 Donate link: https://www.undefined.fr/#contact
 Tags: linktree, later, links, bio links, social
 Requires at least: 4.0
-Tested up to: 5.6.2
-Stable tag: 1.3.2
+Tested up to: 5.8.1
+Stable tag: 1.3.3
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -45,7 +45,7 @@ Front Demo :
 [Demo 7](https://elodieletombe.com/mesliens/ "Front demo")
 [Demo 8](https://studio-birdie.com/links/ "Front demo")
 [Demo 9](https://florianallignon.fr/liens "Front demo")
-[Demo 10](https://hello-kaleidoscope.com/links "Front demo")
+[Demo 10](http://www.ville-sens.fr/nos-liens/ "Front demo")
 
 == Installation ==
 
@@ -172,6 +172,10 @@ Yes, you can add social links on your page header.
 * add digg social link
 * add mix social link
 * add airbnb social link
+
+=1.3.3=
+* support noscript lazyload after image
+* test on latest WordPress version
 
 == Upgrade Notice ==
 

@@ -118,3 +118,8 @@ All notable changes to this project will be documented in this file.
 - add digg social link
 - add mix social link
 - add airbnb social link
+
+## [1.3.3]
+### Fixes
+- support noscript lazyload after image
+- test on latest WordPress version
