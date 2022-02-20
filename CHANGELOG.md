@@ -38,22 +38,18 @@ All notable changes to this project will be documented in this file.
 ### Fixes
 - remove linky assets on another pages
 
-
 ## [1.1.3]
 ### Fixes
 - override version number
-
 
 ## [1.2.0]
 ### Added
 - add social networks (apple music, dailymotion, deezer, etsy, itunes, soundcloud, telegram, tiktok, whatsapp)
 - add posts auto-complete on label link field
 
-
 ## [1.2.1]
 ### Edit
 - edit add_submenu_page hook tag
-
 
 ## [1.2.2]
 ### Added
@@ -61,26 +57,21 @@ All notable changes to this project will be documented in this file.
 - add technical documentation
 - add avatar link
 
-
 ## [1.2.3]
 ### Fixes
 - minify assets
-
 
 ## [1.2.4]
 ### Fixes
 - header link color
 
-
 ## [1.2.5]
 ### Fixes
 - fix template_include for elementor
 
-
 ## [1.2.6]
 ### Fixes
 - test on latest WordPress version
-
 
 ## [1.3.0]
 ### Fixes
@@ -122,4 +113,8 @@ All notable changes to this project will be documented in this file.
 ## [1.3.3]
 ### Fixes
 - support noscript lazyload after image
+- test on latest WordPress version
+
+## [1.3.4]
+### Fixes
 - test on latest WordPress version
