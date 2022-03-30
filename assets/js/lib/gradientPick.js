@@ -45,9 +45,9 @@
     $.fn.gradientPick.defaults = {
         'initialColor': 'linky',
         'paletteLabel': 'Default palette:',
-        'palette': Object.keys(args.gradients),
+        'palette': Object.keys(linky_args.gradients),
         'onColorSelected': function() {
-            this.element.css({'backgroundImage': 'linear-gradient(120deg, ' + args.gradients[this.color].join(',') + ')'});
+            this.element.css({'backgroundImage': 'linear-gradient(120deg, ' + linky_args.gradients[this.color].join(',') + ')'});
         }
     };
 
@@ -93,7 +93,7 @@
 
             $("body").append('<div id="gradientPick" style="display:none;top:' + top + 'px;left:' + left + 'px"><span>'+$.fn.gradientPick.defaults.paletteLabel+'</span></div>');
             jQuery.each(this.palette, function (index, item) {
-                $("#gradientPick").append('<div class="gradientPickButton" hexValue="' + item + '" style="background-image:linear-gradient(120deg,' + args.gradients[item].join(',') + ')"></div>');
+                $("#gradientPick").append('<div class="gradientPickButton" hexValue="' + item + '" style="background-image:linear-gradient(120deg,' + linky_args.gradients[item].join(',') + ')"></div>');
             });
             $("#gradientPick").fadeIn(200);
         },

@@ -18,7 +18,7 @@ $links = $indexController->getLinks()->getAll();
         foreach($links as $link):
             /* @var \LinkyApp\Type\abstractType $linkInstance  */
             $linkInstance = $link->get('data');
-            $linkInstance->getFrontTemplate($wpLinky);
+            $linkInstance->getFrontTemplate( $wpLinky );
         endforeach;
     endif;
     ?>

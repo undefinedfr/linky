@@ -7,15 +7,16 @@
  */
 
 use \LinkyApp\Helper\ThemesHelper;
+use LinkyApp\Helper\WPLinkyHelper;
 
 if(empty($wpLinky))
     global $wpLinky;
 
-$indexController = $wpLinky->getIndexController();
-$page = $indexController->getPage();
-$theme_id = $page->get('body_theme', 'default');
+$indexController    = $wpLinky->getIndexController();
+$page               = $indexController->getPage();
+$theme_id           = $page->get('body_theme', 'default');
 
-$backgroundType = $page->get('background_type', 'color');
+$backgroundType     = $page->get('background_type', 'color');
 if($backgroundType == 'gradient') {
     $gradients = ThemesHelper::getGradients();
     $gradient = $page->get('background_gradient_id', 'linky');
@@ -28,13 +29,13 @@ if($backgroundType == 'gradient') {
 $color = $page->get('body_text_color', '#000');
 ?>
 <div class="linky-page linky-page--<?php echo $theme_id ?>" style="background: <?php echo $background ?>; color: <?php echo $color ?>">
-    <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/header.php'; ?>
-    <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/links.php'; ?>
+    <?php require_once WPLinkyHelper::getViewPath('front/header') ?>
+    <?php require_once WPLinkyHelper::getViewPath('front/links') ?>
     <?php if($page->get('social_position', 'top') != 'top'): ?>
         <div class="social-footer">
             <?php $textColor = $color ?>
-            <?php require UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/socials.php'; ?>
+            <?php require_once WPLinkyHelper::getViewPath('front/socials') ?>
         </div>
     <?php endif; ?>
-    <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/footer.php'; ?>
+    <?php require_once WPLinkyHelper::getViewPath('front/footer') ?>
 </div>

@@ -93,14 +93,6 @@
             position: relative;
             font-size: 14px;
 
-            & + .link{
-                margin-top: 10px;
-            }
-
-            & + .separator{
-                margin-top: 15px;
-            }
-
             .clearfix {
                 clear: both;
             }
@@ -174,6 +166,17 @@
             }
         }
 
+        .link,
+        ._col-md-6  {
+            & + .link{
+                margin-top: 10px;
+            }
+
+            & + .separator{
+                margin-top: 15px;
+            }
+        }
+
         .separator {
             font-size: 10px;
             overflow: hidden;
@@ -215,6 +218,7 @@
             }
 
             & + .link,
+            & + ._col-md-6,
             & + .separator{
                 margin-top: 15px;
             }

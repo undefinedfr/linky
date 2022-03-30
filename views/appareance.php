@@ -19,7 +19,6 @@ $menus      = wp_get_nav_menus();
             id="appareance"
             method="POST"
             enctype="multipart/form-data"
-            action="<?php echo admin_url( 'admin-ajax.php' ); ?>"
             class="_js-form"
             data-success-message="<?php echo __('Settings saved', 'linky'); ?>"
     >
@@ -27,7 +26,7 @@ $menus      = wp_get_nav_menus();
         <div class="col-lr">
             <div class="links-informations">
                 <p>
-                    <?php echo __('It is recommended to upload a new image to have the module image sizes', 'linky'); ?>.<br>
+                    <span class="admin-show"><?php echo __('It is recommended to upload a new image to have the module image sizes', 'linky'); ?>.<br></span>
                     <?php echo __('Recommended size: 50x50 pixels', 'linky'); ?>
                 </p>
             </div>
@@ -38,7 +37,7 @@ $menus      = wp_get_nav_menus();
                     $imageId = WPLinkyHelper::getOptionValue('avatar', $appareance);
                     $image = !empty($imageId) ? new Image($imageId) : false;
                     ?>
-                    <div class="image-uploader <?php echo !empty($image) ? 'is-filled' : ''; ?>" <?php echo !empty($image) ? 'style="background-image: url(' . $image->getImageUrl('thumbnail') . ')"' : ''; ?>>
+                    <div <?php echo !is_admin() || $_SERVER['REQUEST_URI'] == '/wp-admin/admin-ajax.php' ? 'data-custom="1"' : ''; ?> class="image-uploader <?php echo !empty($image) ? 'is-filled' : ''; ?>" <?php echo !empty($image) ? 'style="background-image: url(' . $image->getImageUrl('thumbnail') . ')"' : ''; ?>>
                         <input type="hidden" name="avatar"  value="<?php echo !empty($image) ? $image->id : ''; ?>">
                         <button class="_js-remove-image" title="<?php echo __('Remove'); ?>"></button>
                     </div>
@@ -103,7 +102,7 @@ $menus      = wp_get_nav_menus();
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="form-control">
+            <div class="form-control hide-on-shopify">
                 <div class="form-field">
                     <label for="menu"><?php echo __('Menu', 'linky'); ?></label>
                     <div class="minitext"><?php echo __('You can add one in Appareance > Menus', 'linky'); ?></div>
@@ -118,7 +117,7 @@ $menus      = wp_get_nav_menus();
                 <div class="clearfix"></div>
             </div>
             <div class="form-control">
-                <div class="form-field">
+                <div class="form-field hide-on-shopify">
                     <label for="social_display"><?php echo __('Display socials links with menu', 'linky'); ?></label>
                     <span class="minitext"><?php echo __('By default, socials links are visible everytime', 'linky'); ?></span>
                     <input type="radio" id="social_display" value="yes" name="social_display" <?php echo WPLinkyHelper::getOptionValue('social_display', $appareance) == 'yes' ? 'checked' : ''; ?>> <span><?php echo __('Yes', 'linky'); ?></span>

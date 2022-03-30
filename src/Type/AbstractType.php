@@ -43,16 +43,16 @@ class AbstractType extends AbstractObject
      */
     public function getAdminTemplate()
     {
-        require UNDFND_WP_LINKY_PLUGIN_DIR . 'views/fields/' . $this->get('id')  . '.php';
+        require WPLinkyHelper::getViewPath('fields/' . $this->get('id'));
     }
 
     /**
      * Get front template
      * @return void
      */
-    public function getFrontTemplate($wpLinky)
+    public function getFrontTemplate( $wpLinky )
     {
-        require UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/types/' . $this->get('id')  . '.php';
+        require WPLinkyHelper::getViewPath('front/types/' . $this->get('id'));
     }
 
     /**

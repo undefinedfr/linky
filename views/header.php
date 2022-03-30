@@ -5,6 +5,8 @@
  * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      https://www.undefined.fr
  */
+
+use \LinkyApp\Helper\WPLinkyHelper;
 ?>
 <div class="wrap settings-wp-linky">
     <h1></h1>
@@ -19,4 +21,4 @@
     </div>
     <div id="poststuff">
         <div class="postbox _col-8">
-        <?php require_once __DIR__ . '/menu.php' ?>
+        <?php include WPLinkyHelper::getViewPath('menu') ?>

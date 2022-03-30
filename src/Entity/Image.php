@@ -37,6 +37,6 @@ class Image
             }
         }
 
-        return $image[0];
+        return !empty($image[0]) ? $image[0] : null;
     }
 }

@@ -86,7 +86,7 @@ module.exports = function(grunt) {
         watch: {
             scripts: {
                 files: ['<%= paths.jsDir %>**/*.js'],
-                tasks: ['concat', 'uglify']
+                tasks: ['concat']
             },
             styles: {
                 files: '<%= paths.sassDir %>**/*.scss',

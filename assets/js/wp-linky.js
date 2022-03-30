@@ -8,6 +8,10 @@ var $ = jQuery;
 var paletteLinky = ["transparent", "#6be39c", "#39cb75", "#1a7e43", "#06421f", "#68e0c6", "#29bb9c", "#23a085", "#0e5f4d", "#043a2e", "#6fcade", "#3b99d9", "#2f81b7", "#2f59b7", "#354a5d", "#d988de", "#9a5cb4", "#8d48ab", "#6a2887", "#410c58", "#ea827b", "#e54d42", "#be3a31", "#94241c", "#580f0a", "#f1d372", "#f0c330", "#f19b2c", "#e47e31", "#d15519", "#ffffff", "#ecf0f1", "#bdc3c7", "#808c8d", "#1d1d1d"];
 
 $(document).ready(function() {
+    window.readyLinky();
+});
+
+window.readyLinky = function(onload) {
     var render      = new renderComponent('.linky-page', {});
     var imgUploader = new imageUploader('.image-uploader', {});
     var linkyForm   = new WPLinkyAdminForm('.settings-wp-linky', {
@@ -18,10 +22,14 @@ $(document).ready(function() {
         linkyForm: linkyForm
     });
 
-    $(window).load(function() {
+    if(onload == void 0) {
+        $(window).load(function() {
+            linkyForm.dirtyEvent();
+        });
+    } else {
         linkyForm.dirtyEvent();
-    });
-});
+    }
+};
 
 $(window).load(function() {
     // Sticky iphone
@@ -46,7 +54,8 @@ var WPLinkyAdminForm = function (element, options) {
 
     plugin.form = $element.find('form._js-form');
     plugin.renderButton = $('._js-linky-button');
-    plugin.formIsDirty = false;
+    plugin.formIsDirty = true;
+    window.formIsDirty = plugin.formIsDirty;
 
     /* --- PUBLIC FUNCTIONS --- */
     plugin.init = function () {
@@ -112,10 +121,10 @@ var WPLinkyAdminForm = function (element, options) {
             if (plugin.formIsDirty) {
                 // For IE and Firefox
                 if (e) {
-                    e.returnValue = args.promptMessage;
+                    e.returnValue = linky_args.promptMessage;
                 }
                 // For Safari
-                return args.promptMessage;
+                return linky_args.promptMessage;
             }
         };
 
@@ -126,7 +135,7 @@ var WPLinkyAdminForm = function (element, options) {
             var form = $(this);
             var formData = new FormData(form[0]);
             $.ajax({
-                url: form.attr('action'),
+                url: linky_args.ajax_url,
                 method: 'POST',
                 processData: false,
                 contentType: false,
@@ -136,15 +145,17 @@ var WPLinkyAdminForm = function (element, options) {
                 },
                 success: function(response) {
                     if(response.success != void 0) {
-                        plugin.formIsDirty = false;
-
                         var message = plugin.getMessage('success',  plugin.form.data('success-message'));
                         plugin.form.prepend(message);
 
-                        plugin.renderButton.attr('href', plugin.renderButton.data('prefix') + response.data.global.slug);
+                        if (response.data.global != void 0 && response.data.global.slug != void 0)
+                            plugin.renderButton.attr('href', plugin.renderButton.data('prefix') + response.data.global.slug);
 
                         plugin.settings.renderComponent.refresh();
                         plugin.form.find('.is-deleted').remove();
+
+                        plugin.formIsDirty = false;
+                        window.formIsDirty = plugin.formIsDirty;
                     }
                 }
             });
@@ -159,8 +170,10 @@ var WPLinkyAdminForm = function (element, options) {
     // Set Events
     plugin.dirtyEvent = function () {
         plugin.formIsDirty = false;
+        window.formIsDirty = plugin.formIsDirty;
         plugin.form.find('input, select').change(function() {
             plugin.formIsDirty = true;
+            window.formIsDirty = plugin.formIsDirty;
         });
     };
 
@@ -187,7 +200,7 @@ var WPLinkyAdminForm = function (element, options) {
         $(".gradientpicker").gradientPick({
             paletteLabel: '',
             onColorSelected: function() {
-                this.element.css({'backgroundImage': 'linear-gradient(120deg, ' + args.gradients[this.color].join(',') + ')'});
+                this.element.css({'backgroundImage': 'linear-gradient(120deg, ' + linky_args.gradients[this.color].join(',') + ')'});
                 this.element.siblings('input[type="hidden"]').val(this.color).trigger('change');
             }
         });
@@ -249,38 +262,36 @@ var renderComponent = function (element, options) {
 
     // Set Events
     plugin._events = function () {
-        $('.link__label-link input').on({
-            'keyup': function() {
-                var $input = $(this);
-                var $formField = $input.closest('.form-field');
-                $formField.find('.link__autocomplete').html('');
-                $formField.removeClass('is-autocomplete');
-                if(!$input.val()) {
-                    $formField.removeClass('is-loading');
-                    return;
-                }
-                $formField.addClass('is-loading');
-
-                $.ajax({
-                    url: args.ajaxurl,
-                    method: 'POST',
-                    dataType: 'html',
-                    data: {
-                        action: 'get_suggests',
-                        s: $input.val()
-                    },
-                    success: function(html) {
-                        $formField.removeClass('is-loading');
-                        if (html) {
-                            $formField.addClass('is-autocomplete');
-                            $formField.find('.link__autocomplete').html(html);
-                        } else {
-                            $(this).closest('.form-field').removeClass('is-loading is-autocomplete');
-                        }
-
-                    }
-                });
+        $(document).on('keyup', '.link__label-link input', function() {
+            var $input = $(this);
+            var $formField = $input.closest('.form-field');
+            $formField.find('.link__autocomplete').html('');
+            $formField.removeClass('is-autocomplete');
+            if(!$input.val()) {
+                $formField.removeClass('is-loading');
+                return;
             }
+            $formField.addClass('is-loading');
+
+            $.ajax({
+                url: linky_args.ajax_url,
+                method: 'GET',
+                dataType: 'html',
+                data: {
+                    action: 'get_suggests',
+                    s: $input.val()
+                },
+                success: function(html) {
+                    $formField.removeClass('is-loading');
+                    if (html) {
+                        $formField.addClass('is-autocomplete');
+                        $formField.find('.link__autocomplete').html(html);
+                    } else {
+                        $(this).closest('.form-field').removeClass('is-loading is-autocomplete');
+                    }
+
+                }
+            });
         });
 
         $(document).on('click', '.link__autocomplete li', function(e) {
@@ -310,7 +321,7 @@ var renderComponent = function (element, options) {
 
     plugin.refresh = function () {
         $.ajax({
-            url: args.ajaxurl,
+            url: linky_args.ajax_url,
             method: 'POST',
             dataType: 'html',
             data: {
@@ -366,7 +377,7 @@ var linksComponent = function (element, options) {
             var position = form.data('position');
 
             $.ajax({
-                url: args.ajaxurl,
+                url: linky_args.ajax_url,
                 method: 'POST',
                 data: {
                     action: 'get_link_template',
@@ -426,6 +437,10 @@ var imageUploader = function (element, options) {
         $(document).on('click', element, function(e) {
             e.preventDefault();
 
+            if($(this).data('custom') != void 0) {
+                return false;
+            }
+
             var button = $(this),
                 custom_uploader = wp.media({
                     title: 'Insert image',
@@ -445,15 +460,17 @@ var imageUploader = function (element, options) {
         });
 
         $(document).on('click', '._js-remove-image', function(e){
-            e.preventDefault();
-            e.stopPropagation();
+            if ($(this).closest('.image-uploader').data('custom') == void 0) {
+                e.preventDefault();
+                e.stopPropagation();
 
-            var el = $(this).closest(element);
-            el.removeClass('is-filled')
-            el.find('input[type="hidden"]').val('').trigger('change');
-            el.attr('style', '');
+                var el = $(this).closest(element);
+                el.removeClass('is-filled')
+                el.find('input[type="hidden"]').val('').trigger('change');
+                el.attr('style', '');
 
-            return false;
+                return false;
+            }
         });
     };
 

@@ -39,7 +39,7 @@ abstract class WPLinkyHelper
      */
     public static function getPageOptionKey()
     {
-        return 'wp_linky_' . self::WP_LINKY_OPTION_PAGE_KEY;
+        return apply_filters(UNDFND_WP_LINKY_DOMAIN . '_page_option_key', 'wp_linky_' . self::WP_LINKY_OPTION_PAGE_KEY);
     }
 
     /**
@@ -131,7 +131,7 @@ abstract class WPLinkyHelper
      */
     public static function getViewPath($partial = null)
     {
-        return UNDFND_WP_LINKY_PLUGIN_DIR . 'views/' . ($partial ? $partial . '.php' : '');
+        return apply_filters(UNDFND_WP_LINKY_DOMAIN . '_view_path', UNDFND_WP_LINKY_PLUGIN_DIR . 'views/' . ($partial ? $partial . '.php' : ''), $partial);
     }
 
     /**
@@ -221,5 +221,15 @@ abstract class WPLinkyHelper
             }
         }
         return $array;
+    }
+
+    /**
+     * Get site url
+     *
+     * @return string
+     */
+    public static function getPageUrl()
+    {
+        return apply_filters(UNDFND_WP_LINKY_DOMAIN . '_home_url', home_url());
     }
 }

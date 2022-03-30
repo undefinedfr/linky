@@ -110,7 +110,8 @@
                 }
 
                 svg {
-                    width: 70px;
+                    width: 130px;
+                    max-width: 130px;
                     top: 1px;
                     position: relative;
 
@@ -489,7 +490,7 @@
                     display: none;
 
                     ul {
-                        max-height: 170px;
+                        max-height: 190px;
                         overflow-x: hidden;
                         overflow-y: auto;
                         list-style: none;
@@ -500,6 +501,13 @@
                             display: flex;
                             align-items: center;
                             margin-bottom: 0;
+                            font-weight: bold;
+
+                            &.label-link__separator {
+                                padding: 5px 15px;
+                                font-size: 12px;
+                                background: rgba(black, .03);
+                            }
 
                             & + li {
                                 border-top: solid 1px rgba(black, .1);
@@ -514,12 +522,13 @@
                             .label-link {
                                 color: rgba(black, .7);
                                 max-width: 90%;
+                                font-weight: normal;
                                 text-overflow: ellipsis;
                                 overflow: hidden;
                                 white-space: nowrap;
                             }
 
-                            &:hover {
+                            &:not(.label-link__separator):hover {
                                 background-color: rgba($purple, .1);
                                 cursor: pointer;
                             }
@@ -1141,10 +1150,18 @@
         height: 694px;
         width: 342px;
         text-align: left;
+
+        script {
+            display: none !important;
+        }
     }
     .iphone-x *, .iphone-x *::before, .iphone-x *::after {
         box-sizing: border-box;
         display: block;
+
+        script {
+            display: none !important;
+        }
     }
     .iphone-x .iphoneside {
         background: #1c1c1c;

@@ -7,6 +7,7 @@
  */
 
 use LinkyApp\Helper\ThemesHelper;
+use LinkyApp\Helper\WPLinkyHelper;
 
 if(empty($wpLinky))
     global $wpLinky;
@@ -28,5 +29,5 @@ if($backgroundType == 'gradient') {
 }
 
 // Include correct theme
-require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/header/' . $page->get('header_theme', 'default') . '.php'
+require_once WPLinkyHelper::getViewPath('front/header/' . $page->get('header_theme', 'default'));
 ?>

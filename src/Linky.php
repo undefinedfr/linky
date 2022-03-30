@@ -176,9 +176,9 @@ class Linky {
         // Script variables
         wp_localize_script(
             $this->_menuSlug,
-            'args',
+            'linky_args',
             [
-                'ajaxurl' => admin_url( 'admin-ajax.php' ),
+                'ajax_url' => admin_url( 'admin-ajax.php' ),
                 'promptMessage' => __('You have unsaved changes, are you sure ?', 'linky'),
                 'gradients' => ThemesHelper::getGradients(),
             ]

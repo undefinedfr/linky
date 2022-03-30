@@ -12,6 +12,7 @@ $data               = WPLinkyHelper::getPageOption();
 $global             = WPLinkyHelper::getOptionValue('global', $data, []);
 $appareance         = WPLinkyHelper::getOptionValue('appareance', $data, []);
 $id                 = WPLinkyHelper::getRandomIdentifier();
+$homeUrl            = WPLinkyHelper::getPageUrl();
 $active             = $this->get('active', 'yes');
 $size               = $this->get('size', 100);
 ?>
@@ -27,7 +28,8 @@ $size               = $this->get('size', 100);
     <div class="link__body">
         <div class="form-control">
             <div class="link__category form-field">
-                <?php $categories = explode(',', WPLinkyHelper::getOptionValue('categories', $global)); ?>
+                <?php $categories = WPLinkyHelper::getOptionValue('categories', $global) ?>
+                <?php $categories = !empty($categories) ? explode(',', $categories) : []; ?>
                 <select name="links[category][]">
                     <option <?php echo empty($this->get('category')) ? 'selected' : ''; ?> value=""><?php echo __('No category', 'linky'); ?></option>
                     <?php foreach($categories as $category): ?>
@@ -36,7 +38,8 @@ $size               = $this->get('size', 100);
                 </select>
             </div>
             <div class="link__label form-field">
-                <?php $labels = explode(',', WPLinkyHelper::getOptionValue('labels', $global)); ?>
+                <?php $labels = WPLinkyHelper::getOptionValue('labels', $global); ?>
+                <?php $labels = !empty($labels) ? explode(',', $labels) : []; ?>
                 <select name="links[label][]">
                     <option <?php echo empty($this->get('label')) ? 'selected' : ''; ?> value=""><?php echo __('No label', 'linky'); ?></option>
                     <?php foreach($labels as $label): ?>
@@ -52,7 +55,7 @@ $size               = $this->get('size', 100);
                 /* @var $image \LinkyApp\Entity\Image */
                 $image = $this->get('image');
                 ?>
-                <div class="image-uploader <?php echo !empty($image) ? 'is-filled' : ''; ?>" <?php echo !empty($image) ? 'style="background-image: url(' . $image->getImageUrl('thumbnail') . ')"' : ''; ?>>
+                <div <?php echo !is_admin() || $_SERVER['REQUEST_URI'] == '/wp-admin/admin-ajax.php' ? 'data-custom="1"' : ''; ?> class="image-uploader <?php echo !empty($image) ? 'is-filled' : ''; ?>" <?php echo !empty($image) ? 'style="background-image: url(' . $image->getImageUrl('thumbnail') . ')"' : ''; ?>>
                     <input type="hidden" name="links[image][]"  value="<?php echo !empty($image) ? $image->id : ''; ?>">
                     <button class="_js-remove-image" title="<?php echo __('Remove'); ?>"></button>
                 </div>
@@ -63,7 +66,7 @@ $size               = $this->get('size', 100);
                     <div class="link__autocomplete"></div>
                 </div>
                 <div class="link__link form-field">
-                    <input type="text" name="links[link][]" placeholder="<?php echo home_url() . '/my-best-blog-post'; ?>" value="<?php echo $this->get('link'); ?>">
+                    <input type="text" name="links[link][]" placeholder="<?php echo rtrim($homeUrl, '/') . '/my-best-blog-post'; ?>" value="<?php echo $this->get('link'); ?>">
                 </div>
             </div>
         </div>

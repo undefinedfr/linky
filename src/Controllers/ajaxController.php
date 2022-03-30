@@ -32,9 +32,13 @@ class AjaxController
         add_action( 'wp_ajax_get_link_template', [ $this, 'getLinkTemplate' ] );
         add_action( 'wp_ajax_get_suggests', [ $this, 'getSuggests' ] );
 
-        $this->_dbData = get_option(WPLinkyHelper::getPageOptionKey());
-        if(!is_array($this->_dbData))
-            $this->_dbData = [];
+        // Linky Website for Shopify
+        if(!empty($_SERVER['SERVER_NAME']) && strpos($_SERVER['SERVER_NAME'], 'linky') !== false) {
+            add_action('wp_ajax_nopriv_save_form', [$this, 'saveForm']);
+            add_action('wp_ajax_nopriv_get_admin_page_content', [$this, 'getAdminPageContent']);
+            add_action('wp_ajax_nopriv_get_link_template', [$this, 'getLinkTemplate']);
+            add_action('wp_ajax_nopriv_get_suggests', [$this, 'getSuggests']);
+        }
     }
 
     public function saveForm()
@@ -113,6 +117,10 @@ class AjaxController
      */
     private function _save()
     {
+        $this->_dbData = get_option(WPLinkyHelper::getPageOptionKey());
+        if(!is_array($this->_dbData))
+            $this->_dbData = [];
+
         if(!empty($_POST['_group'])) {
             $this->_formData = WPLinkyHelper::recursiveSanitizeTextField($_POST, ($_POST['_group'] == 'links'));
             $group = $this->_formData['_group'];

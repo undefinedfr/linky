@@ -5,7 +5,10 @@
  * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      https://www.undefined.fr
  */
+
+use LinkyApp\Helper\WPLinkyHelper;
+
 ?>
-<?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/html/header.php'; ?>
-<?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/page.php'; ?>
-<?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/html/footer.php'; ?>
+<?php require_once WPLinkyHelper::getViewPath('front/html/header') ?>
+<?php require_once WPLinkyHelper::getViewPath('front/page') ?>
+<?php require_once WPLinkyHelper::getViewPath('front/html/footer') ?>
