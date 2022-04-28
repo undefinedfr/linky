@@ -106,7 +106,7 @@ $menus      = wp_get_nav_menus();
             <div class="form-control">
                 <div class="form-field">
                     <label for="menu"><?php echo __('Menu', 'linky'); ?></label>
-                    <div class="minitext"><?php echo __('You can add one in Appareance > Menus', 'linky'); ?></div>
+                    <div class="minitext"><?php echo __('You can add one in Appearance > Menus', 'linky'); ?></div>
                     <select name="menu" id="menu">
                         <option value=""></option>
                         <?php foreach($menus as $menu): ?>

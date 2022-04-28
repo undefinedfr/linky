@@ -251,8 +251,8 @@ class Linky {
 
         add_submenu_page(
                 $this->_menuSlug,
-                __('Appareance', 'linky'),
-                __('Appareance', 'linky'),
+                __('Appearance', 'linky'),
+                __('Appearance', 'linky'),
                 apply_filters(UNDFND_WP_LINKY_DOMAIN . '_submenu_appareance_page_capalibilty', 'manage_options'),
                 $this->_getMenuSlug($this->_appareanceMenuSlug),
                 [ &$this, 'addAppareancePage' ]

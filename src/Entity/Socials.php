@@ -170,6 +170,11 @@ class Socials extends AbstractEntity
     public $flickr;
 
     /**
+     * @var $meetup
+     */
+    public $meetup;
+
+    /**
      * @var $gurushots
      */
     public $gurushots;

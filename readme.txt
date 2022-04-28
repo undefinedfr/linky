@@ -3,8 +3,8 @@ Contributors: undefinedfr
 Donate link: https://www.undefined.fr/#contact
 Tags: linktree, later, links, bio links, social
 Requires at least: 4.0
-Tested up to: 5.9
-Stable tag: 1.3.4
+Tested up to: 5.9.3
+Stable tag: 1.3.5
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -176,6 +176,10 @@ Yes, you can add social links on your page header.
 =1.3.3=
 * support noscript lazyload after image
 * test on latest WordPress version
+
+=1.3.5=
+* renamme Appareance
+* add meetup social
 
 == Upgrade Notice ==
 

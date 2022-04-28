@@ -118,3 +118,9 @@ All notable changes to this project will be documented in this file.
 ## [1.3.4]
 ### Fixes
 - test on latest WordPress version
+
+## [1.3.5]
+### Fixes
+- renamme Appareance
+### Added
+- add meetup social
