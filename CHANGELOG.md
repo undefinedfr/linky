@@ -124,3 +124,7 @@ All notable changes to this project will be documented in this file.
 - renamme Appareance
 ### Added
 - add meetup social
+
+## [1.3.6]
+### Fixes
+- jQuery conflict

@@ -4,7 +4,7 @@ Donate link: https://www.undefined.fr/#contact
 Tags: linktree, later, links, bio links, social
 Requires at least: 4.0
 Tested up to: 5.9.3
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -180,6 +180,9 @@ Yes, you can add social links on your page header.
 =1.3.5=
 * renamme Appareance
 * add meetup social
+
+=1.3.6=
+* jQuery conflict
 
 == Upgrade Notice ==
 
