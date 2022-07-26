@@ -4,7 +4,10 @@
  * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      https://www.undefined.fr
  */
-var $ = (typeof $ == 'undefined') ? jQuery : $;
+if ((typeof $ == 'undefined')
+    && (typeof jQuery != 'undefined')) {
+    $ = jQuery;
+}
 var paletteLinky = ["transparent", "#6be39c", "#39cb75", "#1a7e43", "#06421f", "#68e0c6", "#29bb9c", "#23a085", "#0e5f4d", "#043a2e", "#6fcade", "#3b99d9", "#2f81b7", "#2f59b7", "#354a5d", "#d988de", "#9a5cb4", "#8d48ab", "#6a2887", "#410c58", "#ea827b", "#e54d42", "#be3a31", "#94241c", "#580f0a", "#f1d372", "#f0c330", "#f19b2c", "#e47e31", "#d15519", "#ffffff", "#ecf0f1", "#bdc3c7", "#808c8d", "#1d1d1d"];
 
 $(document).ready(function() {

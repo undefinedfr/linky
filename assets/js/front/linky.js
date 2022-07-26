@@ -6,7 +6,7 @@
  */
 if ((typeof $ == 'undefined')
     && (typeof jQuery != 'undefined')) {
-    var $ = jQuery;
+    $ = jQuery;
 }
 
 $(document).ready(function() {

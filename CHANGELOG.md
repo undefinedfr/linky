@@ -133,3 +133,6 @@ All notable changes to this project will be documented in this file.
 - test on latest WordPress version
 ### Fixes
 - jQuery conflict (bis)
+
+## [1.3.8]
+- jQuery conflict (bis)
