@@ -207,6 +207,7 @@ class Linky {
         do_action(UNDFND_WP_LINKY_DOMAIN . '_before_enqueue', $this->_menuSlug);
 
         wp_enqueue_script( $this->_menuSlug . '-front', UNDFND_WP_LINKY_PLUGIN_URL . '/assets/dist/linky.js', ['jquery'] );
+        wp_localize_script( $this->_menuSlug . '-front', 'linky_args', ['ewww_lazyload' => (bool) (is_plugin_active('ewww-image-optimizer/ewww-image-optimizer.php')) && get_option('ewww_image_optimizer_lazy_load')] );
 
         wp_enqueue_style($this->_menuSlug . '-kaushan-font', 'https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap', false);
         wp_enqueue_style($this->_menuSlug . '-open-sans-font', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap', false);

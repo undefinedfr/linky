@@ -1,6 +1,6 @@
 {
   "plugin_name": "wp-linky",
-  "version": "1.3.8",
+  "version": "1.3.9",
   "author": {
     "name": "Nicolas Riviere"
   },
@@ -13,5 +13,8 @@
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-uglify": "^0.9.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "grunt-sass": "^3.1.0",
+    "node-sass": "^7.0.1"
+  }
 }

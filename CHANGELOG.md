@@ -135,4 +135,9 @@ All notable changes to this project will be documented in this file.
 - jQuery conflict (bis)
 
 ## [1.3.8]
+### Fixes
 - jQuery conflict (bis)
+
+## [1.3.9]
+### Added
+- Support EWWW Image Optimizer lazyload

@@ -1,6 +1,6 @@
 # WP Linky
 
-Version : **1.3.7**
+Version : **1.3.9**
 
 Author : **Nicolas RIVIERE**
 

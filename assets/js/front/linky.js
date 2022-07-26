@@ -16,14 +16,15 @@ $(document).ready(function() {
     });
 });
 
-$(window).load(function() {
+
+$(window).load(function () {
     //fix themes with lazyload
-    $('img').each(function() {
+    $('img').each(function () {
         var $img = $(this);
         var imgData = $img.data();
         var objKeys = Object.keys(imgData);
         if (objKeys.length > 0) {
-            for(var i = 0; i < objKeys.length; i++) {
+            for (var i = 0; i < objKeys.length; i++) {
                 if (objKeys[i].toLowerCase().indexOf('src') >= 0) {
                     $img.attr('src', $img.data(objKeys[i]));
                     $img.addClass('lazyloaded');
@@ -31,4 +32,14 @@ $(window).load(function() {
             }
         }
     });
+
+    //fix themes with lazyload (EWWW Image optimizer)
+    if (linky_args.ewww_lazyload == 1) {
+        $('.lazyload').each(function() {
+            var bg = $(this).data('bg');
+            if(bg) {
+                $(this).css('background-image', 'url(' + bg + ')').removeClass('lazyload');
+            }
+        })
+    }
 });
