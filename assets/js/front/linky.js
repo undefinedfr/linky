@@ -4,7 +4,10 @@
  * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      https://www.undefined.fr
  */
-var $ = (typeof $ == 'undefined') ? jQuery : $;
+if ((typeof $ == 'undefined')
+    && (typeof jQuery != 'undefined')) {
+    var $ = jQuery;
+}
 
 $(document).ready(function() {
     $('.js-toggle-menu').click(function() {
