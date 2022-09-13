@@ -40,7 +40,10 @@ class AjaxController
     public function saveForm()
     {
         if(!empty($_POST['_group'])){
+            global $wpLinky;
+
             $data = $this->_save();
+            $data['page_url'] =  $wpLinky->getIndexController()->getSettings()->getPageUrl($data['global']['slug']);
             wp_send_json_success($data);
         }
     }

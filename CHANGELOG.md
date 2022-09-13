@@ -141,3 +141,8 @@ All notable changes to this project will be documented in this file.
 ## [1.3.9]
 ### Added
 - Support EWWW Image Optimizer lazyload
+
+## [1.4.0]
+### Fixes
+- Fix undefined prefix url
+- test on latest WordPress version

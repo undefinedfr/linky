@@ -144,7 +144,7 @@ var WPLinkyAdminForm = function (element, options) {
                         var message = plugin.getMessage('success',  plugin.form.data('success-message'));
                         plugin.form.prepend(message);
 
-                        plugin.renderButton.attr('href', plugin.renderButton.data('prefix') + response.data.global.slug);
+                        plugin.renderButton.attr('href', response.data.page_url);
 
                         plugin.settings.renderComponent.refresh();
                         plugin.form.find('.is-deleted').remove();
