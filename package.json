@@ -11,7 +11,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-simple-watch": "^0.1.2",
     "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-uglify": "^0.9.1"
+    "grunt-contrib-uglify": "^5.2.2"
   },
   "dependencies": {
     "grunt-sass": "^3.1.0",
