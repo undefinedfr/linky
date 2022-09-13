@@ -222,4 +222,20 @@ abstract class WPLinkyHelper
         }
         return $array;
     }
+
+    /**
+     * Check if plugin exist
+     *
+     * @param $plugins $array
+     *
+     * @return mixed
+     */
+    public static function pluginsExists( $plugins ) {
+        $exist = false;
+        foreach ( $plugins as $plugin ) {
+            if(is_plugin_active($plugin))
+                $exist = true;
+        }
+        return $exist;
+    }
 }

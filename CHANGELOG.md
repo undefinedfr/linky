@@ -146,3 +146,7 @@ All notable changes to this project will be documented in this file.
 ### Fixes
 - Fix undefined prefix url
 - test on latest WordPress version
+
+## [1.4.1]
+### Fixes
+- Remove yoast meta

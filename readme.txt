@@ -4,7 +4,7 @@ Donate link: https://www.undefined.fr/#contact
 Tags: linktree, later, links, bio links, social
 Requires at least: 4.0
 Tested up to: 6.0.2
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -197,6 +197,9 @@ Yes, you can add social links on your page header.
 =1.4.0=
 * Fix undefined prefix url
 * test on latest WordPress version
+
+=1.4.1=
+* Remove yoast meta
 
 == Upgrade Notice ==
 

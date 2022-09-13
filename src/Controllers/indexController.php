@@ -36,6 +36,12 @@ class IndexController
         $this->socials      = new Socials($data['social']);
         $this->menu         = new Menu(!empty($data['appareance']['menu']) ? $data['appareance']['menu'] : false);
         $this->links        = new Links($data['links']);
+
+        if ( WPLinkyHelper::pluginsExists(['wordpress-seo/wp-seo.php','wordpress-seo-premium/wp-seo-premium.php'] ) ) {
+            foreach(['robots','canonical','metadesc','metakeywords','opengraph_title','opengraph_desc','opengraph_url','opengraph_type','opengraph_image','opengraph_site_name','opengraph_admin','opengraph_author_facebook','opengraph_show_publish_date','twitter_title','twitter_description','twitter_card_type','twitter_site','twitter_image','twitter_creator_account','json_ld_output'] as $filter) {
+                add_filter('wpseo_' . $filter, [$this, 'remove_yoast_metas']);
+            }
+        }
     }
 
     public function getPage() {
@@ -82,6 +88,19 @@ class IndexController
             ob_end_clean();
             return $page;
         }
+    }
 
+    /**
+     * Remove yoast meta for linky page
+     *
+     * @param $content
+     * @return false|mixed
+     */
+    public function remove_yoast_metas( $content ) {
+        if(!empty( get_query_var( 'is_linky' ) )) {
+            return apply_filters(UNDFND_WP_LINKY_DOMAIN . '_yoast_meta_' . current_filter(), false);
+        }
+
+        return $content;
     }
 }

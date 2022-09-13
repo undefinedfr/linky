@@ -1,6 +1,6 @@
 # WP Linky
 
-Version : **1.4.0**
+Version : **1.4.1**
 
 Author : **Nicolas RIVIERE**
 
@@ -302,6 +302,44 @@ function on_linky_avatar_image_size( $icon_image_size ) {
     return 'large';
 }
 add_filter( 'linky_avatar_image_size', 'on_linky_avatar_image_size', 10, 1 );
+```
+
+###### --
+
+**`linky_yoast_meta_wpseo_metadesc`**
+- string $meta yoast meta
+
+###### Definition:
+Override yoast meta for your links page. 
+Available for :
+- wpseo_robots
+- wpseo_canonical
+- wpseo_metadesc
+- wpseo_metakeywords
+- wpseo_locale
+- wpseo_opengraph_title
+- wpseo_opengraph_desc
+- wpseo_opengraph_url
+- wpseo_opengraph_type
+- wpseo_opengraph_image
+- wpseo_opengraph_site_name
+- wpseo_opengraph_admin
+- wpseo_opengraph_author_facebook
+- wpseo_opengraph_show_publish_date
+- wpseo_twitter_title
+- wpseo_twitter_description
+- wpseo_twitter_card_type
+- wpseo_twitter_site
+- wpseo_twitter_image
+- wpseo_twitter_creator_account
+- wpseo_json_ld_output
+
+###### Exemple:
+```
+function on_linky_avatar_image_size( $meta ) {
+    return $meta;
+}
+add_filter( 'linky_yoast_meta_wpseo_metadesc', 'on_linky_yoast_meta_wpseo_metadesc', 10, 1 );
 ```
 
 
