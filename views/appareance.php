@@ -29,6 +29,7 @@ $fonts      = WPLinkyHelper::getGoogleFonts();
             <div class="links-informations">
                 <p>
                     <?php echo __('It is recommended to upload a new image to have the module image sizes', 'linky'); ?>
+                    <?php echo __('Recommended size: 50x50 pixels', 'linky'); ?>
                 </p>
             </div>
             <div class="form-control form-control--upload with-two-fields">
@@ -114,7 +115,7 @@ $fonts      = WPLinkyHelper::getGoogleFonts();
             <div class="form-control">
                 <div class="form-field">
                     <label for="menu"><?php echo __('Menu', 'linky'); ?></label>
-                    <div class="minitext"><?php echo __('You can add one in Appareance > Menus', 'linky'); ?></div>
+                    <div class="minitext"><?php echo __('You can add one in Appearance > Menus', 'linky'); ?></div>
                     <select name="menu" id="menu">
                         <option value=""></option>
                         <?php foreach($menus as $menu): ?>

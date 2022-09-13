@@ -13,6 +13,7 @@ if(empty($wpLinky))
 
 $indexController = $wpLinky->getIndexController();
 $page = $indexController->getPage();
+$socials = $indexController->getSocials();
 $theme_id = $page->get('body_theme', 'default');
 
 $backgroundType = $page->get('background_type', 'color');

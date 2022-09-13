@@ -123,4 +123,111 @@ class Socials extends AbstractEntity
      * @var $etsy
      */
     public $etsy;
+
+    /**
+     * @var $vimeo
+     */
+    public $vimeo;
+
+    /**
+     * @var $signal
+     */
+    public $signal;
+
+    /**
+     * @var $email
+     */
+    public $email;
+
+
+    /**
+     * @var $amazon
+     */
+    public $amazon;
+
+    /**
+     * @var $bentbox
+     */
+    public $bentbox;
+
+    /**
+     * @var $onlyfans
+     */
+    public $onlyfans;
+
+    /**
+     * @var $ebay
+     */
+    public $ebay;
+
+    /**
+     * @var $offerup
+     */
+    public $offerup;
+
+    /**
+     * @var $flickr
+     */
+    public $flickr;
+
+    /**
+     * @var $gurushots
+     */
+    public $gurushots;
+
+    /**
+     * @var $lifeframer
+     */
+    public $lifeframer;
+
+    /**
+     * @var $viewbug
+     */
+    public $viewbug;
+
+    /**
+     * @var $_500px
+     */
+    public $_500px;
+
+    /**
+     * @var $reddit
+     */
+    public $reddit;
+
+    /**
+     * @var $vocal_media
+     */
+    public $vocal_media;
+
+    /**
+     * @var $quora
+     */
+    public $quora;
+
+    /**
+     * @var $flipboard
+     */
+    public $flipboard;
+
+    /**
+     * @var $digg
+     */
+    public $digg;
+
+    /**
+     * @var $mix
+     */
+    public $mix;
+
+    /**
+     * @var $airbnb
+     */
+    public $airbnb;
+
+    /**
+     * @var $meetup
+     */
+    public $meetup;
+
 }

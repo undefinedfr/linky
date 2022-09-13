@@ -46,6 +46,7 @@ class IndexController
 
     public function getSocials() {
         return $this->socials;
+
     }
 
     public function getMenu() {

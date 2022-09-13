@@ -49,12 +49,15 @@ class AjaxController
     public function saveForm()
     {
         if(!empty($_POST['_group'])){
+            global $wpLinky;
+
             $this->_pageId = !empty($_POST['page_id']) ? $_POST['page_id'] : false;
             $this->_dbData = get_option(WPLinkyHelper::getPageOptionKey($this->_pageId));
             if(!is_array($this->_dbData))
                 $this->_dbData = [];
 
             $data = $this->_save();
+            $data['page_url'] =  $wpLinky->getIndexController()->getSettings()->getPageUrl($data['global']['slug']);
             wp_send_json_success($data);
         }
     }
@@ -211,7 +214,7 @@ class AjaxController
     private function _save()
     {
         if(!empty($_POST['_group'])) {
-            $this->_formData    = WPLinkyHelper::recursiveSanitizeTextField($_POST);
+            $this->_formData    = WPLinkyHelper::recursiveSanitizeTextField($_POST, ($_POST['_group'] == 'links'));
             $group              = $this->_formData['_group'];
             unset($this->_formData['_group']);
             unset($this->_formData['page_id']);

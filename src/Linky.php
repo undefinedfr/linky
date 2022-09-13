@@ -82,14 +82,17 @@ class Linky {
         $this->_options = $this->getOptions($this->getCurrentPage());
 
         add_filter( 'plugin_action_links', [$this, 'addSettingsLink'], 10, 2 );
-        add_filter( 'template_include', [$this, 'linkyTemplateInclude'] );
+        add_filter( 'template_include', [$this, 'linkyTemplateInclude'], 99, 1 );
 
         add_action( 'activate_' . UNDFND_WP_LINKY_PLUGIN_REALDIRPATH, [$this, UNDFND_WP_LINKY_DOMAIN . '_install'] );
         add_action( 'admin_menu', [ $this, 'addMenu'] );
         add_action( 'admin_enqueue_scripts', [$this, 'linkyAdminPluginEnqueue'] );
         add_action( 'wp_enqueue_scripts', [$this, 'linkyPluginEnqueue'] );
         add_action( 'plugins_loaded', [$this, 'loadPluginTextdomain'] );
-        add_action( 'init', [$this, 'linkyRewriteRule'], 10, 0);
+        $ps = get_option('permalink_structure');
+        if(!empty($ps))
+            add_action( 'init', [$this, 'linkyRewriteRule'], 10, 0);
+
         add_action( 'query_vars', [$this, 'linkyQueryParams'] );
 
         if(empty($this->_options['global']['theme_style']) || $this->_options['global']['theme_style'] == 'no')
@@ -200,7 +203,8 @@ class Linky {
         do_action(UNDFND_WP_LINKY_DOMAIN . '_before_enqueue', $this->_menuSlug);
 
         wp_enqueue_script( $this->_menuSlug . '-front', UNDFND_WP_LINKY_PLUGIN_URL . '/assets/dist/linky.js', ['jquery'] );
-        wp_localize_script( $this->_menuSlug . '-front', 'linky', [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ] );
+        wp_localize_script( $this->_menuSlug . '-front', 'linky', [ 'ajax_url' => admin_url( 'admin-ajax.php' ), 'ewww_lazyload' => (bool) (is_plugin_active('ewww-image-optimizer/ewww-image-optimizer.php')) && get_option('ewww_image_optimizer_lazy_load') ] );
+
 
         wp_enqueue_style($this->_menuSlug . '-kaushan-font', 'https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap', false);
 
@@ -244,9 +248,9 @@ class Linky {
 
         add_submenu_page(
                 $this->_menuSlug,
-                __('Appareance', 'linky'),
-                __('Appareance', 'linky'),
-                apply_filters(UNDFND_WP_LINKY_DOMAIN . '_submenu_appareance_page_capalibilty', 'manage_options'),
+                __('Appearance', 'linky'),
+                __('Appearance', 'linky'),
+            apply_filters(UNDFND_WP_LINKY_DOMAIN . '_submenu_appareance_page_capalibilty', 'manage_options'),
                 $this->_getMenuSlug($this->_appareanceMenuSlug),
                 [ &$this, 'addAppareancePage' ]
         );

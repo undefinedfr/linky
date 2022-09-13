@@ -16,7 +16,7 @@ $defaultBodyThemes      = ThemesHelper::getBodyThemes();
 ?>
 
 <div class="inside no-gutter no-margin">
-    <div class="info-message"><?php echo __('Choose a theme and customize it in Appareance tab', 'linky'); ?></div>
+    <div class="info-message"><?php echo __('Choose a theme and customize it in Appearance tab', 'linky'); ?></div>
     <form
             id="themes"
             method="POST"
@@ -56,7 +56,7 @@ $defaultBodyThemes      = ThemesHelper::getBodyThemes();
         </div>
         <div class="form-field">
             <div class="pull-right">
-                <button type="submit" class="button button-large js-override" data-override="true"><?php echo __('Save and overwrite appareance', 'linky'); ?></button>
+                <button type="submit" class="button button-large js-override" data-override="true"><?php echo __('Save and overwrite appearance', 'linky'); ?></button>
                 <button type="submit" class="button button-primary button-large js-override" data-override="false"><?php echo __('Save'); ?></button>
             </div>
             <div class="clearfix"></div>

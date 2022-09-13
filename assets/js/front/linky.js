@@ -4,7 +4,11 @@
  * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      https://www.undefined.fr
  */
-var $ = jQuery;
+if ((typeof $ == 'undefined')
+    && (typeof jQuery != 'undefined')) {
+    $ = jQuery;
+}
+
 
 $(document).ready(function() {
     $('.js-toggle-menu').click(function() {
@@ -78,5 +82,16 @@ $(window).load(function() {
                 }
             }
         }
+
+        //fix themes with lazyload (EWWW Image optimizer)
+        if (linky_args.ewww_lazyload == 1) {
+            $('.lazyload').each(function() {
+                var bg = $(this).data('bg');
+                if(bg) {
+                    $(this).css('background-image', 'url(' + bg + ')').removeClass('lazyload');
+                }
+            })
+        }
+
     });
 });

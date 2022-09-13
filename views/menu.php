@@ -7,7 +7,7 @@
  */
 $menus = [
     $this->_themesMenuSlug      => 'Themes',
-    $this->_appareanceMenuSlug  => 'Appareance',
+    $this->_appareanceMenuSlug  => 'Appearance',
     $this->_socialMenuSlug      => 'Social',
     $this->_linksMenuSlug       => 'Links',
     $this->_statsMenuSlug       => 'Stats',

@@ -6,13 +6,12 @@
  * @link      https://www.undefined.fr
  */
 global $wpLinky;
-$prefix = home_url() . '/';
-$url = $prefix . $wpLinky->getIndexController()->getSettings()->get('slug', 'linky');
+$url = $wpLinky->getIndexController()->getSettings()->getPageUrl();
 
 ?>
 <h2>
     <?php echo __('Render', 'linky'); ?>
-    <a href="<?php echo $url; ?>" data-prefix="<?php echo $prefix; ?>" target="_blank" class="button button-secondary pull-right _js-linky-button"><?php echo __('View page', 'linky'); ?></a>
+    <a href="<?php echo $url; ?>" target="_blank" class="button button-secondary pull-right _js-linky-button"><?php echo __('View page', 'linky'); ?></a>
 </h2>
 <div class="render-view" id="render-view">
     <div class="iphone-x">

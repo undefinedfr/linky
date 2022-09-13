@@ -40,4 +40,19 @@ class Settings extends AbstractEntity
      * @var bool $theme_style
      */
     public $theme_style;
+
+
+    /**
+     * Get current page Url
+     */
+    public function getPageUrl($slug = false)
+    {
+        $prefix = home_url() . '/';
+        $ps = get_option('permalink_structure');
+        if(empty($slug))
+            $slug = $this->get('slug', 'linky');
+
+        return $prefix . (!empty($ps) ? $slug : '?is_linky=1');
+    }
+
 }
