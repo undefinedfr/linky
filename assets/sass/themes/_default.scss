@@ -86,6 +86,17 @@
         margin: 0 auto;
         padding: 20px;
 
+        ._col-md-6 {
+            & + .separator {
+                margin-top: 15px;
+            }
+
+            & + ._col-md-6,
+            & + .link {
+                margin-top: 10px;
+            }
+        }
+
         .link {
             width: 100%;
             padding: 15px;
@@ -93,11 +104,12 @@
             position: relative;
             font-size: 14px;
 
-            & + .link{
+            & + ._col-md-6,
+            & + .link {
                 margin-top: 10px;
             }
 
-            & + .separator{
+            & + .separator {
                 margin-top: 15px;
             }
 
@@ -215,7 +227,8 @@
             }
 
             & + .link,
-            & + .separator{
+            & + ._col-md-6,
+            & + .separator {
                 margin-top: 15px;
             }
         }
