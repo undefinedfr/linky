@@ -88,11 +88,11 @@
         padding: 20px;
 
         ._col-md-6 {
+            & + ._col-md-6,
             & + .separator {
                 margin-top: 15px;
             }
 
-            & + ._col-md-6,
             & + .link {
                 margin-top: 10px;
             }
