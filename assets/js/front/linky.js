@@ -44,7 +44,7 @@ $(document).ready(function() {
 
         // Add clicked link stat
         $.ajax({
-            url: linky.ajax_url,
+            url: linky_args.ajax_url,
             method: 'GET',
             data: {
                 'action': 'link_clicked',
@@ -59,7 +59,7 @@ $(document).ready(function() {
 
     // Add viewed page stat
     $.ajax({
-        url: linky.ajax_url,
+        url: linky_args.ajax_url,
         method: 'GET',
         data: {
             'action': 'page_viewed',

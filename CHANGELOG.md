@@ -9,3 +9,8 @@ All notable changes to this project will be documented in this file.
 - Send link's click in Google Analytics
 - Add Google fonts selector for links, labels, separators and header
 - Download QR Code for your page
+
+## [1.0.1]
+### Fixes
+- Fix linky_args, JS args misspelled
+- Add max dimensions to images

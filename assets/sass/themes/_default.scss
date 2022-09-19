@@ -38,6 +38,7 @@
             img {
                 border-radius: 50%;
                 max-width: 100%;
+                max-height: 100%;
             }
         }
 
@@ -86,6 +87,17 @@
         margin: 0 auto;
         padding: 20px;
 
+        ._col-md-6 {
+            & + .separator {
+                margin-top: 15px;
+            }
+
+            & + ._col-md-6,
+            & + .link {
+                margin-top: 10px;
+            }
+        }
+
         .link {
             width: 100%;
             padding: 15px;
@@ -93,11 +105,12 @@
             position: relative;
             font-size: 14px;
 
-            & + .link{
+            & + ._col-md-6,
+            & + .link {
                 margin-top: 10px;
             }
 
-            & + .separator{
+            & + .separator {
                 margin-top: 15px;
             }
 
@@ -108,6 +121,8 @@
             &__image {
                 float: left;
                 width: 40px;
+                max-width: 40px;
+                max-height: 40px;
 
                 & + noscript + .link__col,
                 & + .link__col {
@@ -215,7 +230,8 @@
             }
 
             & + .link,
-            & + .separator{
+            & + ._col-md-6,
+            & + .separator {
                 margin-top: 15px;
             }
         }
