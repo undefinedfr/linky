@@ -98,6 +98,12 @@
             }
         }
 
+        & > div:first-child {
+            &._col-md-6 + ._col-md-6 {
+                margin-top: 0;
+            }
+        }
+
         .link {
             width: 100%;
             padding: 15px;
@@ -106,6 +112,7 @@
             font-size: 14px;
 
             & + ._col-md-6,
+            & + ._col-md-6 + ._col-md-6,
             & + .link {
                 margin-top: 10px;
             }
@@ -232,6 +239,10 @@
             & + .link,
             & + ._col-md-6,
             & + .separator {
+                margin-top: 15px;
+            }
+
+            & + ._col-md-6 + ._col-md-6 {
                 margin-top: 15px;
             }
         }
