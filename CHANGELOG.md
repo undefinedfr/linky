@@ -150,3 +150,7 @@ All notable changes to this project will be documented in this file.
 ## [1.4.1]
 ### Fixes
 - Remove yoast meta
+
+## [1.4.2]
+### Added
+- add phone social

@@ -228,4 +228,9 @@ class Socials extends AbstractEntity
      * @var $airbnb
      */
     public $airbnb;
+
+    /**
+     * @var $phone
+     */
+    public $phone;
 }
