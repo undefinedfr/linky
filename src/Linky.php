@@ -294,7 +294,9 @@ class Linky {
     public function addImageSizes()
     {
         add_image_size( 'icon', 50, 50, true );
+        add_image_size( 'icon_large', 80, 80, true );
         add_image_size( 'icon_h', 0, 50, false );
+        add_image_size( 'icon_large_h', 0, 80, false );
     }
 
     /**
