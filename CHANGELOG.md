@@ -158,3 +158,10 @@ All notable changes to this project will be documented in this file.
 ## [1.4.3]
 ### Added
 - fix col margin
+
+## [1.4.4]
+### Edit
+- edit default avatar size
+### Added
+- add bandcamp social
+- add mastodon social

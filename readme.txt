@@ -3,8 +3,8 @@ Contributors: undefinedfr
 Donate link: https://www.undefined.fr/#contact
 Tags: linktree, later, links, bio links, social
 Requires at least: 4.0
-Tested up to: 6.0.2
-Stable tag: 1.4.3
+Tested up to: 6.1.1
+Stable tag: 1.4.4
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -203,6 +203,14 @@ Yes, you can add social links on your page header.
 
 =1.4.2=
 * add phone social
+
+=1.4.3=
+* fix col margin
+
+=1.4.4=
+* edit default avatar size
+* add bandcamp social
+* add mastodon social
 
 == Upgrade Notice ==
 

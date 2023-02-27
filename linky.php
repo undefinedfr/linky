@@ -10,7 +10,7 @@
   Plugin Name: Linky
   Plugin URI: https://www.undefined.fr
   Description: Create & manage link’s hub for your social profile directly in your websites
-  Version: 1.4.3
+  Version: 1.4.4
   Author Name: Nicolas RIVIERE (hello@undefined.fr)
   Author: Nicolas RIVIERE (Undefined)
   Domain Path: /languages
@@ -22,6 +22,7 @@ namespace LinkyApp;
 
 use LinkyApp\Helper\WPLinkyHelper;
 
+define('UNDFND_WP_LINKY_VERSION', '1.4.4');
 define('UNDFND_WP_LINKY_DOMAIN', 'linky');
 define('UNDFND_WP_LINKY_SLUG', 'wp-linky');
 define('UNDFND_WP_LINKY_PLUGIN_URL', plugins_url('', __FILE__));

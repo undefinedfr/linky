@@ -7,7 +7,7 @@
             <?php $avatar_link = $page->get('avatar_link') ?>
             <?php if(empty($hide_avatar) && $page->get('avatar')->id != 0): ?>
                 <<?php echo $avatar_link ? ('a href="' . $avatar_link . '"') : 'div'; ?> class="header__avatar">
-                    <?php $image_size = apply_filters(UNDFND_WP_LINKY_DOMAIN . '_avatar_image_size', (!empty($image_size) ? $image_size : 'icon')) ?>
+                    <?php $image_size = apply_filters(UNDFND_WP_LINKY_DOMAIN . '_avatar_image_size', (!empty($image_size) ? $image_size : (defined('UNDFND_WP_LINKY_VERSION') ? 'icon_large' : 'icon'))) ?>
                     <img src="<?php echo $page->get('avatar')->getImageUrl($image_size); ?>" alt="<?php echo $page->get('title'); ?>">
                 <<?php echo $avatar_link ? '/a' : '/div'; ?>>
             <?php endif; ?>

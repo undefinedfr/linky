@@ -233,4 +233,14 @@ class Socials extends AbstractEntity
      * @var $phone
      */
     public $phone;
+
+    /**
+     * @var $bandcamp
+     */
+    public $bandcamp;
+
+    /**
+     * @var $mastodon
+     */
+    public $mastodon;
 }
