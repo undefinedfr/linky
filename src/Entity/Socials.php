@@ -230,4 +230,13 @@ class Socials extends AbstractEntity
      */
     public $meetup;
 
+    /**
+     * @var $bandcamp
+     */
+    public $bandcamp;
+
+    /**
+     * @var $mastodon
+     */
+    public $mastodon;
 }

@@ -1173,6 +1173,125 @@
                 .etsy-color svg path{
                     fill: #ea611e;
                 }
+
+                .amazon-color,
+                .amazon-color svg path {
+                    fill: #f8a601;
+                }
+
+                .bentbox-color,
+                .bentbox-color svg path {
+                    fill: #2b8999;
+                }
+
+                .onlyfans-color,
+                .onlyfans-color svg path:last-child {
+                    fill: #39a8eb;
+                }
+
+                .ebay-color,
+                .ebay-color svg path {
+                    &:nth-child(1) {
+                        fill: #de3037;
+                    }
+
+                    &:nth-child(2) {
+                        fill: #2361cb;
+                    }
+
+                    &:nth-child(3) {
+                        fill: #edaa03;
+                    }
+
+                    &:nth-child(4) {
+                        fill: #82b217;
+                    }
+                }
+
+                .offerup-color,
+                .offerup-color svg path {
+                    fill: #36ac81;
+                }
+
+                .flickr-color,
+                .flickr-color svg path {
+                    fill: #f4427d;
+                }
+
+                .gurushots-color,
+                .gurushots-color svg path {
+                    fill: black;
+                }
+
+                .lifeframer-color,
+                .lifeframer-color svg path {
+                    fill: black;
+                }
+
+                .viewbug-color,
+                .viewbug-color svg path {
+                    fill: black;
+                }
+
+                ._500px-color,
+                ._500px-color svg path {
+                    fill: black;
+                }
+
+                .reddit-color,
+                .reddit-color svg path {
+                    fill: #f53f19;
+                }
+
+                .vocal_media-color,
+                .vocal_media-color svg path {
+                    fill: black;
+                }
+
+                .quora-color,
+                .quora-color svg path {
+                    fill: #b32a26;
+                }
+
+                .flipboard-color,
+                .flipboard-color svg path:first-child {
+                    fill: #da2727;
+                }
+
+                .digg-color,
+                .digg-color svg path {
+                    fill: #2269a8;
+                }
+
+                .mix-color,
+                .mix-color svg path {
+                    &:nth-child(1) {
+                        fill: #de1b1c;
+                    }
+
+                    &:nth-child(2) {
+                        fill: #f68227;
+                    }
+
+                    &:nth-child(3) {
+                        fill: #f7ce1f;
+                    }
+                }
+
+                .airbnb-color,
+                .airbnb-color svg path {
+                    fill: #f5575d;
+                }
+
+                .bandcamp-color,
+                .bandcamp-color svg path {
+                    fill: #3c9aaa;
+                }
+
+                .mastodon-color,
+                .mastodon-color svg path {
+                    fill: #5b49e1;
+                }
             }
 
             h3 {
