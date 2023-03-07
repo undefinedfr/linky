@@ -223,4 +223,15 @@ class Socials extends AbstractEntity
      * @var $airbnb
      */
     public $airbnb;
+
+    /**
+     * @var $bandcamp
+     */
+    public $bandcamp;
+
+    /**
+     * @var $mastodon
+     */
+    public $mastodon;
+
 }

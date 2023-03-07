@@ -32,7 +32,7 @@ class Image
         $image = wp_get_attachment_image_src($this->id, $size);
         if(strpos($size, 'icon') !== false) {
             $imageFull = wp_get_attachment_image_src($this->id, 'full');
-            if($image == $imageFull) {
+            if($image[0] == $imageFull[0]) {
                 $image = wp_get_attachment_image_src($this->id, 'thumbnail');
             }
         }
