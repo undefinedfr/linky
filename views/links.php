@@ -29,6 +29,7 @@ $global             = WPLinkyHelper::getOptionValue('global', $data, []);
                 class="form-field _col-md-4 _col-xs-6 _js-links-form"
                 data-position="prepend"
         >
+            <input type="hidden" name="page_id" value="<?php echo $this->getCurrentPage() ?>">
             <input type="hidden" name="_type" value="separator">
             <button type="submit" class="button button-new button-large"><?php echo __('Add separator', 'linky'); ?></button>
         </form>

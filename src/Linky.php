@@ -521,8 +521,11 @@ class Linky {
      *
      * @return int;
      */
-    private function _setCurrentPage()
+    public function _setCurrentPage($page_id = false)
     {
-        $this->_currentPage = !empty($_GET['page_id']) ? $_GET['page_id'] : $this->_currentPage;
+        if($page_id)
+            $this->_currentPage = $page_id;
+        else
+            $this->_currentPage = !empty($_GET['page_id']) ? $_GET['page_id'] : $this->_currentPage;
     }
 }

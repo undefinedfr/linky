@@ -124,7 +124,10 @@ class AjaxController
      */
     public function getLinkTemplate()
     {
+        global $wpLinky;
         $type = !empty($_POST['_type']) ? sanitize_text_field($_POST['_type']) : '';
+        $page_id = !empty($_POST['page_id']) ? sanitize_text_field($_POST['page_id']) : '';
+        $wpLinky->_setCurrentPage($page_id);
         $className = '\LinkyApp\Type\\' . $type . 'Type';
         if(!class_exists($className)) {
             wp_send_json_error();
