@@ -165,3 +165,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - add bandcamp social
 - add mastodon social
+
+## [1.4.5]
+### Edit
+- footer does not display by default

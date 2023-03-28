@@ -249,6 +249,18 @@ $menus      = wp_get_nav_menus();
                 </div>
                 <div class="clearfix"></div>
             </div>
+        </div>
+        <div class="separator-form"></div>
+        <h3><?php echo __('Footer', 'linky'); ?></h3>
+        <div class="col-lr">
+            <div class="fom-control">
+                <div class="form-field">
+                    <?php $show_footer = WPLinkyHelper::getOptionValue('show_footer', $appareance); ?>
+                    <label for="show_footer"><?php echo __('Display "Powered by Undefined"', 'linky'); ?></label>
+                    <input type="radio" id="show_footer" value="yes" name="show_footer" <?php echo $show_footer == 'yes' ? 'checked' : ''; ?>> <span><?php echo __('Yes', 'linky'); ?></span>
+                    <input type="radio" value="no" name="show_footer" <?php echo empty($show_footer) || $show_footer != 'yes' ? 'checked' : ''; ?>> <span><?php echo __('No', 'linky'); ?></span>
+                </div>
+            </div>
             <div class="form-field">
                 <div class="pull-right">
                     <button type="submit" class="button button-primary button-large"><?php echo __('Save'); ?></button>

@@ -37,5 +37,9 @@ $color = $page->get('body_text_color', '#000');
             <?php require UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/socials.php'; ?>
         </div>
     <?php endif; ?>
-    <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/footer.php'; ?>
+    <?php if($page->get('show_footer') == 'yes'): ?>
+        <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/footer.php'; ?>
+    <?php else: ?>
+        <footer class="footer"></footer>
+    <?php endif; ?>
 </div>

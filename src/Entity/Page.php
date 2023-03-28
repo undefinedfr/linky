@@ -151,6 +151,11 @@ class Page extends AbstractEntity
      */
     public $labels;
 
+    /**
+     * @var string $show_footer
+     */
+    public $show_footer;
+
     public function __construct($data = [])
     {
         $this->set('title', get_bloginfo('name'));
