@@ -76,6 +76,13 @@ class Linky {
         $ps = get_option('permalink_structure');
         if(!empty($ps))
             add_action( 'init', [$this, 'linkyRewriteRule'], 10, 0);
+
+        $flush = get_option('linky_flush_rewrite_rules');
+        if(!empty($flush)) {
+            update_option('linky_flush_rewrite_rules', 0);
+            add_action( 'wp_loaded', 'flush_rewrite_rules' );
+        }
+
         add_action( 'query_vars', [$this, 'linkyQueryParams'] );
 
         if(empty($this->_options['global']['theme_style']) || $this->_options['global']['theme_style'] == 'no')
@@ -118,8 +125,9 @@ class Linky {
             $options['appareance']['social_display']  = 'no';
 
             update_option(WPLinkyHelper::getPageOptionKey(), $options);
-            flush_rewrite_rules(true);
         }
+
+        update_option('linky_flush_rewrite_rules', 1);
 
         @register_uninstall_hook( __FILE__, [ $this, UNDFND_WP_LINKY_DOMAIN . '_uninstall' ] );
     }

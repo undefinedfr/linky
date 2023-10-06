@@ -95,9 +95,9 @@ abstract class WPLinkyHelper
      *
      * @return mixed
      */
-    public static function getOptionValue($key, $data, $default = null, $callback = false)
+    public static function getOptionValue($key, $data, $default = null, $callback = false, $type = false)
     {
-        $value = !empty($data[$key]) ? $data[$key] : $default;
+        $value = (!empty($data[$key]) ? $data[$key] : $default);
         if((bool) $callback) {
             if(is_array($callback)) {
                 return ($callback[0] == self::class) ? $callback[0]::{$callback[1]}($value) : $callback[0]->{$callback[1]}($value);
@@ -105,6 +105,15 @@ abstract class WPLinkyHelper
                 return call_user_func($callback, $value);
             }
         } else {
+            if($type) {
+                if(is_array($value)) {
+                    foreach ($value as &$v) {
+                        $v = call_user_func('esc_' . $type, $v);
+                    }
+                } else {
+                    $value = call_user_func('esc_' . $type, $value);
+                }
+            }
             return $value;
         }
     }

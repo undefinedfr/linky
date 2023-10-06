@@ -37,7 +37,7 @@ $active     = $this->get('active', 'yes');
     <div class="link__customize">
         <div class="v-center">
             <div class="link__color">
-                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Color', 'linky'); ?>" data-initialcolor="<?php echo $this->get('border_color', WPLinkyHelper::getOptionValue('separator_color', $appareance, '#cccccc')); ?>" data-property="sepColor" ></div>
+                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Color', 'linky'); ?>" data-initialcolor="<?php echo $this->get('border_color', WPLinkyHelper::getOptionValue('separator_color', $appareance, '#cccccc', false, 'attr')); ?>" data-property="sepColor" ></div>
                 <input type="hidden" name="links[border_color][]" value="">
             </div>
         </div>

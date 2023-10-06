@@ -24,25 +24,25 @@ $homeUrl            = home_url();
             <label for="slug"><?php echo __('Slug URL', 'linky'); ?></label>
             <div class="link_url">
                 <span style="width: <?php echo strlen($homeUrl) - 2 ?>ch"><?php echo home_url(); ?></span>
-                <input  style="max-width: calc(100% - <?php echo strlen($homeUrl) - 2 ?>ch)" type="text" id="slug" name="slug" placeholder="linky" value="<?php echo WPLinkyHelper::getOptionValue('slug', $global); ?>">
+                <input  style="max-width: calc(100% - <?php echo strlen($homeUrl) - 2 ?>ch)" type="text" id="slug" name="slug" placeholder="linky" value="<?php echo WPLinkyHelper::getOptionValue('slug', $global, null, false, 'attr'); ?>">
             </div>
         </div>
         <div class="form-field">
             <label for="categories"><?php echo __('Links categories', 'linky'); ?></label>
-            <input type="text" id="categories" name="categories" placeholder="<?php echo __('Type category and press enter', 'linky'); ?>" class="js-choices" value="<?php echo WPLinkyHelper::getOptionValue('categories', $global); ?>">
+            <input type="text" id="categories" name="categories" placeholder="<?php echo __('Type category and press enter', 'linky'); ?>" class="js-choices" value="<?php echo WPLinkyHelper::getOptionValue('categories', $global, null, false, 'attr'); ?>">
         </div>
         <div class="form-field">
             <label for="labels"><?php echo __('Links labels', 'linky'); ?></label>
-            <input type="text" id="labels" name="labels" placeholder="<?php echo __('Type label and press enter', 'linky'); ?>" class="js-choices" value="<?php echo WPLinkyHelper::getOptionValue('labels', $global); ?>">
+            <input type="text" id="labels" name="labels" placeholder="<?php echo __('Type label and press enter', 'linky'); ?>" class="js-choices" value="<?php echo WPLinkyHelper::getOptionValue('labels', $global, null, false, 'attr'); ?>">
         </div>
         <div class="form-field">
             <label for="code_ga"><?php echo __('Google Analytics', 'linky'); ?></label>
-            <textarea type="text" id="code_ga" name="code_ga" placeholder="<?php echo __('Your analytics code (or other JS tag)', 'linky'); ?>"><?php echo WPLinkyHelper::getOptionValue('code_ga', $global, '', [WPLinkyHelper::class, 'codeFilter']); ?></textarea>
+            <textarea type="text" id="code_ga" name="code_ga" placeholder="<?php echo __('Your analytics code (or other JS tag)', 'linky'); ?>"><?php echo WPLinkyHelper::getOptionValue('code_ga', $global, '', [WPLinkyHelper::class, 'codeFilter'], 'attr'); ?></textarea>
         </div>
         <div class="form-field">
             <label for="theme_style"><?php echo __('Add theme style', 'linky'); ?></label>
             <span class="minitext"><?php echo __('This can create conflicts', 'linky'); ?></span>
-            <?php $value = WPLinkyHelper::getOptionValue('theme_style', $global); ?>
+            <?php $value = WPLinkyHelper::getOptionValue('theme_style', $global, null, false, 'attr'); ?>
             <input type="radio" id="theme_style" value="yes" name="theme_style" <?php echo $value == 'yes' ? 'checked' : ''; ?>> <span><?php echo __('Yes', 'linky'); ?></span>
             <input type="radio" value="no" name="theme_style" <?php echo empty($value) || $value == 'no' ? 'checked' : ''; ?>> <span><?php echo __('No', 'linky'); ?></span>
         </div>

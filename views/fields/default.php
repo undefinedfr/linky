@@ -31,7 +31,7 @@ $size               = $this->get('size', 100);
                 <select name="links[category][]">
                     <option <?php echo empty($this->get('category')) ? 'selected' : ''; ?> value=""><?php echo __('No category', 'linky'); ?></option>
                     <?php foreach($categories as $category): ?>
-                        <option value="<?php echo $category; ?>" <?php echo ($this->get('category') == $category) ? 'selected' : ''; ?>><?php echo $category; ?></option>
+                        <option value="<?php echo esc_attr($category); ?>" <?php echo ($this->get('category') == $category) ? 'selected' : ''; ?>><?php echo esc_html($category); ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -40,7 +40,7 @@ $size               = $this->get('size', 100);
                 <select name="links[label][]">
                     <option <?php echo empty($this->get('label')) ? 'selected' : ''; ?> value=""><?php echo __('No label', 'linky'); ?></option>
                     <?php foreach($labels as $label): ?>
-                        <option value="<?php echo $label; ?>" <?php echo ($this->get('label') == $label) ? 'selected' : ''; ?>><?php echo $label; ?></option>
+                        <option value="<?php echo esc_attr($label); ?>" <?php echo ($this->get('label') == $label) ? 'selected' : ''; ?>><?php echo esc_html($label); ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -69,8 +69,8 @@ $size               = $this->get('size', 100);
         </div>
 
         <div class="link__delete" data-tooltip="<?php echo __('Delete', 'linky'); ?>">
-            <label class="_js-delete" for="links_delete_<?php echo $id ?>"><?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/trash.svg'?></label>
-            <input type="hidden" name="links[_delete][]" id="links_delete_<?php echo $id ?>" value="no">
+            <label class="_js-delete" for="links_delete_<?php echo esc_attr($id) ?>"><?php require UNDFND_WP_LINKY_PLUGIN_DIR . '/assets/images/icons/trash.svg'?></label>
+            <input type="hidden" name="links[_delete][]" id="links_delete_<?php echo esc_attr($id) ?>" value="no">
         </div>
 
         <div class="clearfix"></div>
@@ -78,15 +78,15 @@ $size               = $this->get('size', 100);
     <div class="link__customize">
         <div class="v-center">
             <div class="link__color">
-                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Border color', 'linky'); ?>" data-initialcolor="<?php echo $this->get('border_color', WPLinkyHelper::getOptionValue('links_border_color', $appareance, '#E5E5E5')); ?>" data-property="borderColor" ></div>
+                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Border color', 'linky'); ?>" data-initialcolor="<?php echo $this->get('border_color', WPLinkyHelper::getOptionValue('links_border_color', $appareance, '#E5E5E5', false, 'attr')); ?>" data-property="borderColor" ></div>
                 <input type="hidden" name="links[border_color][]" value="">
             </div>
             <div class="link__color">
-                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Background color', 'linky'); ?>" data-initialcolor="<?php echo $this->get('background_color', WPLinkyHelper::getOptionValue('links_background_color', $appareance, '#fff')); ?>" data-property="backgroundColor" ></div>
+                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Background color', 'linky'); ?>" data-initialcolor="<?php echo $this->get('background_color', WPLinkyHelper::getOptionValue('links_background_color', $appareance, '#fff', false, 'attr')); ?>" data-property="backgroundColor" ></div>
                 <input type="hidden" name="links[background_color][]" value="">
             </div>
             <div class="link__color">
-                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Text color', 'linky'); ?>" data-initialcolor="<?php echo $this->get('color', WPLinkyHelper::getOptionValue('links_text_color', $appareance, '#000')); ?>" data-property="color" ></div>
+                <div class="_colorpicker link_colorpicker" data-tooltip="<?php echo __('Text color', 'linky'); ?>" data-initialcolor="<?php echo $this->get('color', WPLinkyHelper::getOptionValue('links_text_color', $appareance, '#000', false, 'attr')); ?>" data-property="color" ></div>
                 <input type="hidden" name="links[color][]" value="">
             </div>
         </div>

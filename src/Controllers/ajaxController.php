@@ -71,7 +71,7 @@ class AjaxController
         $template = ob_get_contents();
         ob_end_clean();
 
-        echo $template;
+        echo esc_html($template);
         die;
     }
 
@@ -82,7 +82,7 @@ class AjaxController
      */
     public function getSuggests()
     {
-        $s = !empty($_POST['s']) ? $_POST['s'] : '';
+        $s = !empty($_POST['s']) ? sanitize_text_field($_POST['s']) : '';
 
         $posts = new \WP_Query([
             'post_type'         => 'any',
@@ -105,7 +105,7 @@ class AjaxController
 
         $html = $wpLinky->getIndexController()->getContent(false);
 
-        echo $html;
+        echo esc_html($html);
         die;
     }
 
@@ -127,7 +127,8 @@ class AjaxController
                     break;
                 case 'global':
                     $data = $this->_saveData($group, $this->_formData);
-                    flush_rewrite_rules(true);
+                    $data['flush'] = true;
+                    update_option('linky_flush_rewrite_rules', 1);
                     return $data;
                     break;
                 case 'themes':

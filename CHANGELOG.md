@@ -169,3 +169,8 @@ All notable changes to this project will be documented in this file.
 ## [1.4.5]
 ### Edit
 - footer does not display by default
+
+## [1.4.6]
+### Fix
+- escaping data
+- fix rewrite_urles

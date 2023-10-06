@@ -28,7 +28,7 @@ $defaultBodyThemes      = ThemesHelper::getBodyThemes();
             <label for="header_theme_default"><?php echo __('Header Theme', 'linky'); ?></label>
             <?php foreach($defaultHeaderThemes as $themeId => $theme): ?>
                 <div class="form-field">
-                    <?php $checked = (WPLinkyHelper::getOptionValue('header_theme', $themes, 'default') == $themeId) ?>
+                    <?php $checked = (WPLinkyHelper::getOptionValue('header_theme', $themes, 'default', false, 'attr') == $themeId) ?>
                     <div class="theme-input <?php echo $checked ? 'is-checked' : ''; ?>">
                         <div class="theme-input__image">
                             <img src="<?php echo $theme->getImageSrc(); ?>" alt="">
@@ -43,7 +43,7 @@ $defaultBodyThemes      = ThemesHelper::getBodyThemes();
             <label for="body_theme_0"><?php echo __('Body Theme', 'linky'); ?></label>
             <?php foreach($defaultBodyThemes as $themeId => $theme): ?>
                 <div class="form-field">
-                    <?php $checked = (WPLinkyHelper::getOptionValue('body_theme', $themes, 'default') == $themeId) ?>
+                    <?php $checked = (WPLinkyHelper::getOptionValue('body_theme', $themes, 'default', false, 'attr') == $themeId) ?>
                     <div class="theme-input <?php echo $checked ? 'is-checked' : ''; ?>">
                         <div class="theme-input__image">
                             <img src="<?php echo $theme->getImageSrc(); ?>" alt="">
