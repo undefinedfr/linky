@@ -8,6 +8,7 @@
 
 namespace LinkyApp\Entity;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class Links
  * @since 1.0.0

@@ -5,6 +5,7 @@
  * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      https://www.undefined.fr
  */
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
 <svg version="1.1" title="Undefined — spécialiste de la refonte et la création de site internet" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 121 19" xml:space="preserve">

@@ -8,6 +8,7 @@
 
 namespace LinkyApp\Helper;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class ThemesHelper
  * @since 1.0.0

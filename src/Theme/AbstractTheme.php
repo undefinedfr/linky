@@ -10,6 +10,7 @@ namespace LinkyApp\Theme;
 
 use LinkyApp\AbstractObject;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class AbstractTheme
  * @since 1.0.0

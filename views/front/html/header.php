@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 use LinkyApp\Helper\ThemesHelper;
 use LinkyApp\Helper\WPLinkyHelper;
@@ -8,7 +9,7 @@ if(empty($wpLinky))
 
 $indexController    = $wpLinky->getIndexController();
 $page               = $indexController->getPage();
-$analytics          = WPLinkyHelper::codeFilter($indexController->getSettings()->get('code_ga', null, false));
+$analytics_safe     = WPLinkyHelper::codeFilter($indexController->getSettings()->get('code_ga', null, false));
 $background         = $page->get('background_color', '#FFF');
 $backgroundType    = $page->get('header_background_type', 'color');
 if($backgroundType == 'gradient') {
@@ -29,12 +30,12 @@ add_filter(($yoastExist ? 'wpseo_title' : 'pre_get_document_title'), function() 
 ?>
 <html>
     <head>
-        <meta name="theme-color" content="<?php echo $background; ?>">
-        <meta name="msapplication-navbutton-color" content="<?php echo $background; ?>">
+        <meta name="theme-color" content="<?php echo esc_attr( $background ); ?>">
+        <meta name="msapplication-navbutton-color" content="<?php echo esc_attr( $background ); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php wp_head(); ?>
-        <?php if($analytics): ?>
-            <?php echo html_entity_decode($analytics); ?>
+        <?php if( $analytics_safe ): ?>
+            <?php echo html_entity_decode( wp_kses( $analytics_safe, 'linky') ); ?>
         <?php endif; ?>
     </head>
     <body>

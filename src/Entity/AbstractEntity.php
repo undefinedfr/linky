@@ -11,6 +11,7 @@ namespace LinkyApp\Entity;
 use LinkyApp\AbstractObject;
 use LinkyApp\Helper\WPLinkyHelper;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class AbstractEntity
  * @since 1.0.0

@@ -15,6 +15,9 @@ use LinkyApp\Theme\Header\AbstractHeaderTheme;
 use LinkyApp\Type\DefaultType;
 use LinkyApp\Type\SeparatorType;
 
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 /**
  * Class AjaxController
  * @since 1.0.0
@@ -105,7 +108,7 @@ class AjaxController
 
         $html = $wpLinky->getIndexController()->getContent(false);
 
-        echo esc_html($html);
+        echo $html;
         die;
     }
 

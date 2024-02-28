@@ -5,6 +5,7 @@
  * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      https://www.undefined.fr
  */
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 use LinkyApp\Helper\ThemesHelper;
 
@@ -39,10 +40,10 @@ if($labelLength
         <div class="_col-md-6">
     <?php endif; ?>
 
-        <div class="link <?php echo $this->get('label') ? 'has-label' : ''; ?>" style="border-color: <?php echo $this->get('border_color'); ?>; background-color: <?php echo $this->get('background_color'); ?>; color: <?php echo $this->get('color'); ?>; padding-right: <?php echo $padding_right ?>;">
+        <div class="link <?php echo esc_attr( $this->get('label') ? 'has-label' : '' ); ?>" style="border-color: <?php echo esc_attr( $this->get('border_color') ); ?>; background-color: <?php echo esc_attr( $this->get('background_color') ); ?>; color: <?php echo esc_attr( $this->get('color') ); ?>; padding-right: <?php echo esc_attr( $padding_right ) ?>;">
             <?php if($this->get('label')): ?>
-                <div class="link__label" style="background: <?php echo $labelBackground ?>; color: <?php echo $labelTextColor ?>">
-                    <?php echo $this->get('label'); ?>
+                <div class="link__label" style="background: <?php echo esc_attr( $labelBackground ) ?>; color: <?php echo esc_attr( $labelTextColor ) ?>">
+                    <?php echo esc_html( $this->get('label') ); ?>
                 </div>
             <?php endif; ?>
 
@@ -50,17 +51,17 @@ if($labelLength
             /* @var $image \LinkyApp\Entity\Image */
             $image = $this->get('image');
             if(!empty($image)): ?>
-                <img src="<?php echo $image->getImageUrl('icon'); ?>" alt="<?php echo $this->get('label'); ?>" class="link__image">
+                <img src="<?php echo esc_url( $image->getImageUrl('icon') ); ?>" alt="<?php echo $this->get('label'); ?>" class="link__image">
             <?php endif; ?>
 
             <div class="link__col">
                 <?php if($this->get('category')): ?>
                     <div class="link__category">
-                        <?php echo $this->get('category'); ?>
+                        <?php echo esc_html( $this->get('category') ); ?>
                     </div>
                 <?php endif; ?>
-                <a href="<?php echo $this->get('link') ?>" class="link__link" title="<?php echo $this->get('label_link'); ?>" <?php echo $this->_shouldBeBlank() ? 'target="_blank"' : ''; ?> style="color: <?php echo $this->get('color'); ?>">
-                    <?php echo $this->get('label_link'); ?>
+                <a href="<?php echo esc_url( $this->get('link') ) ?>" class="link__link" title="<?php echo esc_attr( $this->get('label_link') ); ?>" <?php echo esc_attr( $this->_shouldBeBlank() ? 'target="_blank"' : '' ); ?> style="color: <?php echo esc_attr( $this->get('color') ); ?>">
+                    <?php echo esc_html( $this->get('label_link') ); ?>
                 </a>
             </div>
             <div class="clearfix"></div>

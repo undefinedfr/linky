@@ -8,6 +8,7 @@
 
 namespace LinkyApp\Type;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class BlankType
  * @since 1.0.0

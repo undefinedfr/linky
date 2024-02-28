@@ -5,6 +5,7 @@
  * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      https://www.undefined.fr
  */
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 use LinkyApp\Helper\ThemesHelper;
 

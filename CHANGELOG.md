@@ -173,7 +173,10 @@ All notable changes to this project will be documented in this file.
 ## [1.4.6]
 ### Fix
 - escaping data
-- fix rewrite_urles
+- fix rewrite_rules
 
 ## [1.4.7]
 - new version for WordPress verification
+
+## [1.4.8]
+- security improvment

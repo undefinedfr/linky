@@ -11,6 +11,7 @@ namespace LinkyApp;
 use LinkyApp\Helper\ThemesHelper;
 use LinkyApp\Helper\WPLinkyHelper;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class Linky
  * @since 1.0.0
@@ -60,12 +61,13 @@ class Linky {
 
     public function __construct()
     {
-        $this->_pageTitle = __($this->_pageTitle, 'linky');
+        $this->_pageTitle = __('Linky', 'linky');
 
         $this->_options = $this->getOptions();
 
         add_filter( 'plugin_action_links', [$this, 'addSettingsLink'], 10, 2 );
         add_filter( 'template_include', [$this, 'linkyTemplateInclude'], 99, 1 );
+        add_filter( 'wp_kses_allowed_html', [$this, 'allow_head_tags'], 50, 2);
 
         add_action( 'activate_' . UNDFND_WP_LINKY_PLUGIN_REALDIRPATH, [$this, UNDFND_WP_LINKY_DOMAIN . '_install'] );
         add_action( 'admin_menu', [ $this, 'addMenu'] );
@@ -250,8 +252,8 @@ class Linky {
     public function addMenu()
     {
         add_menu_page(
-                __($this->_pageTitle, 'linky'),
-                __($this->_pageTitle, 'linky'),
+                __('Linky', 'linky'),
+                __('Linky', 'linky'),
                 apply_filters(UNDFND_WP_LINKY_DOMAIN . '_menu_page_capalibilty', 'manage_options'),
                 $this->_menuSlug,
                 [ &$this, 'addPage' ],
@@ -457,6 +459,42 @@ class Linky {
     {
         $query_vars[] = 'is_linky';
         return $query_vars;
+    }
+
+    /**
+     * Allow head tags
+     *
+     * @param $allowedposttags
+     *
+     * @return array
+     */
+    public function allow_head_tags( $allowedposttags, $context ){
+        if( $context == 'linky' ) {
+            $allowedposttags['script'] = [
+                'src'       => true,
+                'height'    => true,
+                'width'     => true,
+                'charset'   => true,
+                'async'     => true,
+                'type'      => true,
+            ];
+
+            $allowedposttags['link'] = [
+                'rel'   => true,
+                'href'  => true,
+                'type'  => true,
+                'media' => true,
+                'id'    => true
+            ];
+
+            $allowedposttags['style'] = [
+                'src'   => true,
+                'href'  => true,
+                'type'  => true,
+            ];
+        }
+
+        return $allowedposttags;
     }
 
     /**

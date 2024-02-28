@@ -1,1 +1,4 @@
-<?php require_once 'default.php'; ?>
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+require_once 'default.php'; ?>

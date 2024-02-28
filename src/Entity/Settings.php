@@ -10,6 +10,7 @@ namespace LinkyApp\Entity;
 
 use LinkyApp\Helper\WPLinkyHelper;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class Settings
  * @since 1.0.0

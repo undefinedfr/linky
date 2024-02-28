@@ -10,6 +10,7 @@ namespace LinkyApp\Entity;
 
 use LinkyApp\Entity\Image;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class Page
  * @since 1.0.0

@@ -11,6 +11,7 @@ namespace LinkyApp\Type;
 use LinkyApp\Entity\Image;
 use LinkyApp\Helper\WPLinkyHelper;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class DefaultType
  * @since 1.0.0

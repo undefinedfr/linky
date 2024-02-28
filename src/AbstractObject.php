@@ -10,6 +10,7 @@ namespace LinkyApp;
 
 use \LinkyApp\Helper\WPLinkyHelper;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class AbstractObject
  *

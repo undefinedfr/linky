@@ -8,6 +8,7 @@
 
 namespace LinkyApp\Helper;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class PostHelper
  * @since 1.0.0

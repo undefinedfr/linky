@@ -12,6 +12,7 @@ use LinkyApp\Controllers\indexController;
 use LinkyApp\Entity\Link;
 use LinkyApp\Entity\Socials;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class WPLinkyHelper
  * @since 1.0.0

@@ -5,13 +5,15 @@
  * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      https://www.undefined.fr
  */
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 global $wpLinky;
 
 $url = $wpLinky->getIndexController()->getSettings()->getPageUrl();
 ?>
 <h2>
-    <?php echo __('Render', 'linky'); ?>
-    <a href="<?php echo $url; ?>" data-prefix="<?php echo $prefix; ?>" target="_blank" class="button button-secondary pull-right _js-linky-button"><?php echo __('View page', 'linky'); ?></a>
+    <?php esc_html_e('Render', 'linky'); ?>
+    <a href="<?php echo esc_url( $url ); ?>" data-prefix="<?php echo esc_attr( $prefix ); ?>" target="_blank" class="button button-secondary pull-right _js-linky-button"><?php esc_html_e('View page', 'linky'); ?></a>
 </h2>
 <div class="render-view" id="render-view">
     <div class="iphone-x">

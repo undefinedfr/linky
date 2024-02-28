@@ -5,6 +5,7 @@
  * @license   https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      https://www.undefined.fr
  */
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 use \LinkyApp\Helper\ThemesHelper;
 
@@ -28,7 +29,7 @@ if($backgroundType == 'gradient') {
 }
 $color = $page->get('body_text_color', '#000');
 ?>
-<div class="linky-page linky-page--<?php echo $theme_id ?>" style="background: <?php echo $background ?>; color: <?php echo $color ?>">
+<div class="linky-page linky-page--<?php echo esc_attr( $theme_id ) ?>" style="background: <?php echo esc_attr( $background ) ?>; color: <?php echo esc_attr( $color ) ?>">
     <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/header.php'; ?>
     <?php require_once UNDFND_WP_LINKY_PLUGIN_DIR . 'views/front/links.php'; ?>
     <?php if($page->get('social_position', 'top') != 'top'): ?>

@@ -11,6 +11,7 @@ namespace LinkyApp\Type;
 use LinkyApp\AbstractObject;
 use LinkyApp\Helper\WPLinkyHelper;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Class AbstractType
  * @since 1.0.0
@@ -32,7 +33,7 @@ class AbstractType extends AbstractObject
     public function __construct($id = null, $name = null, $data = [])
     {
         $this->set('id', $id);
-        $this->set('name', __($name));
+        $this->set('name', $name);
 
         $this->_setData($data);
     }
