@@ -71,7 +71,7 @@ class AjaxController
         $template = ob_get_contents();
         ob_end_clean();
 
-        echo esc_html($template);
+        echo $template;
         die;
     }
 
